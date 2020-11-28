@@ -17,6 +17,11 @@ namespace Capapresentacion
         public Frmventa()
         {
             InitializeComponent();
+            Avisos();
+        }
+
+        public void Avisos()
+        {
             this.Ttmensaje.SetToolTip(this.Txtcliente, "Seleccione un Cliente");
             this.Ttmensaje.SetToolTip(this.Txtserie, "Ingrese una serie del comprobante");
             this.Ttmensaje.SetToolTip(this.Txtcorrelativo, "Ingrese un número del comprobante");
@@ -191,6 +196,7 @@ namespace Capapresentacion
 
         private void Frmventa_Load(object sender, EventArgs e)
         {
+            
             this.Mostrar();
             this.Habilitar(false);
             this.Botones();
@@ -219,43 +225,67 @@ namespace Capapresentacion
             this.BuscarFechas();
         }
 
+       // DataGridViewCheckBoxCell ChkEliminar = (DataGridViewCheckBoxCell)Datagridventaslistado.Rows[e.RowIndex].Cells["Eliminar"];
+       // ChkEliminar.Value = !Convert.ToBoolean(ChkEliminar.Value)
+
         private void Btneliminar_Click(object sender, EventArgs e)
         {
-            try
+            if (Chkeliminar.Checked)
             {
-                DialogResult Opcion;
-                Opcion = MessageBox.Show("Realmente Desea Eliminar los Registros", "Sistema de Ventas", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-
-                if (Opcion == DialogResult.OK)
-                {
-                    string Codigo;
-                    string Rpta = "";
-
-                    foreach (DataGridViewRow row in Datagridventaslistado.Rows)
+                int Indice = 0;
+                if (Convert.ToBoolean(Datagridventaslistado.Rows[Indice].Cells[0].Value) != false)
+                {                  
+                    try
                     {
-                        if (Convert.ToBoolean(row.Cells[0].Value))
+                        DialogResult Opcion;
+                        Opcion = MessageBox.Show("Realmente Desea Eliminar los Registros", "Sistema de Ventas", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                        if (Opcion == DialogResult.OK)
                         {
-                            Codigo = Convert.ToString(row.Cells[1].Value);
-                            Rpta = Nventa.Eliminar(Convert.ToInt32(Codigo));
-
-                            if (Rpta.Equals("OK"))
+                            string Codigo;
+                            string Rpta = "";
+                            foreach (DataGridViewRow row in Datagridventaslistado.Rows)
                             {
-                                this.MensajeOk("Se Eliminó Correctamente la venta");
-                            }
-                            else
-                            {
-                                this.MensajeError(Rpta);
-                            }
+                                if (Convert.ToBoolean(row.Cells[0].Value))
+                                {
+                                    Codigo = Convert.ToString(row.Cells[1].Value);
+                                    Rpta = Nventa.Eliminar(Convert.ToInt32(Codigo));
 
+                                    if (Rpta.Equals("OK"))
+                                    {
+                                        this.MensajeOk("Se Eliminó Correctamente la venta");
+                                    }
+                                    else
+                                    {
+                                        this.MensajeError(Rpta);
+                                    }
+                                }
+                            }
+                            this.Mostrar();
+                            this.Chkeliminar.Checked = false;
                         }
                     }
-                    this.Mostrar();
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message + ex.StackTrace);
+                    }
+                }
+                else
+                {
+                    Erroricono.SetError(Datagridventaslistado,"Debe seleccionar una venta a Eliminar");
+                    MensajeError("Debe seleccionar una venta a Eliminar");
                 }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
+                MensajeError("Debe selecionar el cheque de Eliminar");
+                Erroricono.SetError(Chkeliminar,"Debe Marcar la Casilla ");
+            }                     
+        }
+
+        private void Datagridventaslistado_CellValidated(object sender, DataGridViewCellEventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private void Datagridventaslistado_DoubleClick(object sender, EventArgs e)
@@ -263,11 +293,11 @@ namespace Capapresentacion
             this.Txtidventa.Text = Convert.ToString(this.Datagridventaslistado.CurrentRow.Cells["idventa"].Value);
             this.Txtcliente.Text = Convert.ToString(this.Datagridventaslistado.CurrentRow.Cells["cliente"].Value);
             this.Datetimefecha.Value = Convert.ToDateTime(this.Datagridventaslistado.CurrentRow.Cells["fecha"].Value);
-            this.Cmbcomprovante.Text = Convert.ToString(this.Datagridventaslistado.CurrentRow.Cells["tipo_comprobante"].Value);
+            this.Cmbcomprovante.Text = Convert.ToString(this.Datagridventaslistado.CurrentRow.Cells["tipo_comprovante"].Value);
             this.Txtserie.Text = Convert.ToString(this.Datagridventaslistado.CurrentRow.Cells["serie"].Value);
             this.Txtcorrelativo.Text = Convert.ToString(this.Datagridventaslistado.CurrentRow.Cells["correlativo"].Value);
             this.Lbltotalpagado.Text = Convert.ToString(this.Datagridventaslistado.CurrentRow.Cells["total"].Value);
-            this.Txtigv.Text = Convert.ToString(this.Datagridventaslistado.CurrentRow.Cells["Impuesto"].Value);
+            //this.Txtigv.Text = Convert.ToString(this.Datagridventaslistado.CurrentRow.Cells["Impuesto"].Value);
             this.MostrarDetalle();
             this.tabControl1.SelectedIndex = 1;
         }
@@ -290,6 +320,10 @@ namespace Capapresentacion
             {
                 DataGridViewCheckBoxCell ChkEliminar = (DataGridViewCheckBoxCell)Datagridventaslistado.Rows[e.RowIndex].Cells["Eliminar"];
                 ChkEliminar.Value = !Convert.ToBoolean(ChkEliminar.Value);
+            }
+            else
+            {
+                MensajeError("Debe Seleccionar Una venta a Eliminar");
             }
         }
 

@@ -93,6 +93,7 @@
             this.Datagridcliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Datagridcliente.Size = new System.Drawing.Size(732, 255);
             this.Datagridcliente.TabIndex = 7;
+            
             this.Datagridcliente.DoubleClick += new System.EventHandler(this.Datagridcliente_DoubleClick);
             // 
             // Eliminar

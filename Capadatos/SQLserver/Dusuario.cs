@@ -1,17 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
-using System.Runtime.InteropServices.WindowsRuntime;
 using Capadatos.SQLserver;
+using System.Windows.Forms;
+using System.IO;
+using System.Text;
+using System.Security.Cryptography;
 
 namespace Capadatos
 {
-    public class Dusuario:Conexion 
+    public class Dusuario : Conexion
     {
+
+        string ContrasenaAleatoria = string.Empty;
 
         private int _Idusuario;
         private string _Nombre;
@@ -21,10 +23,15 @@ namespace Capadatos
         private string _Num_Documento;
         private string _Direccion;
         private string _Telefono;
-        private string _Email;        
+        private string _Email;
         private string _Usuario;
         private string _Password;
         private string _TextoBuscar;
+        private int _Codigousuario;
+        private int _Codigorol;
+        private string _Estatususu;
+        private string Cpassword;
+
 
         public int Idusuario { get => _Idusuario; set => _Idusuario = value; }
         public string Nombre { get => _Nombre; set => _Nombre = value; }
@@ -38,36 +45,29 @@ namespace Capadatos
         public string Usuario { get => _Usuario; set => _Usuario = value; }
         public string Password { get => _Password; set => _Password = value; }
         public string TextoBuscar { get => _TextoBuscar; set => _TextoBuscar = value; }
-
-
-
-
-
+        public int Codigousuario { get => _Codigousuario; set => _Codigousuario = value; }
+        public int Codigorol { get => _Codigorol; set => _Codigorol = value; }
+        public string Estatususu { get => _Estatususu; set => _Estatususu = value; }
 
         public Dusuario()
         {
 
         }
 
-
-
-        public Dusuario(int idusuario, string nombre, string apellidos, string sexo,
-           DateTime fecha_nacimiento, string num_documento, string direccion, string telefono,
-           string email, string usuario, string password, string textobuscar)
+        public Dusuario(Usuarios usuarios)
         {
-            this.Idusuario = idusuario;
-            this.Nombre = nombre;
-            this.Apellidos = apellidos;
-            this.Sexo = sexo;
-            this.Fecha_Nacimiento = fecha_nacimiento;
-            this.Num_Documento = num_documento;
-            this.Direccion = direccion;
-            this.Telefono = telefono;
-            this.Email = email;
-            this.Usuario = usuario;
-            this.Password = password;
-            this.TextoBuscar = textobuscar;
-
+            this.Idusuario = usuarios.Idusuario;
+            this.Nombre = usuarios.nombre;
+            this.Apellidos = usuarios.apellidos;
+            this.Sexo = usuarios.sexo;
+            this.Fecha_Nacimiento = usuarios.fecha_nacimiento;
+            this.Num_Documento = usuarios.num_documento;
+            this.Direccion = usuarios.direccion;
+            this.Telefono = usuarios.telefono;
+            this.Email = usuarios.email;
+            this.Usuario = usuarios.usuario;
+            this.Password = usuarios.password;
+            this.TextoBuscar = usuarios.textobuscar;
         }
 
 
@@ -79,10 +79,10 @@ namespace Capadatos
                 SqlCon.Open();
                 try
                 {
-                    using(var SqlCmd = GetSqlCommand())
+                    using (var SqlCmd = GetSqlCommand())
                     {
                         SqlCmd.Connection = SqlCon;
-                        SqlCmd.CommandText = "spinsertar_usu";
+                        SqlCmd.CommandText = "spinsertar_usu2";
                         SqlCmd.CommandType = CommandType.StoredProcedure;
 
 
@@ -174,13 +174,14 @@ namespace Capadatos
                             Value = Usuario.Usuario
                         };
                         SqlCmd.Parameters.Add(ParUsuario);
-
+                        string Epass = Encrypt(Usuario.Password);
                         SqlParameter ParPassword = new SqlParameter
                         {
-                            ParameterName = "@claveusu",
+                            
+                            ParameterName ="@claveusu",
                             SqlDbType = SqlDbType.VarChar,
-                            Size = 20,
-                            Value = Usuario.Password
+                            Size = 300,
+                            Value = Epass
                         };
                         SqlCmd.Parameters.Add(ParPassword);
 
@@ -192,12 +193,65 @@ namespace Capadatos
                 catch (Exception ex)
                 {
                     Respuesta = ex.Message;
-                    
+
                 }
                 return Respuesta;
             }
         }
 
+
+        public string Insertarrol(Dusuario dusuario)
+        {
+            using (var SqlCon = Getconection())
+            {
+                string Respuesta = "";
+                SqlCon.Open();
+                try
+                {                   
+                    using (SqlCommand Sqlcmd = GetSqlCommand())
+                    {
+                        Sqlcmd.Connection = SqlCon;
+                        Sqlcmd.CommandText = "spinsertarrol";
+                        Sqlcmd.CommandType = CommandType.StoredProcedure;
+
+
+                        SqlParameter Paridusuario = new SqlParameter
+                        {
+                            ParameterName = "@Codigousuario",
+                            SqlDbType = SqlDbType.Int,
+                            Value = dusuario.Idusuario
+                        };
+                        Sqlcmd.Parameters.Add(Paridusuario);
+
+                        SqlParameter Paridrol = new SqlParameter
+                        {
+                            ParameterName = "@codigoro",
+                            SqlDbType = SqlDbType.Int,
+                            Value = dusuario.Codigorol
+                        };
+                        Sqlcmd.Parameters.Add(Paridrol);
+
+
+                        SqlParameter Parestatus = new SqlParameter
+                        {
+                            ParameterName = "@statususu",
+                            SqlDbType = SqlDbType.VarChar,
+                            Value = dusuario.Estatususu
+                        };
+                        Sqlcmd.Parameters.Add(Parestatus);
+                        Respuesta = Sqlcmd.ExecuteNonQuery() == 1 ? "OK" : "No se Inserto el rol del usuario";
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    Respuesta = ex.Message;
+                }
+                return Respuesta;
+            }
+        }
+         
+            
         public string Editar(Dusuario Usuario)
         {
             using (var SqlCon = Getconection())
@@ -383,8 +437,9 @@ namespace Capadatos
                             }
                         }
                     }
-                    catch (Exception)
-                    {                      
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
                     }
                     return Dtresultado;
                 }
@@ -421,9 +476,7 @@ namespace Capadatos
                         }
                     }
                     catch (Exception)
-                    {
-
-                        
+                    {   
                     }
                     return Dtresultado;
                 }
@@ -467,38 +520,77 @@ namespace Capadatos
             }
         }
 
-        public bool Login(string Nombre, string Contraseña)
+        public bool Login(string Nombre,string Contrasena)
         {
             using (var conection = Getconection())
             {
                 conection.Open();
                 using (var command = GetSqlCommand())
                 {
+                    string Epass = Encrypt(Contrasena);
                     command.Connection = conection;
-                    command.CommandText = "select * from Usuario where Usuario = @Usuario and claveusu =@claveusu";
-                    command.Parameters.AddWithValue("@Usuario", Nombre);
-                    command.Parameters.AddWithValue("@claveusu", Contraseña);
-                    command.CommandType = CommandType.Text;
+                    command.CommandText = "sploguin";
+                    command.Parameters.AddWithValue("@usuario", Nombre);
+                    command.Parameters.AddWithValue("@claveusu",Epass);
+                    command.CommandType = CommandType.StoredProcedure;
                     SqlDataReader reader = command.ExecuteReader();
                     if (reader.HasRows)
                     {
                         while (reader.Read())
                         {
+                            
                             Datoscahe.Idusuario = reader.GetInt32(0);
                             Datoscahe.Nombre = reader.GetString(1);
+                           // Datoscahe.Keyserial = GetMachingGuid();
 
                              Obtenerrol();
-
-
+                            Estatusop();                          
                         }
                         return true;
-
                     }
                     else
                         return false;
                 }
             }
         }
+
+        public static byte[] GetSalt()
+        {
+            var P = new RNGCryptoServiceProvider();
+            var Salt = new byte[16];
+            P.GetBytes(Salt);
+            return Salt;
+        }
+
+        public static byte[] Contrasena(string Password,byte[] Salt)
+        {
+            Rfc2898DeriveBytes PBKDF2 = new Rfc2898DeriveBytes(Password,Salt);
+            return PBKDF2.GetBytes(64);
+        }
+
+        public bool Isguid()
+        {
+            string Thisguid = GetMachingGuid();
+            using ( StreamReader Sr = new StreamReader("data\\guid\\id.ls"))
+            {
+                string Readguid = Sr.ReadLine();
+                while (Readguid != null)
+                {
+                    if (Thisguid == Readguid)
+                    {
+                        Sr.Close();
+                        return false;
+                    }
+                    else if (Readguid == null)
+                    {
+                        Sr.Close();
+                        return true;
+                    }
+                }
+                return true;
+            }
+        }
+
 
         public void Obtenerrol()
         {
@@ -557,42 +649,138 @@ namespace Capadatos
 
         }
 
-        //public string Passwordrecovery(string usuariopregunta)
-        //{
-        //    using (var conection = Getconection())
-        //    {
-        //        conection.Open();
-        //        using (var command = new SqlCommand())
-        //        {
-        //            command.Connection = conection;
-        //            command.CommandText = "select *from Empleado where Nombre_emp=@Nombre_emp or Correo_emp=@Correo_emp";
-        //            command.Parameters.AddWithValue("@Nombre_emp", usuariopregunta);
-        //            command.Parameters.AddWithValue("@Correo_emp", usuariopregunta);
-        //            command.CommandType = CommandType.Text;
-        //            SqlDataReader reader = command.ExecuteReader();
+        public void Estatusop()
+        {
+            using (var conection = Getconection())
+            {
+                conection.Open();
+                using (var command = GetSqlCommand())
+                {
+                    command.Connection = conection;
+                    command.CommandText = ("select statususu from Roles_usuario where Codigousuario =@Codigousuario ");
+                    command.Parameters.AddWithValue("@Codigousuario", Datoscahe.Idusuario);
+                    command.CommandType = CommandType.Text;
+                    using (SqlDataReader Reader = command.ExecuteReader())
+                    {
+                        if (Reader.HasRows)
+                        {
+                            while (Reader.Read())
+                                Datoscahe.estatus = Reader.GetString(0);
 
-        //            if (reader.Read() == true)
-        //            {
-        //                string nombreusuario = reader.GetString(1) + ", " + reader.GetString(2);
-        //                string emailusuario = reader.GetString(4);
-        //                string contraseña = reader.GetString(5);
+                        }
+                    }
+                }
 
-        //                var soportedesistema = new Emailservice.soportedesistema();
-        //                soportedesistema.SendMail(
-        //                    subject: "SYSTEM: recuperacion de contraseña",
-        //                    body: "Hola " + nombreusuario + "\n solicitud de recuperacion de contraseña.\n" +
-        //                    "your current pasword is: " + contraseña +
-        //                    "\n Debe cambiar la contraseña despues que inicie sesion en el sistema.",
-        //                    recipienteMail: new List<string> { emailusuario }
-        //                    );
-        //                return "Hola " + nombreusuario + "\n pediste una recuperacion de tu contraseña.\n" +
-        //                    "Por favor revise su correo:" + emailusuario + "\n Debe cambiar su contraseña inmediatamente inisie sesion en el systema.";
+            }
 
-        //            }
-        //            else
-        //                return "Lo sentimos al parecer no tiene una cuenta registrada con nosotros";
-        //        }
-        //    }
-        //}
+        }
+
+
+    public void Sendemail(string Correo, string Asunto)
+        {
+            using (var  Conection = Getconection())
+            {
+                Conection.Open();
+                using (var Comand = GetSqlCommand())
+                {
+                    Generarcontrasena();
+                    
+                    Comand.Connection = Conection;
+                    Comand.CommandText = "SendEmail";
+                    Comand.CommandType = CommandType.StoredProcedure;
+                    Comand.Parameters.AddWithValue("@Recipiente",Correo);
+                    Comand.Parameters.AddWithValue("@Subject",Asunto);
+                    Comand.Parameters.AddWithValue("@Cuerpo",ContrasenaAleatoria);
+                    Comand.ExecuteNonQuery();
+                }
+            }
+        }    
+
+        public void Generarcontrasena()
+        {
+            Random Rdn = new Random();
+            string Caracteres = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890%$#@";
+            int longitud = Caracteres.Length;
+            char Letra;
+            int Longitudcontrasenia = 10;
+            for (int i = 0; i < Longitudcontrasenia; i++)
+            {
+                Letra = Caracteres[Rdn.Next(longitud)];
+                ContrasenaAleatoria += Letra.ToString();
+            }
+
+        }
+
+        public bool Login2() 
+        {
+            using (var conection = Getconection())
+            {
+               Datoscahe.Keyserial=GetMachingGuid();  
+                conection.Open();
+                using (var command = GetSqlCommand())
+                {
+                    command.Connection = conection;
+                    command.CommandText = "select * from Computadora_id where Identificador =@identificador and Estatus = @Estatus";
+                    command.Parameters.AddWithValue("@identificador",GetMachingGuid());
+                    command.Parameters.AddWithValue("@Estatus","Activa");
+                    command.CommandType = CommandType.Text;
+                    SqlDataReader reader = command.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            Datoscahe.Estatus_compu = reader.GetString(3);
+                            Computadora.Nombre_compu = reader.GetString(1);
+                        }
+                        return true;
+                    }
+                    else
+                        return false;
+                }
+            }
+        }
+
+        public string Passwordrecovery(string usuario)
+        {
+            using (var Conection = Getconection())
+            {
+                Conection.Open();
+                using (var comand = GetSqlCommand())
+                {
+                    comand.Connection = Conection;
+                    comand.CommandText = "select * from Usuario where nombre =@nombre or Email =@Email";
+                    comand.Parameters.AddWithValue("@nombre",usuario);
+                    comand.Parameters.AddWithValue("@Email",usuario);
+                    comand.CommandType = CommandType.Text;
+                    using (SqlDataReader Sqldata = comand.ExecuteReader())
+                    {
+                        if (Sqldata.Read() == true)
+                        {
+                            string Nombreusuario = Sqldata.GetString(1) + " , " + Sqldata.GetString(2);
+                            string Emailusuario = Sqldata.GetString(8);
+                            string contrasena = Sqldata.GetString(10);
+
+                            var soportedesistema = new Soportedesistema();
+                            soportedesistema.SendMail(
+                                Subject: "SYSTEM: Recuperación de contraseña", body: "Hola" + Nombreusuario + "\n solicitud de recuperacion de contraseña.\n" +
+                                "su contraseña es:" + contrasena + "\n Debe cambiar la contraseña despues que inicie sesion en el sistema.",
+                                recipienteMail: new List<string> { Emailusuario });
+
+                            return "Hola" + Nombreusuario + "\n Pediste una recuperacion de tu contraseña.\n" +
+                                "Por favor revice  su Correo: " + Emailusuario + "\n Debe cambiar su contraseña inmediatamente inisie sesion";
+
+                        }
+                        else
+                        {
+                            return "Lo sentimos al parecer no tiene una cuenta registrada con nosotros";
+                        }
+                    }
+
+                }
+            }
+        }
+
+       
+
     }
 }

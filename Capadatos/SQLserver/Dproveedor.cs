@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using Capadatos.SQLserver;
 
 namespace Capadatos
 {
@@ -47,20 +48,19 @@ namespace Capadatos
 
         }
 
-
-           public Dproveedor(int idproveedor, string razon_social, string sector_comercial, string tipo_documento, string num_documento, string direccion, string telefono, string email, string url, string textobuscar)
+           public Dproveedor(Proveedores Pro)
            {
 
-            this.Idproveedor = idproveedor;
-            this.Razon_Social = razon_social;
-            this.Sector_Comercial = sector_comercial;
-            this.Tipo_Documento = tipo_documento;
-            this.Num_Documento = num_documento;
-            this.Direccion = direccion;
-            this.Telefono = telefono;
-            this.Email = email;
-            this.Url = url;
-            this.TextoBuscar = textobuscar;
+            this.Idproveedor = Pro.idproveedor;
+            this.Razon_Social = Pro.razon_social;
+            this.Sector_Comercial = Pro.sector_comercial;
+            this.Tipo_Documento = Pro.tipo_documento;
+            this.Num_Documento = Pro.num_documento;
+            this.Direccion = Pro.direccion;
+            this.Telefono = Pro.telefono;
+            this.Email = Pro.email;
+            this.Url = Pro.url;
+            this.TextoBuscar = Pro.textobuscar;
 
            }
 

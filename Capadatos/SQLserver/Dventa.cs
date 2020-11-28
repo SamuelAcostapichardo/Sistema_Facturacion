@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -33,19 +30,17 @@ namespace Capadatos.SQLserver
         public Dventa()
         {
         }
-
-        public Dventa(int idventa, int idcliente, int idtrabajador,
-           DateTime fecha, string tipo_comprobante, string serie,
-           string correlativo, decimal igv)
+      
+        public Dventa(Venta Ven)
         {
-            this.Idventa = idventa;
-            this.Idcliente = idcliente;
-            this.Idtrabajador = idtrabajador;
-            this.Fecha = fecha;
-            this.Tipo_Comprobante = tipo_comprobante;
-            this.Serie = serie;
-            this.Correlativo = correlativo;
-            this.Igv = igv;
+            this.Idventa = Ven.idventa;
+            this.Idcliente = Ven.idcliente;
+            this.Idtrabajador = Ven.idtrabajador;
+            this.Fecha = Ven.fecha;
+            this.Tipo_Comprobante = Ven.tipo_comprobante;
+            this.Serie = Ven.serie;
+            this.Correlativo = Ven.correlativo;
+            this.Igv = Ven.igv;
         }
 
         public string Disminuirstock(int iddetalle_ingreso, int cantidad)
@@ -56,7 +51,7 @@ namespace Capadatos.SQLserver
                 string Respuesta = "";
                 try
                 {
-                    using (var SqlCmd = GetSqlCommand()) 
+                    using (SqlCommand SqlCmd = GetSqlCommand()) 
                     {
                         SqlCmd.Connection = SqlCon;
                         SqlCmd.CommandText = "spdisminuir_stock";
@@ -106,7 +101,7 @@ namespace Capadatos.SQLserver
                     {
                     SqlCmd.Connection = SqlCon;
                     SqlCmd.Transaction = Sqltra;
-                    SqlCmd.CommandText = "spinsertar_venta";
+                    SqlCmd.CommandText = "spinsertar_venta2";
                     SqlCmd.CommandType = CommandType.StoredProcedure;
 
                     SqlParameter ParIdventa = new SqlParameter
@@ -236,6 +231,7 @@ namespace Capadatos.SQLserver
         {
             using (var SqlCon = Getconection())
             {
+                SqlCon.Open();
                 string Respuesta = "";
                 try
                 {
@@ -336,9 +332,7 @@ namespace Capadatos.SQLserver
                         }
                     }
                     catch (Exception)
-                    {
-
-                        
+                    {               
                     }
                     return Dtresultado;
                 }

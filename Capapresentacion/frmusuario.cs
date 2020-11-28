@@ -7,7 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Capadatos.SQLserver;
 using Capanegocio;
+using System.Security.Cryptography;
 
 namespace Capapresentacion
 {
@@ -26,6 +28,7 @@ namespace Capapresentacion
 
         private bool IsNuevo = false;
         private bool IsEditar = false;
+       
 
         private void MensajeOK(string Mensaje)
         {
@@ -49,7 +52,8 @@ namespace Capapresentacion
             this.txtemailusuario.Text = string.Empty;
             this.txtnombredeusuario.Text = string.Empty;
             this.txtcontrasena.Text = string.Empty;
-
+            cmbestatus.Text = "A";
+            cmbrol.DisplayMember = "Elejir opcion";
         }
         //Habilita los controles de los formularios
         private void Habilitar(bool Valor)
@@ -65,6 +69,8 @@ namespace Capapresentacion
             this.txtemailusuario.ReadOnly = !Valor;            
             this.txtnombredeusuario.ReadOnly = !Valor;
             this.txtcontrasena.ReadOnly = !Valor;
+            this.cmbestatus.Enabled = Valor;
+            this.cmbrol.Enabled = Valor;
         }
         //Habilita los botones
         private void Botones()
@@ -125,51 +131,66 @@ namespace Capapresentacion
 
         private void Btneliminar_Click(object sender, EventArgs e)
         {
-            try 
-            {              
-                DialogResult Opcion;
-                if (chkeliminar.Checked)
+            int Indice = 0;
+            if (chkeliminar.Checked)
+            {
+                if (Convert.ToBoolean(datagridusuario.Rows[Indice].Cells[0].Value)!=false)
                 {
-                    
-                    Opcion = MessageBox.Show("Realmente Desea Eliminar los Registros", "Sistema de Ventas", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-
-                    if (Opcion == DialogResult.OK)
+                    try
                     {
-                        string Codigo;
-                        string Rpta = "";
-
-                        foreach (DataGridViewRow row in datagridusuario.Rows)
+                        DialogResult Opcion;
+                        if (chkeliminar.Checked)
                         {
-                            if (Convert.ToBoolean(row.Cells[0].Value))
+                            Opcion = MessageBox.Show("Realmente Desea Eliminar los Registros", "Sistema de Ventas", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                            if (Opcion == DialogResult.OK)
                             {
-                                Codigo = Convert.ToString(row.Cells[1].Value);
-                                Rpta = Nusuario.Eliminar(Convert.ToInt32(Codigo));
+                                string Codigo;
+                                string Rpta = "";
 
-                                if (Rpta.Equals("OK"))
+                                foreach (DataGridViewRow row in datagridusuario.Rows)
                                 {
-                                    this.MensajeOK("Se Eliminó Correctamente el registro");
-                                }
-                                else
-                                {
-                                    this.MensajeError(Rpta);
-                                }
+                                    if (Convert.ToBoolean(row.Cells[0].Value))
+                                    {
+                                        Codigo = Convert.ToString(row.Cells[1].Value);
+                                        Rpta = Nusuario.Eliminar(Convert.ToInt32(Codigo));
 
+                                        if (Rpta.Equals("OK"))
+                                        {
+                                            this.MensajeOK("Se Eliminó Correctamente el registro");
+                                        }
+                                        else
+                                        {
+                                            this.MensajeError(Rpta);
+                                        }
+                                    }
+                                }
+                                this.Mostrar();
+                                this.chkeliminar.Checked = false;
                             }
                         }
-                        this.Mostrar();
+                        else
+                        {
+                            MessageBox.Show("debe seleccionar una fila para eliminar");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message + ex.StackTrace);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("debe seleccionar una fila para eliminar");
+                    MensajeError("Debe Seleccionar un Usuario a Eliminar");
+                    erroricono.SetError(datagridusuario,"Selecione un Usuario");
                 }
-                
-               
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message + ex.StackTrace);
+                MensajeError("Debe Seleccionar la Casilla de eliminar");
+                erroricono.SetError(chkeliminar,"Selecione la Casilla");
             }
+            
         }
 
         private void Btnnuevo_Click(object sender, EventArgs e)
@@ -182,22 +203,32 @@ namespace Capapresentacion
             this.txtnombreusuario.Focus();
         }
 
+        public static string Encrypt(string Str)
+        {
+            SHA256 sha256 = SHA256Managed.Create();
+            ASCIIEncoding encoding = new ASCIIEncoding();
+            byte[] stream = null;
+            StringBuilder sb = new StringBuilder();
+            stream = sha256.ComputeHash(encoding.GetBytes(Str));
+            for (int i = 0; i < stream.Length; i++) sb.AppendFormat("{0:x2}", stream[i]);
+            return sb.ToString();
+        }
+
         private void Btnguardar_Click(object sender, EventArgs e)
         {
             try
             {
-
                 //La variable que almacena si se inserto 
                 //o se modifico la tabla
                 string Rpta = "";
                 if (this.txtnombreusuario.Text == string.Empty || this.txtapellidosusuario.Text == string.Empty || txtnumdocumento.Text == string.Empty || txtnombredeusuario.Text == string.Empty || txtcontrasena.Text == string.Empty)
                 {
                     MensajeError("Falta ingresar algunos datos, serán remarcados");
-                    erroricono.SetError(txtnombreusuario, "Ingrese un Valor");
-                    erroricono.SetError(txtapellidosusuario, "Ingrese un Valor");
-                    erroricono.SetError(txtnumdocumento, "Ingrese un Valor");
-                    erroricono.SetError(txtnombredeusuario, "Ingrese un Valor");
-                    erroricono.SetError(txtcontrasena, "Ingrese un Valor");
+                    erroricono.SetError(txtnombreusuario, "Ingrese un nombre");
+                    erroricono.SetError(txtapellidosusuario, "Ingrese los apellidos");
+                    erroricono.SetError(txtnumdocumento, "Ingrese un numero de documento");
+                    erroricono.SetError(txtnombredeusuario, "Ingrese un nombre de usuario");
+                    erroricono.SetError(txtcontrasena, "Ingrese una contraseña");
                 }
                 else
                 {
@@ -208,8 +239,8 @@ namespace Capapresentacion
                         this.txtapellidosusuario.Text.Trim().ToUpper(), cmbsexo.Text,
                         dtfechanacimiento.Value,
                         txtnumdocumento.Text, txtdireccion.Text,
-                        txttelefono.Text, txtemailusuario.Text, txtnombredeusuario.Text,txtcontrasena.Text);
-
+                        txttelefono.Text, txtemailusuario.Text, txtnombredeusuario.Text,Encrypt(txtcontrasena.Text.Trim()));
+                        
                     }
                     else
                     {
@@ -218,7 +249,7 @@ namespace Capapresentacion
                         this.txtapellidosusuario.Text.Trim().ToUpper(), cmbsexo.Text,
                         dtfechanacimiento.Value,
                         txtnumdocumento.Text, txtdireccion.Text,
-                        txttelefono.Text, txtemailusuario.Text, txtnombredeusuario.Text, txtcontrasena.Text);
+                        txttelefono.Text, txtemailusuario.Text, txtnombredeusuario.Text, txtcontrasena.Text.Trim());
                     }
                     //Si la respuesta fue OK, fue porque se modifico 
                     //o inserto el Cliente
@@ -266,7 +297,7 @@ namespace Capapresentacion
             }
             else
             {
-                this.MensajeError("Debe de buscar un registro para Modificar");
+                this.MensajeError("No hay ningun registro seleccionado");
             }
         }
 
@@ -325,6 +356,43 @@ namespace Capapresentacion
             this.Mostrar();
             this.Habilitar(false);
             this.Botones();
+            Nusuario N = new Nusuario();
+            N.LLenarComboBox(cmbrol);
+            Estatususuario();
         }
+
+        private void Btnguardarrol_Click(object sender, EventArgs e)
+        {
+            string Respuesta = "";
+            if (cmbrol.Equals("Seleccione_un_Rol"))
+            {
+                ttmensaje.SetToolTip(cmbrol, "Seleccione un rol ");
+            }
+            else
+            {
+                int codigousuario = Convert.ToInt32(this.datagridusuario.CurrentRow.Cells["Idusuario"].Value);
+                string v = Nusuario.Insertarrol(codigousuario, Convert.ToInt32(cmbrol.ValueMember), cmbestatus.Text);
+                Respuesta = v;
+            }
+
+            if (Respuesta.Equals("OK"))
+            {
+                this.MensajeOK("Se insertó de forma correcta el registro");
+            }
+            else
+            {
+                //Mostramos el mensaje de error
+                this.MensajeError(Respuesta);
+            }
+        }
+
+        public void Estatususuario() 
+        {
+
+            if (Datoscahe.estatus == "A")
+            {
+                Estatus_Usuario.Checked = true;
+            }
+        } 
     }
 }

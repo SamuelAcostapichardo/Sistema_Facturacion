@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using Capanegocio;
 using Microsoft.Win32;
 
+
+
 namespace Capapresentacion
 {
     public partial class frmarticulo : Form
@@ -25,6 +27,8 @@ namespace Capapresentacion
             this.txtcategoria.ReadOnly = true;
 
             this.Llenarcombopre();
+
+            
         }
 
         private bool Isnuevo = false;
@@ -105,9 +109,9 @@ namespace Capapresentacion
         private void ocultarcolumnas()
         {
             this.datagridcategoria.Columns[0].Visible = false;
-            //this.datagridcategoria.Columns[1].Visible = false;
-            //this.datagridcategoria.Columns[6].Visible = false;
-           // this.datagridcategoria.Columns[8].Visible = false;
+            this.datagridcategoria.Columns[1].Visible = false;
+            this.datagridcategoria.Columns[6].Visible = false;
+            this.datagridcategoria.Columns[8].Visible = false;
 
         }
 
@@ -315,41 +319,57 @@ namespace Capapresentacion
 
         private void btneliminar_Click(object sender, EventArgs e)
         {
-            try
+            if (chkeliminar.Checked)
             {
-                DialogResult opcion;
-                opcion = MessageBox.Show(" Realmente desea eliminar los registros", "Sistema de ventas", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                if (opcion == DialogResult.OK)
+                int Indice = 0;
+                if (Convert.ToBoolean(datagridcategoria.Rows[Indice].Cells[0].Value)!=false)
                 {
-                    string codigo;
-                    string respuesta = "";
-
-                    foreach (DataGridViewRow row in datagridcategoria.Rows)
+                    try
                     {
-                        if (Convert.ToBoolean(row.Cells[0].Value))
+                        DialogResult opcion;
+                        opcion = MessageBox.Show(" Realmente desea eliminar los registros", "Sistema de ventas", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                        if (opcion == DialogResult.OK)
                         {
-                            codigo = Convert.ToString(row.Cells[1].Value);
-                            respuesta = Narticulo.Eliminar(Convert.ToInt32(codigo));
+                            string codigo;
+                            string respuesta = "";
+                            foreach (DataGridViewRow row in datagridcategoria.Rows)
+                            {
+                                if (Convert.ToBoolean(row.Cells[0].Value))
+                                {
+                                    codigo = Convert.ToString(row.Cells[1].Value);
+                                    respuesta = Narticulo.Eliminar(Convert.ToInt32(codigo));
 
-                            if (respuesta.Equals("OK"))
-                            {
-                                this.Mensajeok(" Se elimino de forma correcta el registro");
+                                    if (respuesta.Equals("OK"))
+                                    {
+                                        this.Mensajeok(" Se elimino de forma correcta el registro");
+                                    }
+                                    else
+                                    {
+                                        this.Mensajeerror(respuesta);
+                                    }
+                                }
                             }
-                            else
-                            {
-                                this.Mensajeerror(respuesta);
-                            }
+                            this.mostrar();
+                            this.chkeliminar.Checked = false;
                         }
                     }
+                    catch (Exception ex)
+                    {
 
-                    this.mostrar();
+                        MessageBox.Show(ex.Message + ex.StackTrace);
+                    }
+                }
+                else
+                {
+                    Mensajeerror("Debe Seleccionar un Articulo a Eliminar");
+                    erroricono.SetError(datagridcategoria,"Seleccione un Articulo");
                 }
             }
-            catch (Exception ex)
+            else
             {
-
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
+                Mensajeerror("Debe Checar la casilla de Eliminar");
+                erroricono.SetError(chkeliminar,"Selecione la casilla");
+            }      
         }
 
         private void Btnbuscarcateg_Click(object sender, EventArgs e)

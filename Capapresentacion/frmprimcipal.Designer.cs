@@ -78,6 +78,8 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.Keyserial = new System.Windows.Forms.Label();
+            this.Lblactivo = new System.Windows.Forms.Label();
             this.Mnustrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -117,6 +119,7 @@
             this.mnusalir.Name = "mnusalir";
             this.mnusalir.Size = new System.Drawing.Size(100, 22);
             this.mnusalir.Text = "salir";
+            this.mnusalir.Click += new System.EventHandler(this.mnusalir_Click);
             // 
             // Mnualmacen
             // 
@@ -161,14 +164,14 @@
             // tsventas
             // 
             this.tsventas.Name = "tsventas";
-            this.tsventas.Size = new System.Drawing.Size(180, 22);
+            this.tsventas.Size = new System.Drawing.Size(121, 22);
             this.tsventas.Text = "Ventas";
             this.tsventas.Click += new System.EventHandler(this.tsventas_Click);
             // 
             // clientesToolStripMenuItem
             // 
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.clientesToolStripMenuItem.Text = "Clientes";
             this.clientesToolStripMenuItem.Click += new System.EventHandler(this.ClientesToolStripMenuItem_Click);
             // 
@@ -389,6 +392,7 @@
             this.toolStrip.Size = new System.Drawing.Size(905, 25);
             this.toolStrip.TabIndex = 1;
             this.toolStrip.Text = "ToolStrip";
+            this.toolStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip_ItemClicked);
             // 
             // newToolStripButton
             // 
@@ -472,11 +476,31 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(113, 17);
             this.toolStripStatusLabel.Text = "Sistema de ventas";
             // 
+            // Keyserial
+            // 
+            this.Keyserial.AutoSize = true;
+            this.Keyserial.Location = new System.Drawing.Point(684, 9);
+            this.Keyserial.Name = "Keyserial";
+            this.Keyserial.Size = new System.Drawing.Size(35, 13);
+            this.Keyserial.TabIndex = 4;
+            this.Keyserial.Text = "label1";
+            // 
+            // Lblactivo
+            // 
+            this.Lblactivo.AutoSize = true;
+            this.Lblactivo.Location = new System.Drawing.Point(735, 9);
+            this.Lblactivo.Name = "Lblactivo";
+            this.Lblactivo.Size = new System.Drawing.Size(35, 13);
+            this.Lblactivo.TabIndex = 5;
+            this.Lblactivo.Text = "label2";
+            // 
             // Frmprimcipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(905, 512);
+            this.Controls.Add(this.Lblactivo);
+            this.Controls.Add(this.Keyserial);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.Mnustrip);
@@ -547,6 +571,8 @@
         private System.Windows.Forms.ToolStripMenuItem comprasPorFechaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem stockDeArticulosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem backUpDeBaseDeDatosToolStripMenuItem;
+        private System.Windows.Forms.Label Keyserial;
+        private System.Windows.Forms.Label Lblactivo;
     }
 }
 

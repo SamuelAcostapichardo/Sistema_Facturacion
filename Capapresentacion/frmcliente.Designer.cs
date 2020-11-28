@@ -37,6 +37,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.Cmbtipodocumento = new System.Windows.Forms.ComboBox();
             this.Dtfechanacimiento = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.Cmbsexo = new System.Windows.Forms.ComboBox();
@@ -67,8 +69,6 @@
             this.lblpro = new System.Windows.Forms.Label();
             this.Erroricono = new System.Windows.Forms.ErrorProvider(this.components);
             this.ttmensaje = new System.Windows.Forms.ToolTip(this.components);
-            this.Cmbtipodocumento = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.tabPage2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.TabControl1.SuspendLayout();
@@ -77,10 +77,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.Erroricono)).BeginInit();
             this.SuspendLayout();
             // 
-            // txtemailcli
+            // Txtemailcli
             // 
             this.Txtemailcli.Location = new System.Drawing.Point(520, 116);
-            this.Txtemailcli.Name = "txtemailcli";
+            this.Txtemailcli.Name = "Txtemailcli";
             this.Txtemailcli.Size = new System.Drawing.Size(179, 20);
             this.Txtemailcli.TabIndex = 20;
             // 
@@ -102,17 +102,17 @@
             this.label9.TabIndex = 18;
             this.label9.Text = "Telefono:";
             // 
-            // txttelefono
+            // Txttelefono
             // 
             this.Txttelefono.Location = new System.Drawing.Point(520, 155);
-            this.Txttelefono.Name = "txttelefono";
+            this.Txttelefono.Name = "Txttelefono";
             this.Txttelefono.Size = new System.Drawing.Size(179, 20);
             this.Txttelefono.TabIndex = 17;
             // 
-            // txtnumdocumento
+            // Txtnumdocumento
             // 
             this.Txtnumdocumento.Location = new System.Drawing.Point(127, 151);
-            this.Txtnumdocumento.Name = "txtnumdocumento";
+            this.Txtnumdocumento.Name = "Txtnumdocumento";
             this.Txtnumdocumento.Size = new System.Drawing.Size(179, 20);
             this.Txtnumdocumento.TabIndex = 16;
             // 
@@ -124,6 +124,7 @@
             this.label8.Size = new System.Drawing.Size(105, 13);
             this.label8.TabIndex = 15;
             this.label8.Text = "Numero Documento:";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // tabPage2
             // 
@@ -168,6 +169,30 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cliente";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 119);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(80, 13);
+            this.label7.TabIndex = 30;
+            this.label7.Text = "tipodocumento:";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
+            // 
+            // Cmbtipodocumento
+            // 
+            this.Cmbtipodocumento.FormattingEnabled = true;
+            this.Cmbtipodocumento.Items.AddRange(new object[] {
+            "Dni",
+            "Passport",
+            "Cedula"});
+            this.Cmbtipodocumento.Location = new System.Drawing.Point(127, 116);
+            this.Cmbtipodocumento.Name = "Cmbtipodocumento";
+            this.Cmbtipodocumento.Size = new System.Drawing.Size(121, 21);
+            this.Cmbtipodocumento.TabIndex = 29;
+            this.Cmbtipodocumento.Text = "Cedula";
             // 
             // Dtfechanacimiento
             // 
@@ -280,12 +305,13 @@
             this.label4.Size = new System.Drawing.Size(47, 13);
             this.label4.TabIndex = 5;
             this.label4.Text = "Nombre:";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
-            // txtdireccion
+            // Txtdireccion
             // 
             this.Txtdireccion.Location = new System.Drawing.Point(127, 225);
             this.Txtdireccion.Multiline = true;
-            this.Txtdireccion.Name = "txtdireccion";
+            this.Txtdireccion.Name = "Txtdireccion";
             this.Txtdireccion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.Txtdireccion.Size = new System.Drawing.Size(244, 67);
             this.Txtdireccion.TabIndex = 3;
@@ -313,12 +339,12 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Codigo";
             // 
-            // tabControl1
+            // TabControl1
             // 
             this.TabControl1.Controls.Add(this.tabPage1);
             this.TabControl1.Controls.Add(this.tabPage2);
             this.TabControl1.Location = new System.Drawing.Point(12, 51);
-            this.TabControl1.Name = "tabControl1";
+            this.TabControl1.Name = "TabControl1";
             this.TabControl1.SelectedIndex = 0;
             this.TabControl1.Size = new System.Drawing.Size(776, 428);
             this.TabControl1.TabIndex = 5;
@@ -445,35 +471,13 @@
             this.lblpro.TabIndex = 4;
             this.lblpro.Text = "Cliente";
             // 
-            // erroricono
+            // Erroricono
             // 
             this.Erroricono.ContainerControl = this;
             // 
             // ttmensaje
             // 
             this.ttmensaje.IsBalloon = true;
-            // 
-            // Cmbtipodocumento
-            // 
-            this.Cmbtipodocumento.FormattingEnabled = true;
-            this.Cmbtipodocumento.Items.AddRange(new object[] {
-            "Dni",
-            "Passport",
-            "Cedula"});
-            this.Cmbtipodocumento.Location = new System.Drawing.Point(127, 116);
-            this.Cmbtipodocumento.Name = "Cmbtipodocumento";
-            this.Cmbtipodocumento.Size = new System.Drawing.Size(121, 21);
-            this.Cmbtipodocumento.TabIndex = 29;
-            this.Cmbtipodocumento.Text = "Cedula";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 119);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(80, 13);
-            this.label7.TabIndex = 30;
-            this.label7.Text = "tipodocumento:";
             // 
             // Frmcliente
             // 

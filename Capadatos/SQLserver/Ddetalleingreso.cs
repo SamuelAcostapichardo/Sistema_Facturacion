@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using Capadatos.SQLserver;
 
 namespace Capadatos
 {
@@ -36,31 +37,29 @@ namespace Capadatos
         {
 
         }
-
-        public Ddetalleingreso(int iddetalle_ingreso, int idingreso,
-           int idarticulo, decimal precio_compra, decimal precio_venta,
-           int stock_inicial, int stock_actual, DateTime fecha_produccion,
-           DateTime fecha_vencimiento)
+        
+        public Ddetalleingreso(detalleingreso Di)
         {
-            this.Iddetalle_Ingreso = iddetalle_ingreso;
-            this.Idingreso = idingreso;
-            this.Idarticulo = idarticulo;
-            this.Precio_Compra = precio_compra;
-            this.Precio_Venta = precio_venta;
-            this.Stock_Inicial = stock_inicial;
-            this.Stock_Actual = stock_actual;
-            this.Fecha_Produccion = fecha_produccion;
-            this.Fecha_Vencimiento = fecha_vencimiento;
+            this.Iddetalle_Ingreso = Di.iddetalle_ingreso;
+            this.Idingreso = Di.idingreso;
+            this.Idarticulo = Di.idarticulo;
+            this.Precio_Compra = Di.precio_compra;
+            this.Precio_Venta = Di.precio_venta;
+            this.Stock_Inicial = Di.stock_inicial;
+            this.Stock_Actual = Di.stock_actual;
+            this.Fecha_Produccion = Di.fecha_produccion;
+            this.Fecha_Vencimiento = Di.fecha_vencimiento;
 
         }
 
-        public string Insertar2(Ddetalleingreso Detalleingreso, ref SqlConnection SqlCon , ref SqlTransaction sqltra )
+        public string Insertar2(Ddetalleingreso Detalleingreso, ref SqlConnection SqlCon ,ref SqlTransaction sqltra )
         {
             string Respuesta = "";
             try
             {
+                
                 SqlCommand SqlCmd = new SqlCommand
-                {
+                {                  
                     Connection = SqlCon,
                     Transaction = sqltra,
                     CommandText = "spinsertar_detalle_ingreso",
@@ -148,9 +147,8 @@ namespace Capadatos
             {
                 Respuesta = ex.Message;
                 
-            }
+            }           
             return Respuesta;
-
-        }
+        }      
     }
 }

@@ -130,41 +130,60 @@ namespace Capapresentacion
 
         private void Btneliminar_Click(object sender, EventArgs e)
         {
-            try
+            int Indice = 0;
+            if (Chkeliminar.Checked)
             {
-                DialogResult Opcion;
-                Opcion = MessageBox.Show("Realmente Desea Eliminar los Registros", "Sistema de Ventas", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-
-                if (Opcion == DialogResult.OK)
+                if (Convert.ToBoolean(Datagridcliente.Rows[Indice].Cells[0].Value)!=false)
                 {
-                    string Codigo;
-                    string Rpta = "";
-
-                    foreach (DataGridViewRow row in Datagridcliente.Rows)
+                    try
                     {
-                        if (Convert.ToBoolean(row.Cells[0].Value))
+                        DialogResult Opcion;
+                        Opcion = MessageBox.Show("Realmente Desea Eliminar los Registros", "Sistema de Ventas", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                        if (Opcion == DialogResult.OK)
                         {
-                            Codigo = Convert.ToString(row.Cells[1].Value);
-                            Rpta = Ncliente.Eliminar(Convert.ToInt32(Codigo));
+                            string Codigo;
+                            string Rpta = "";
 
-                            if (Rpta.Equals("OK"))
+                            foreach (DataGridViewRow row in Datagridcliente.Rows)
                             {
-                                this.MensajeOk("Se Eliminó Correctamente el registro");
-                            }
-                            else
-                            {
-                                this.MensajeError(Rpta);
-                            }
+                                if (Convert.ToBoolean(row.Cells[0].Value))
+                                {
+                                    Codigo = Convert.ToString(row.Cells[1].Value);
+                                    Rpta = Ncliente.Eliminar(Convert.ToInt32(Codigo));
 
+                                    if (Rpta.Equals("OK"))
+                                    {
+                                        this.MensajeOk("Se Eliminó Correctamente el registro");
+                                    }
+                                    else
+                                    {
+                                        this.MensajeError(Rpta);
+                                    }
+
+                                }
+                            }
+                            this.Mostrar();
+                            this.Chkeliminar.Checked = false;
                         }
                     }
-                    this.Mostrar();
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message + ex.StackTrace);
+                    }
+                }
+                else
+                {
+                    MensajeError("Debe Seleccionar un Cliente a Eliminar");
+                    Erroricono.SetError(Datagridcliente, "Selecione un Cliente");
                 }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message + ex.StackTrace);
+                MensajeError("Debe Seleccionar la Casilla");
+                Erroricono.SetError(Chkeliminar,"Selecione la Casilla");
             }
+          
         }
 
         private void Chkeliminar_CheckedChanged(object sender, EventArgs e)
@@ -223,7 +242,7 @@ namespace Capapresentacion
                     this.Txtnumdocumento.Text == string.Empty
                     || this.Txtdireccion.Text == string.Empty)
                 {
-                    MensajeError("Falta ingresar algunos datos, serán remarcados");
+                    MensajeError("Falta ingresar algunos datos, serán remarcados");   
                     Erroricono.SetError(Txtnombre, "Ingrese un Valor");
                     Erroricono.SetError(Txtapellidos, "Ingrese un Valor");
                     Erroricono.SetError(Txtnumdocumento, "Ingrese un Valor");
@@ -304,6 +323,26 @@ namespace Capapresentacion
             this.Habilitar(false);
             this.Limpiar();
             this.Txtidcliente.Text = string.Empty;
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

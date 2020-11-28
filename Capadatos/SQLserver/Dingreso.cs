@@ -40,19 +40,17 @@ namespace Capadatos.SQLserver
         }
 
 
-        public Dingreso(int idingreso, int idtrabajador, int idproveedor,
-           DateTime fecha, string tipo_comprobante, string serie,
-           string correlativo, decimal igv, string estado)
+        public Dingreso(Ingreso I)
         {
-            this.Idingreso = idingreso;
-            this.Idtrabajador = idtrabajador;
-            this.Idproveedor = idproveedor;
-            this.Fecha = fecha;
-            this.Tipo_Comprobante = tipo_comprobante;
-            this.Serie = serie;
-            this.Correlativo = correlativo;
-            this.Igv = igv;
-            this.Estado = estado;
+            this.Idingreso = I.idingreso;
+            this.Idtrabajador = I.idtrabajador;
+            this.Idproveedor = I.idproveedor;
+            this.Fecha = I.fecha;
+            this.Tipo_Comprobante = I.tipo_comprobante;
+            this.Serie = I.serie;
+            this.Correlativo = I.correlativo;
+            this.Igv = I.igv;
+            this.Estado = I.estado;
         }
 
 
@@ -64,141 +62,139 @@ namespace Capadatos.SQLserver
             SqlConnection SqlCon = Getconection();
             string Respuesta ="";
             SqlCon.Open();
-            SqlTransaction Sqltra = SqlCon.BeginTransaction();
-
-            try
-            {
-                
-                using (var SqlCmd = GetSqlCommand())
+            SqlTransaction Sqltra = SqlCon.BeginTransaction();          
+                try
                 {
-                    SqlCmd.Connection = SqlCon;
-                    SqlCmd.Transaction = Sqltra;
-                    SqlCmd.CommandText = "spinsertar_ingreso";
-                    SqlCmd.CommandType = CommandType.StoredProcedure;
-
-
-                    SqlParameter ParIdingreso = new SqlParameter
+                    using (var SqlCmd = GetSqlCommand())
                     {
-                        ParameterName = "@idingreso",
-                        SqlDbType = SqlDbType.Int,
-                        Direction = ParameterDirection.Output
-                    };
-                    SqlCmd.Parameters.Add(ParIdingreso);
-
-                    SqlParameter ParIdtrabajador = new SqlParameter
-                    {
-                        ParameterName = "@idtrabajador",
-                        SqlDbType = SqlDbType.Int,
-                        Value = Ingreso.Idtrabajador
-                    };
-                    SqlCmd.Parameters.Add(ParIdtrabajador);
-
-                    SqlParameter ParIdproveedor = new SqlParameter
-                    {
-                        ParameterName = "@idproveedor",
-                        SqlDbType = SqlDbType.Int,
-                        Value = Ingreso.Idproveedor
-                    };
-                    SqlCmd.Parameters.Add(ParIdproveedor);
+                        SqlCmd.Connection = SqlCon;
+                        SqlCmd.Transaction = Sqltra;
+                        SqlCmd.CommandText = "spinsertar_ingreso";
+                        SqlCmd.CommandType = CommandType.StoredProcedure;
 
 
-                    SqlParameter ParFecha = new SqlParameter
-                    {
-                        ParameterName = "@fecha",
-                        SqlDbType = SqlDbType.Date,
-                        Value = Ingreso.Fecha
-                    };
-                    SqlCmd.Parameters.Add(ParFecha);
+                        SqlParameter ParIdingreso = new SqlParameter
+                        {
+                            ParameterName = "@idingreso",
+                            SqlDbType = SqlDbType.Int,
+                            Direction = ParameterDirection.Output
+                        };
+                        SqlCmd.Parameters.Add(ParIdingreso);
 
-                    SqlParameter ParTipo_Comprobante = new SqlParameter
-                    {
-                        ParameterName = "@tipocomprovante",
-                        SqlDbType = SqlDbType.VarChar,
-                        Size = 20,
-                        Value = Ingreso.Tipo_Comprobante
-                    };
-                    SqlCmd.Parameters.Add(ParTipo_Comprobante);
+                        SqlParameter ParIdtrabajador = new SqlParameter
+                        {
+                            ParameterName = "@idtrabajador",
+                            SqlDbType = SqlDbType.Int,
+                            Value = Ingreso.Idtrabajador
+                        };
+                        SqlCmd.Parameters.Add(ParIdtrabajador);
 
-                    SqlParameter ParSerie = new SqlParameter
-                    {
-                        ParameterName = "@serie",
-                        SqlDbType = SqlDbType.VarChar,
-                        Size = 4,
-                        Value = Ingreso.Serie
-                    };
-                    SqlCmd.Parameters.Add(ParSerie);
-
-                    SqlParameter ParCorrelativo = new SqlParameter
-                    {
-                        ParameterName = "@correlativo",
-                        SqlDbType = SqlDbType.VarChar,
-                        Size = 7,
-                        Value = Ingreso.Correlativo
-                    };
-                    SqlCmd.Parameters.Add(ParCorrelativo);
-
-                    SqlParameter ParIgv = new SqlParameter
-                    {
-                        ParameterName = "@igv",
-                        SqlDbType = SqlDbType.Decimal,
-                        Precision = 4,
-                        Scale = 2,
-                        Value = Ingreso.Igv
-                    };
-                    SqlCmd.Parameters.Add(ParIgv);
-
-                    SqlParameter ParEstado = new SqlParameter
-                    {
-                        ParameterName = "@estado",
-                        SqlDbType = SqlDbType.VarChar,
-                        Size = 7,
-                        Value = Ingreso.Estado
-                    };
-                    SqlCmd.Parameters.Add(ParEstado);
+                        SqlParameter ParIdproveedor = new SqlParameter
+                        {
+                            ParameterName = "@idproveedor",
+                            SqlDbType = SqlDbType.Int,
+                            Value = Ingreso.Idproveedor
+                        };
+                        SqlCmd.Parameters.Add(ParIdproveedor);
 
 
-                    Respuesta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "No se inserto el Registro";
+                        SqlParameter ParFecha = new SqlParameter
+                        {
+                            ParameterName = "@fecha",
+                            SqlDbType = SqlDbType.Date,
+                            Value = Ingreso.Fecha
+                        };
+                        SqlCmd.Parameters.Add(ParFecha);
 
-                    if (Respuesta.Equals("OK"))
-                    {
-                        this.Idingreso = Convert.ToInt32(SqlCmd.Parameters["@idingreso"].Value);
-                        foreach (Ddetalleingreso det in Detalle)
-                        {                           
-                            det.Idingreso = this.Idingreso;
-                            Respuesta = det.Insertar2(det, ref SqlCon, ref Sqltra);
-                            if (!Respuesta.Equals("OK"))
+                        SqlParameter ParTipo_Comprobante = new SqlParameter
+                        {
+                            ParameterName = "@tipocomprovante",
+                            SqlDbType = SqlDbType.VarChar,
+                            Size = 20,
+                            Value = Ingreso.Tipo_Comprobante
+                        };
+                        SqlCmd.Parameters.Add(ParTipo_Comprobante);
+
+                        SqlParameter ParSerie = new SqlParameter
+                        {
+                            ParameterName = "@serie",
+                            SqlDbType = SqlDbType.VarChar,
+                            Size = 4,
+                            Value = Ingreso.Serie
+                        };
+                        SqlCmd.Parameters.Add(ParSerie);
+
+                        SqlParameter ParCorrelativo = new SqlParameter
+                        {
+                            ParameterName = "@correlativo",
+                            SqlDbType = SqlDbType.VarChar,
+                            Size = 7,
+                            Value = Ingreso.Correlativo
+                        };
+                        SqlCmd.Parameters.Add(ParCorrelativo);
+
+                        SqlParameter ParIgv = new SqlParameter
+                        {
+                            ParameterName = "@igv",
+                            SqlDbType = SqlDbType.Decimal,
+                            Precision = 4,
+                            Scale = 2,
+                            Value = Ingreso.Igv
+                        };
+                        SqlCmd.Parameters.Add(ParIgv);
+
+                        SqlParameter ParEstado = new SqlParameter
+                        {
+                            ParameterName = "@estado",
+                            SqlDbType = SqlDbType.VarChar,
+                            Size = 7,
+                            Value = Ingreso.Estado
+                        };
+                        SqlCmd.Parameters.Add(ParEstado);
+
+
+                        Respuesta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "No se inserto el Registro";
+
+                        if (Respuesta.Equals("OK"))
+                        {
+                            this.Idingreso = Convert.ToInt32(SqlCmd.Parameters["@idingreso"].Value);
+                            foreach (Ddetalleingreso det in Detalle)
                             {
-                                break;
-                            }                           
+                                det.Idingreso = this.Idingreso;
+                                Respuesta = det.Insertar2(det,ref SqlCon,  ref Sqltra);
+                                if (!Respuesta.Equals("OK"))
+                                {
+                                    break;
+                                }
+                            }
+                        }
+                        if (Respuesta.Equals("OK"))
+                        {
+                            Sqltra.Commit();
+                        }
+                        else
+                        {
+                            Sqltra.Rollback();
                         }
                     }
-                    if (Respuesta.Equals("OK"))
-                    {
-                        Sqltra.Commit();
-                    }
-                    else
-                    {
-                        Sqltra.Rollback();
-                    }
                 }
-            }
-            catch (Exception ex)
-            {
-                Respuesta = ex.Message;              
-            }          
-
-            finally
-            {
-                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
-            }
-            SqlCon.Close();
-            return Respuesta;          
+                catch (Exception ex)
+                {
+                    Respuesta = ex.Message;
+                }
+                finally
+                {
+                    if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
+                }
+                SqlCon.Close();
+                return Respuesta;         
         }
 
         public string Anular(Dingreso Ingreso)
         {
             using (var SqlCon = Getconection())
             {
+                SqlCon.Open();
                 string Respuesta = "";
                 using (var SqlCmd =GetSqlCommand())
                 {
@@ -295,20 +291,14 @@ namespace Capadatos.SQLserver
                                 Value = Textobuscar
                             };
                             SqlCmd.Parameters.Add(ParTextoBuscar2);
-
-
                             using (var Sqldat = Getdataadapter(SqlCmd))
                             {
                                 Sqldat.Fill(Dtresultado);
                             }
-
-
                         }
                     }
                     catch (Exception )
-                    {
-
-                        
+                    {               
                     }
                     return Dtresultado;
                 }
@@ -317,6 +307,7 @@ namespace Capadatos.SQLserver
 
 
         public DataTable Mostrardetalle(String Texto)
+
         {
             using (var SqlCon = Getconection())
             {
@@ -352,5 +343,7 @@ namespace Capadatos.SQLserver
                 }
             }
         }
+
+
     }
 }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
+using Capadatos.SQLserver;
 
 namespace Capadatos
 {
@@ -36,23 +37,22 @@ namespace Capadatos
 
         }
 
-
-        public Darticulo(int idarticulo, string codigo, string nombre, string descripcion, byte[] imagen, int idcategoria, int idpresentacion, string textobuscar)
+        public Darticulo(Articulos A)
         {
-            this.Idarticulo = idarticulo;
-            this.Codigo = codigo;
-            this.Nombre = nombre;
-            this.Descripcion = descripcion;
-            this.Imagen = imagen;
-            this.Idcategoria = idcategoria;
-            this.Idpresentacion = idpresentacion;
-            this.TextoBuscar = textobuscar;
+            Articulos articulos1 = new Articulos();
+            this.Idarticulo = A.idarticulo;
+            this.Codigo = A.codigo;
+            this.Nombre = A.nombre;
+            this.Descripcion = A.descripcion;
+            this.Imagen = A.imagen;
+            this.Idcategoria = A.idcategoria;
+            this.Idpresentacion = A.idpresentacion;
+            this.TextoBuscar = A.textobuscar;
 
         }
 
         public string Insertar(Darticulo Articulo)
         {
-
             using (var Sqlcon = Getconection())
             {
                 string respuesta = "";
@@ -62,7 +62,7 @@ namespace Capadatos
                     using (var sqlcmd = GetSqlCommand())
                     {
                         sqlcmd.Connection = Sqlcon;
-                        sqlcmd.CommandText = "spinsertar_articulo";
+                        sqlcmd.CommandText = "spinsertar_articulo2";
                         sqlcmd.CommandType = CommandType.StoredProcedure;
 
                         SqlParameter paridarticulo = new SqlParameter
@@ -84,7 +84,7 @@ namespace Capadatos
 
                         SqlParameter ParNombre = new SqlParameter
                         {
-                            ParameterName = "@Nombre",
+                            ParameterName = "@nombre",
                             SqlDbType = SqlDbType.VarChar,
                             Size = 50,
                             Value = Articulo.Nombre
@@ -95,7 +95,7 @@ namespace Capadatos
                         {
                             ParameterName = "@descripcion",
                             SqlDbType = SqlDbType.VarChar,
-                            Size = 1024,
+                            Size = 250,
                             Value = Articulo.Descripcion
                         };
                         sqlcmd.Parameters.Add(ParDescripcion);
@@ -129,12 +129,10 @@ namespace Capadatos
                 }
                 catch (Exception ex)
                 {
-                    respuesta = ex.Message;
-                    
+                    respuesta = ex.Message;                 
                 }
                 return respuesta;
             }
-
         }
 
         public string Editar(Darticulo Articulo)
@@ -142,15 +140,15 @@ namespace Capadatos
             using (var sqlcon = Getconection())
             {
                 string Respuesta = "";
-
+                
                 try
-                {
+                { 
                     using (var sqlcmd = GetSqlCommand())
                     {
 
                         sqlcon.Open();
                         sqlcmd.Connection = sqlcon;
-                        sqlcmd.CommandText = "speditar_articulo";
+                        sqlcmd.CommandText = "spinsertar_articulo2";
                         sqlcmd.CommandType = CommandType.StoredProcedure;
 
                         SqlParameter ParIdarticulo = new SqlParameter
@@ -276,8 +274,7 @@ namespace Capadatos
                 { 
                     sqlcon.Open();
                     try
-                    {
-                        
+                    {                     
                         using (var sqlcmd = GetSqlCommand())
                         {
                             sqlcmd.Connection = sqlcon;
@@ -329,10 +326,7 @@ namespace Capadatos
                         }
                     }
                     catch (Exception)
-                    {
-
-
-                        
+                    {                     
                     }
                     return dtresultado;
                 }

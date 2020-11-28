@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using Capadatos.SQLserver;
 
 namespace Capadatos
 {
@@ -44,12 +45,12 @@ namespace Capadatos
 
         }
 
-        public Dpresentacion(int idpresentacion, string nombre, string descripcion, string textobuscar)
+        public Dpresentacion(Presentacion P)
         {
-            this.Idpresentacion = idpresentacion;
-            this.Nombre = nombre;
-            this.Descripcion = descripcion;
-            this.TextoBuscar = textobuscar;
+            this.Idpresentacion = P.idpresentacion;
+            this.Nombre = P.nombre;
+            this.Descripcion = P.descripcion;
+            this.TextoBuscar = P.textobuscar;
         }
 
         public string Insertar(Dpresentacion Presentacion)

@@ -5,13 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using Capadatos;
 using System.Data;
+using System.Windows;
+using System.Windows.Forms;
+using Capadatos.SQLserver;
+
 
 namespace Capanegocio
 {                                   
    public class Nusuario: Conexion
     {
-        
-
         public static string Insertar(string nombre, string apellidos, string sexo,
          DateTime fecha_nacimiento, string num_documento,
          string direccion, string telefono, string email,
@@ -30,8 +32,18 @@ namespace Capanegocio
                 Usuario = usuario,
                 Password = password
             };
-
             return Obj.Insertar(Obj);
+        }
+
+        public static string Insertarrol(int idusuario, int codigorol, string estatususu)
+        {
+            Dusuario obj = new Dusuario
+            {
+                Idusuario = idusuario,
+                Codigorol = codigorol,
+                Estatususu = estatususu
+            };
+            return obj.Insertarrol(obj);
         }
 
         //Método Editar que llama al método Editar de la clase DTrabajador
@@ -108,11 +120,41 @@ namespace Capanegocio
             return Form.Login(usuario,password);
         }
 
+        public bool Login2() 
+        {
+            Dusuario form = new Dusuario();
+            return form.Login2();
+        }
+
 
         public bool Validaropcion(int codigo, string nombreopcion)
         {
             Dusuario Form = new Dusuario();
             return Form.ValidarOpcion(codigo,nombreopcion);
         }
+
+
+
+        public void LLenarComboBox(ComboBox b)
+        {
+            Conexion con = new Conexion();
+            con.Cargar_combobox(b);
+        }
+
+       
+
+        public string Passwordrecobery(string recoverypassword)
+        { Dusuario Usu = new Dusuario();
+            return Usu.Passwordrecovery(recoverypassword);
+        }
+
+
+        public void SendEmail(string Correo,string Asunto)
+        {
+            Dusuario su = new Dusuario();
+            su.Sendemail(Correo,Asunto);
+        }
+
+
     }
 }

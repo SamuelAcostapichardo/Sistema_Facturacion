@@ -23,7 +23,7 @@ namespace Capapresentacion
             this.Ttmensaje.SetToolTip(this.Txtstockinicial, "Ingrese la cantidad de compra");
             this.Ttmensaje.SetToolTip(this.Txtarticulo, "Seleccione el Artículo de compra");
             this.Txtidproveedor.Visible = false;
-           // this.Txtidarticulo.Visible = false;
+            this.Txtidarticulo.Visible = false;
             this.Txtnombreproveedor.ReadOnly = true;
             this.Txtarticulo.ReadOnly = true;
         }
@@ -135,8 +135,8 @@ namespace Capapresentacion
         //Método para ocultar columnas
         private void OcultarColumnas()
         {
-           // this.Datagridingreso.Columns[0].Visible = false;
-          //  this.Datagridingreso.Columns[1].Visible = false;
+            this.Datagridingresodetalle.Columns[0].Visible = false;
+            this.Datagridingresodetalle.Columns[1].Visible = false;
         }
 
         //Método Mostrar
@@ -196,42 +196,59 @@ namespace Capapresentacion
 
         private void Btnanular_Click(object sender, EventArgs e)
         {
-            if (Chkanular.CheckState == CheckState.Checked)
+
+            if (Chkanular.Checked) 
             {
-                try
+                 int Indice = 0;
+                if (Convert.ToBoolean(Datagridingresodetalle.Rows[Indice].Cells[0].Value) != false)
                 {
-                    DialogResult Opcion;
-                    Opcion = MessageBox.Show("Realmente Desea Anular los Registros", "Sistema de Ventas", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-
-                    if (Opcion == DialogResult.OK)
+                    try
                     {
-                        string Codigo;
-                        string Rpta = "";
+                        DialogResult Opcion;
+                        Opcion = MessageBox.Show("Realmente Desea Anular los Registros", "Sistema de Ventas", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
-                        foreach (DataGridViewRow row in Datagridingresodetalle.Rows)
+                        if (Opcion == DialogResult.OK)
                         {
-                            if (Convert.ToBoolean(row.Cells[0].Value))
-                            {
-                                Codigo = Convert.ToString(row.Cells[1].Value);
-                                Rpta = Ningreso.Anular(Convert.ToInt32(Codigo));
+                            string Codigo;
+                            string Rpta = "";
 
-                                if (Rpta.Equals("OK"))
+                            foreach (DataGridViewRow row in Datagridingresodetalle.Rows)
+                            {
+                                if (Convert.ToBoolean(row.Cells[0].Value))
                                 {
-                                    this.MensajeOk("Se Anuló Correctamente el Ingreso");
-                                }
-                                else
-                                {
-                                    this.MensajeError(Rpta);
+                                    Codigo = Convert.ToString(row.Cells[1].Value);
+                                    Rpta = Ningreso.Anular(Convert.ToInt32(Codigo));
+
+                                    if (Rpta.Equals("OK"))
+                                    {
+                                        this.MensajeOk("Se Anuló Correctamente el Ingreso");
+                                    }
+                                    else
+                                    {
+                                        this.MensajeError(Rpta);
+                                    }
                                 }
                             }
+                            this.Mostrar();
+                            this.Chkanular.Checked = false;
                         }
-                        this.Mostrar();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message + ex.StackTrace);
                     }
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show(ex.Message + ex.StackTrace);
+                    Erroricono.SetError(Datagridingresodetalle, "Debe Seleccionar un Ingreso a Anular");
+                    MensajeError("Seleccione el ingreso a Anular");
                 }
+              
+            }
+            else
+            {
+                MensajeError("Debe Selecionar La casilla de anular primero");
+                Erroricono.SetError(Chkanular,"Debe checar para poder Anular");
             }
         }
 

@@ -30,15 +30,14 @@ namespace Capadatos.SQLserver
 
         }
 
-        public DDetalle_venta(int iddetalle_venta, int idventa, int iddetalle_ingreso,
-           int cantidad, decimal precio_venta, decimal descuento)
+        public DDetalle_venta(detalleventa Dv)
         {
-            this.Iddetalle_venta = iddetalle_venta;
-            this.Idventa = idventa;
-            this.Iddetalle_ingreso = iddetalle_ingreso;
-            this.Cantidad = cantidad;
-            this.Precio_Venta = precio_venta;
-            this.Descuento = descuento;
+            this.Iddetalle_venta = Dv.iddetalle_venta;
+            this.Idventa = Dv.idventa;
+            this.Iddetalle_ingreso = Dv.iddetalle_ingreso;
+            this.Cantidad = Dv.cantidad;
+            this.Precio_Venta = Dv.precio_venta;
+            this.Descuento = Dv.descuento;
         }
 
 

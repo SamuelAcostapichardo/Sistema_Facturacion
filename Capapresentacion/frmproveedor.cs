@@ -141,41 +141,60 @@ namespace Capapresentacion
 
         private void btneliminar_Click(object sender, EventArgs e)
         {
-            try
+            int Indice = 0;
+            if (chkeliminar.Checked)
             {
-                DialogResult opcion;
-                opcion = MessageBox.Show(" Realmente desea eliminar los registros", "Sistema de ventas", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                if (opcion == DialogResult.OK)
+                if (Convert.ToBoolean(datagridproveedor.Rows[Indice].Cells[0].Value)!=false)
                 {
-                    string codigo;
-                    string respuesta = "";
-
-                    foreach (DataGridViewRow row in datagridproveedor.Rows)
+                    try
                     {
-                        if (Convert.ToBoolean(row.Cells[0].Value))
+                        DialogResult opcion;
+                        opcion = MessageBox.Show(" Realmente desea eliminar los registros", "Sistema de ventas", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                        if (opcion == DialogResult.OK)
                         {
-                            codigo = Convert.ToString(row.Cells[1].Value);
-                            respuesta = Nproveedor.Eliminar(Convert.ToInt32(codigo));
+                            string codigo;
+                            string respuesta = "";
 
-                            if (respuesta.Equals("OK"))
+                            foreach (DataGridViewRow row in datagridproveedor.Rows)
                             {
-                                this.MensajeOk(" Se elimino de forma correcta el registro");
+                                if (Convert.ToBoolean(row.Cells[0].Value))
+                                {
+                                    codigo = Convert.ToString(row.Cells[1].Value);
+                                    respuesta = Nproveedor.Eliminar(Convert.ToInt32(codigo));
+
+                                    if (respuesta.Equals("OK"))
+                                    {
+                                        this.MensajeOk(" Se elimino de forma correcta el registro");
+                                    }
+                                    else
+                                    {
+                                        this.MensajeError(respuesta);
+                                    }
+                                }
                             }
-                            else
-                            {
-                                this.MensajeError(respuesta);
-                            }
+
+                            this.Mostrar();
+                            this.chkeliminar.Checked = false;
                         }
                     }
+                    catch (Exception ex)
+                    {
 
-                    this.Mostrar();
+                        MessageBox.Show(ex.Message + ex.StackTrace);
+                    }
+                }
+                else
+                {
+                    MensajeError("Debe Seleccionar un Proveedor");
+                    erroricono.SetError(datagridproveedor,"Seleccione un Proveedor");
                 }
             }
-            catch (Exception ex)
+            else
             {
-
-                MessageBox.Show(ex.Message + ex.StackTrace);
+                MensajeError("Debe Seleccionar la Casilla");
+                erroricono.SetError(chkeliminar, "Seleccione la Casilla");
             }
+            
         }
 
         private void chkeliminar_CheckedChanged(object sender, EventArgs e)

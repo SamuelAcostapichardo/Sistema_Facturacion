@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
-
+using Capadatos.SQLserver;
 
 namespace Capadatos
 {
@@ -28,20 +28,20 @@ namespace Capadatos
 
         }
 
+        
 
-        public Dcategoria(int idcategoria, string nombre, string descripcion, string texto)
+        public Dcategoria(Categorias Cat)
         {
-            this.Idcategoria = idcategoria;
-            this.Nombre = nombre;
-            this.Descripcion = descripcion;
-            this.Texto = texto;
+            this.Idcategoria = Cat.idcategoria;
+            this.Nombre = Cat.nombre;
+            this.Descripcion = Cat.descripcion;
+            this.Texto = Cat.textobuscar;
         }
 
 
         public string Insertar(Dcategoria categoria)
         {
             string respuesta = "";
-
             using (var Sqlcon = Getconection())
             {
                 try
@@ -199,7 +199,6 @@ namespace Capadatos
 
         public DataTable Mostrar()
         {
-
             using (var Sqlcon = Getconection())
             {               
                     Sqlcon.Open();
@@ -229,7 +228,6 @@ namespace Capadatos
 
         public DataTable Buscarnombre (Dcategoria categoria)
         {
-
             using (var Sqlcon = Getconection())
             {
                 Sqlcon.Open();
@@ -256,15 +254,11 @@ namespace Capadatos
                             {
                                 sqldata.Fill(Datatable);
                             }
-
                         }
                     }
                     catch (Exception)
                     {
-
-
                     }
-
                     return Datatable;
                 }
 

@@ -16,6 +16,7 @@ namespace Capapresentacion
         public Frmvistaarticuloventa()
         {
             InitializeComponent();
+            Mostrararticulo();
         }
 
         private void OcultarColumnas()
@@ -69,5 +70,11 @@ namespace Capapresentacion
             Form.setArticulo(par1,par2,par3,par4,par5,par6);
             this.Hide();
         }
+
+        public void Mostrararticulo()
+        {
+            Datagridcliente.DataSource = Narticulo.Mostrar();
+        }
+
     }
 }

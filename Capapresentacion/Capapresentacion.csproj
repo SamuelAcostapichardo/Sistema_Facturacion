@@ -151,10 +151,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource1.resx</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Recuperaciondecontraseña.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recuperaciondecontraseña.Designer.cs">
+      <DependentUpon>Recuperaciondecontraseña.cs</DependentUpon>
     </Compile>
     <Compile Include="Reportes\Frmreportefactura.cs">
       <SubType>Form</SubType>
@@ -223,6 +234,13 @@
     <EmbeddedResource Include="Properties\Resource1.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recuperaciondecontraseña.resx">
+      <DependentUpon>Recuperaciondecontraseña.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Frmreportefactura.resx">
       <DependentUpon>Frmreportefactura.cs</DependentUpon>

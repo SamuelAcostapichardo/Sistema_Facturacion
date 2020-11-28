@@ -115,14 +115,14 @@ namespace Capapresentacion
         private void Frmprimcipal_Load(object sender, EventArgs e)
         {
             Nusuario usu = new Nusuario();
-
+            Keyserial.Text = Datoscahe.Keyserial;
+            this.Lblactivo.Text = Computadora.Estatus_compu;
+            
             List<ToolStripMenuItem> MyItems = ObtenerOPciones(this.Mnustrip);
             foreach (var item in MyItems)
             {
-
                 //item.Enabled = false;
                 item.Enabled = usu.Validaropcion(Datoscahe.Idrol, item.Name);
-
             }
         }
 
@@ -193,21 +193,7 @@ namespace Capapresentacion
 
         }
 
-        //private static void obteneritemtol(ToolStripMenuItem item, List<ToolStripMenuItem> items)
-        //{
-
-        //    items.Add(item);
-        //    foreach (ToolStripMenuItem E in item.DropDownItems)
-        //    {
-
-        //        if (E is ToolStripMenuItem)
-        //        {
-        //            obteneritemtol((ToolStripMenuItem)E, items);
-        //        }
-
-        //    }
-        //}
-
+       
         private static void Obteneritem(ToolStripMenuItem item, List<ToolStripMenuItem> items)
         {
             items.Add(item);
@@ -234,6 +220,16 @@ namespace Capapresentacion
             Frmventa Form = Frmventa.Getinstancia();
             Form.MdiParent = this;
             Form.Show();
+
+        }
+
+        private void mnusalir_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void toolStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
 
         }
     }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using Capadatos.SQLserver;
 
 namespace Capadatos
 {
@@ -52,23 +53,20 @@ namespace Capadatos
         {
 
         }
-
-
-        public Dcliente(int idcliente, string nombre, string apellidos, string sexo,
-           DateTime fecha_nacimiento, string tipo_documento, string num_documento, string direccion,
-           string telefono, string email, string textobuscar)
+        
+        public Dcliente(Clientes C)
         {
-            this.Idcliente = idcliente;
-            this.Nombre = nombre;
-            this.Apellidos = apellidos;
-            this.Sexo = sexo;
-            this.Fecha_Nacimiento = fecha_nacimiento;
-            this.Tipo_Documento = tipo_documento;
-            this.Num_Documento = num_documento;
-            this.Direccion = direccion;
-            this.Telefono = telefono;
-            this.Email = email;
-            this.TextoBuscar = textobuscar;
+            this.Idcliente = C.idcliente;
+            this.Nombre = C.nombre;
+            this.Apellidos = C.apellidos;
+            this.Sexo = C.sexo;
+            this.Fecha_Nacimiento = C.fecha_nacimiento;
+            this.Tipo_Documento = C.tipo_documento;
+            this.Num_Documento = C.num_documento;
+            this.Direccion = C.direccion;
+            this.Telefono = C.telefono;
+            this.Email = C.email;
+            this.TextoBuscar = C.textobuscar;
 
         }
 
@@ -82,7 +80,7 @@ namespace Capadatos
                 SqlCon.Open();
                 try
                 {
-                    using (var SqlCmd = new SqlCommand())
+                    using (var SqlCmd = GetSqlCommand())
                     {
                         SqlCmd.Connection = SqlCon;
                         SqlCmd.CommandText = "spinsertar_cliente";
@@ -193,8 +191,6 @@ namespace Capadatos
                 return Respuesta;
             }
         }
-
-
 
         public string Editar(Dcliente Cliente)
         {
@@ -390,8 +386,6 @@ namespace Capadatos
                             sqlcmd.Connection = Sqlcon;
                             sqlcmd.CommandText = "spbuscar_cliente_apellidos";
                             sqlcmd.CommandType = CommandType.StoredProcedure;
-
-
                             SqlParameter ParTextoBuscar = new SqlParameter
                             {
                                 ParameterName = "@texto",
@@ -405,17 +399,13 @@ namespace Capadatos
                             {
                                 sqldata.Fill(Datatable);
                             }
-
                         }
                     }
                     catch (Exception)
                     {
-
-
                     }
                     return Datatable;
                 }
-
             }
         }
 
