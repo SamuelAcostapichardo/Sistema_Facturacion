@@ -7,6 +7,8 @@ using System.Windows.Forms;
 using System.IO;
 using System.Text;
 using System.Security.Cryptography;
+using System.Configuration;
+using System.Linq;
 
 namespace Capadatos
 {
@@ -26,6 +28,7 @@ namespace Capadatos
         private string _Email;
         private string _Usuario;
         private string _Password;
+        private byte[] _Salpassword;
         private string _TextoBuscar;
         private int _Codigousuario;
         private int _Codigorol;
@@ -48,6 +51,7 @@ namespace Capadatos
         public int Codigousuario { get => _Codigousuario; set => _Codigousuario = value; }
         public int Codigorol { get => _Codigorol; set => _Codigorol = value; }
         public string Estatususu { get => _Estatususu; set => _Estatususu = value; }
+        public byte[] Salpassword { get => _Salpassword; set => _Salpassword = value; }
 
         public Dusuario()
         {
@@ -68,8 +72,22 @@ namespace Capadatos
             this.Usuario = usuarios.usuario;
             this.Password = usuarios.password;
             this.TextoBuscar = usuarios.textobuscar;
+            this.Salpassword = usuarios.Salpassword;
         }
 
+        public static byte[] GetSalt()
+        {
+            var P = new RNGCryptoServiceProvider();
+            var Salt = new byte[16];
+            P.GetBytes(Salt);
+            return Salt;
+        }
+
+        public static byte[] GetsecureHash(string Password, byte[] Salt)
+        {
+            Rfc2898DeriveBytes PBK = new Rfc2898DeriveBytes(Password, Salt);
+            return PBK.GetBytes(64);
+        }
 
         public string Insertar(Dusuario Usuario)
         {
@@ -174,18 +192,26 @@ namespace Capadatos
                             Value = Usuario.Usuario
                         };
                         SqlCmd.Parameters.Add(ParUsuario);
-                        string Epass = Encrypt(Usuario.Password);
+
                         SqlParameter ParPassword = new SqlParameter
                         {
-                            
-                            ParameterName ="@claveusu",
-                            SqlDbType = SqlDbType.VarChar,
-                            Size = 300,
-                            Value = Epass
+
+                            ParameterName = "@claveusu",
+                            SqlDbType = SqlDbType.VarBinary,
+                            Size = 5000,
+                            Value = GetsecureHash(Usuario.Password,GetSalt())
                         };
                         SqlCmd.Parameters.Add(ParPassword);
 
+                        SqlParameter Saltpassword = new SqlParameter
+                        {
 
+                            ParameterName = "@Saltpassword",
+                            SqlDbType = SqlDbType.Binary,
+                            Size = 50,
+                            Value = Usuario.Salpassword
+                        };
+                        SqlCmd.Parameters.Add(Saltpassword);
 
                         Respuesta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "No se inserto el Registro";
                     }
@@ -520,6 +546,41 @@ namespace Capadatos
             }
         }
 
+
+        private bool Isvalidpassword(string usuario,string Password)
+        {
+            Loguin0(usuario);
+            bool isvalid = false;
+            if (!string.IsNullOrEmpty(Datoscahe.Nombre))
+            {
+              byte[] Hash = HashPasswordWithSalt(Encoding.UTF8.GetBytes(Password),Datoscahe.Saltresult);
+
+                if (Hash.SequenceEqual(Datoscahe.Passwordresult))
+                    isvalid = true;
+            }
+            return isvalid;
+        }
+
+        public static byte[] HashPasswordWithSalt(byte[] toBeHashed, byte[] salt)
+        {
+            using (var sha256 = SHA256.Create())
+            {
+                var combinedHash = Combine(toBeHashed, salt);
+
+                return sha256.ComputeHash(combinedHash);
+            }
+        }
+
+        private static byte[] Combine(byte[] first, byte[] second)
+        {
+            var ret = new byte[first.Length + second.Length];
+
+            Buffer.BlockCopy(first, 0, ret, 0, first.Length);
+            Buffer.BlockCopy(second, 0, ret, first.Length, second.Length);
+
+            return ret;
+        }
+
         public bool Login(string Nombre,string Contrasena)
         {
             using (var conection = Getconection())
@@ -527,24 +588,26 @@ namespace Capadatos
                 conection.Open();
                 using (var command = GetSqlCommand())
                 {
-                    string Epass = Encrypt(Contrasena);
+                    Loguin0(Nombre);
+                    byte[] Epass = GetsecureHash(Contrasena, Datoscahe.Saltresult);
                     command.Connection = conection;
-                    command.CommandText = "sploguin";
+                    command.CommandText = "splogueo";
                     command.Parameters.AddWithValue("@usuario", Nombre);
-                    command.Parameters.AddWithValue("@claveusu",Epass);
+                    command.Parameters.AddWithValue("@claveusu", Epass);
                     command.CommandType = CommandType.StoredProcedure;
                     SqlDataReader reader = command.ExecuteReader();
                     if (reader.HasRows)
                     {
                         while (reader.Read())
                         {
-                            
+
                             Datoscahe.Idusuario = reader.GetInt32(0);
                             Datoscahe.Nombre = reader.GetString(1);
-                           // Datoscahe.Keyserial = GetMachingGuid();
 
-                             Obtenerrol();
-                            Estatusop();                          
+
+
+                            Obtenerrol();
+                            Estatusop();
                         }
                         return true;
                     }
@@ -554,13 +617,46 @@ namespace Capadatos
             }
         }
 
-        public static byte[] GetSalt()
+        public void Loguin0(string usuario)
         {
-            var P = new RNGCryptoServiceProvider();
-            var Salt = new byte[16];
-            P.GetBytes(Salt);
-            return Salt;
+            using (var conection = Getconection())
+            {
+                conection.Open();
+                using (var command = GetSqlCommand())
+                {
+                    command.Connection = conection;
+                    command.CommandType = CommandType.Text;
+                    command.CommandText = ("select usuario,claveusu,Saltpassword from Usuario where usuario =@usuario");
+                    command.Parameters.Add("@usuario", SqlDbType.VarChar, 20).Value = usuario;
+                    using (SqlDataReader Reader = command.ExecuteReader())
+                    {
+                        if (Reader.HasRows)
+                        {
+                            while (Reader.Read())
+                            {
+                                Datoscahe.Saltresult = (byte[])Reader["Saltpassword"];
+                                Datoscahe.Passwordresult = (byte[])Reader["claveusu"];
+                                Datoscahe.Nombre = Reader["claveusu"].ToString();
+                            }                              
+                        }
+                    }
+                }
+            }
         }
+
+        private bool IsvalidPasswor(string usuario, string contrasena)
+        {
+            bool isvalid = false;
+            Loguin0(usuario);
+            if (!string.IsNullOrEmpty(usuario))
+            {
+                byte[] Hash = GetsecureHash(contrasena, Datoscahe.Saltresult);
+                if (Hash == Datoscahe.Passwordresult)               
+                    isvalid = true;
+            }
+            return isvalid;                  
+        }
+
 
         public static byte[] Contrasena(string Password,byte[] Salt)
         {

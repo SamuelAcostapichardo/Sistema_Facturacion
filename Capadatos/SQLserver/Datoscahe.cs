@@ -26,6 +26,8 @@ namespace Capadatos.SQLserver
         public static string Keyserial { get; set; }
         public static string Estatus_compu { get; set; }
         public static string Nombre_compu { get; set; }
+        public static byte[] Saltresult { get; set; }
+        public static byte[] Passwordresult { get; set; }
 
     }
 
@@ -160,6 +162,7 @@ namespace Capadatos.SQLserver
         public  string usuario { get; set; }
         public  string password { get; set; }
         public  string textobuscar { get; set; }
+        public  byte[] Salpassword { get; set; }
     }
 
     public static class Computadora

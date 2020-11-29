@@ -17,7 +17,7 @@ namespace Capanegocio
         public static string Insertar(string nombre, string apellidos, string sexo,
          DateTime fecha_nacimiento, string num_documento,
          string direccion, string telefono, string email,
-         string usuario, string password)
+         string usuario, string password, byte[] Saltpassword)
         {
             Dusuario Obj = new Dusuario
             {
@@ -30,7 +30,8 @@ namespace Capanegocio
                 Telefono = telefono,
                 Email = email,
                 Usuario = usuario,
-                Password = password
+                Password = password,
+                Salpassword = Saltpassword
             };
             return Obj.Insertar(Obj);
         }

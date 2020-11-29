@@ -96,6 +96,8 @@ namespace Capapresentacion
         {
             this.datagridusuario.Columns[0].Visible = false;
             this.datagridusuario.Columns[1].Visible = false;
+            datagridusuario.Columns[11].Visible = false;
+            datagridusuario.Columns[12].Visible = false;
         }
         private void Mostrar()
         {
@@ -214,6 +216,21 @@ namespace Capapresentacion
             return sb.ToString();
         }
 
+
+        public static byte[] GetSalt()
+        {
+            var P = new RNGCryptoServiceProvider();
+            var Salt = new byte[16];
+            P.GetBytes(Salt);
+            return Salt;
+        }
+
+        public static byte[] GetsecureHash(string Password,byte[] Salt)
+        {
+            Rfc2898DeriveBytes PBK = new Rfc2898DeriveBytes(Password,Salt);
+            return PBK.GetBytes(64);
+        }
+
         private void Btnguardar_Click(object sender, EventArgs e)
         {
             try
@@ -221,7 +238,8 @@ namespace Capapresentacion
                 //La variable que almacena si se inserto 
                 //o se modifico la tabla
                 string Rpta = "";
-                if (this.txtnombreusuario.Text == string.Empty || this.txtapellidosusuario.Text == string.Empty || txtnumdocumento.Text == string.Empty || txtnombredeusuario.Text == string.Empty || txtcontrasena.Text == string.Empty)
+                if (this.txtnombreusuario.Text == string.Empty || this.txtapellidosusuario.Text == string.Empty ||
+                    txtnumdocumento.Text == string.Empty || txtnombredeusuario.Text == string.Empty || txtcontrasena.Text == string.Empty)
                 {
                     MensajeError("Falta ingresar algunos datos, serán remarcados");
                     erroricono.SetError(txtnombreusuario, "Ingrese un nombre");
@@ -234,12 +252,13 @@ namespace Capapresentacion
                 {
                     if (this.IsNuevo)
                     {
+                        string Pass = txtcontrasena.Text;
                         //Vamos a Insertar un Trabajador 
                         Rpta = Nusuario.Insertar(this.txtnombreusuario.Text.Trim().ToUpper(),
                         this.txtapellidosusuario.Text.Trim().ToUpper(), cmbsexo.Text,
                         dtfechanacimiento.Value,
                         txtnumdocumento.Text, txtdireccion.Text,
-                        txttelefono.Text, txtemailusuario.Text, txtnombredeusuario.Text,Encrypt(txtcontrasena.Text.Trim()));
+                        txttelefono.Text, txtemailusuario.Text, txtnombredeusuario.Text,txtcontrasena.Text,GetSalt());
                         
                     }
                     else
@@ -334,6 +353,7 @@ namespace Capapresentacion
             this.txtemailusuario.Text = Convert.ToString(this.datagridusuario.CurrentRow.Cells["Email"].Value);
             this.txtnombredeusuario.Text = Convert.ToString(this.datagridusuario.CurrentRow.Cells["Usuario"].Value);
             this.txtcontrasena.Text = Convert.ToString(this.datagridusuario.CurrentRow.Cells["claveusu"].Value);
+
 
 
             this.tabControl1.SelectedIndex = 1;
