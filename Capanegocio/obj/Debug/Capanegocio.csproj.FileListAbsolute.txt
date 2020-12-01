@@ -7,3 +7,6 @@ C:\Users\sam82\source\repos\sinnombre\Capanegocio\obj\Debug\Capanegocio.csproj.C
 C:\Users\sam82\source\repos\sinnombre\Capanegocio\obj\Debug\Capanegocio.csproj.CopyComplete
 C:\Users\sam82\source\repos\sinnombre\Capanegocio\obj\Debug\Capanegocio.dll
 C:\Users\sam82\source\repos\sinnombre\Capanegocio\obj\Debug\Capanegocio.pdb
+C:\Users\sam82\source\repos\sinnombre\Capanegocio\bin\Debug\BCrypt.Net.dll
+C:\Users\sam82\source\repos\sinnombre\Capanegocio\bin\Debug\Capadatos.dll.config
+C:\Users\sam82\source\repos\sinnombre\Capanegocio\bin\Debug\BCrypt.Net.xml

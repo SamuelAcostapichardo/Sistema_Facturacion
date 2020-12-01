@@ -96,8 +96,8 @@ namespace Capapresentacion
         {
             this.datagridusuario.Columns[0].Visible = false;
             this.datagridusuario.Columns[1].Visible = false;
-            datagridusuario.Columns[11].Visible = false;
-            datagridusuario.Columns[12].Visible = false;
+          //  datagridusuario.Columns[11].Visible = false;
+           // datagridusuario.Columns[12].Visible = false;
         }
         private void Mostrar()
         {
@@ -256,9 +256,8 @@ namespace Capapresentacion
                         //Vamos a Insertar un Trabajador 
                         Rpta = Nusuario.Insertar(this.txtnombreusuario.Text.Trim().ToUpper(),
                         this.txtapellidosusuario.Text.Trim().ToUpper(), cmbsexo.Text,
-                        dtfechanacimiento.Value,
-                        txtnumdocumento.Text, txtdireccion.Text,
-                        txttelefono.Text, txtemailusuario.Text, txtnombredeusuario.Text,txtcontrasena.Text,GetSalt());
+                        dtfechanacimiento.Value,Txttipodoc.Text,txtnumdocumento.Text, txtdireccion.Text,Txtnacionalidad.Text,
+                        txttelefono.Text, txtemailusuario.Text, txtnombredeusuario.Text,txtcontrasena.Text);
                         
                     }
                     else
@@ -268,7 +267,7 @@ namespace Capapresentacion
                         this.txtapellidosusuario.Text.Trim().ToUpper(), cmbsexo.Text,
                         dtfechanacimiento.Value,
                         txtnumdocumento.Text, txtdireccion.Text,
-                        txttelefono.Text, txtemailusuario.Text, txtnombredeusuario.Text, txtcontrasena.Text.Trim());
+                        txttelefono.Text, txtemailusuario.Text, txtnombredeusuario.Text, txtcontrasena.Text);
                     }
                     //Si la respuesta fue OK, fue porque se modifico 
                     //o inserto el Cliente

@@ -55,3 +55,10 @@ C:\Users\sam82\source\repos\sinnombre\sinnombre\obj\Debug\sinnombre.csproj.CoreC
 C:\Users\sam82\source\repos\sinnombre\sinnombre\obj\Debug\sinnombre.csproj.CopyComplete
 C:\Users\sam82\source\repos\sinnombre\sinnombre\obj\Debug\sinnombre.exe
 C:\Users\sam82\source\repos\sinnombre\sinnombre\obj\Debug\sinnombre.pdb
+C:\Users\sam82\source\repos\sinnombre\sinnombre\bin\Debug\BCrypt.Net.dll
+C:\Users\sam82\source\repos\sinnombre\sinnombre\bin\Debug\Capadatos.dll.config
+C:\Users\sam82\source\repos\sinnombre\sinnombre\bin\Debug\BCrypt.Net.xml
+C:\Users\sam82\source\repos\sinnombre\sinnombre\bin\Debug\EntityFramework.xml
+C:\Users\sam82\source\repos\sinnombre\sinnombre\bin\Debug\EntityFramework.dll
+C:\Users\sam82\source\repos\sinnombre\sinnombre\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\sam82\source\repos\sinnombre\sinnombre\bin\Debug\EntityFramework.SqlServer.xml

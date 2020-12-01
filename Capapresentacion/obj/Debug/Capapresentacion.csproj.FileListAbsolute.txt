@@ -112,3 +112,10 @@ C:\Users\sam82\source\repos\sinnombre\Capapresentacion\obj\Debug\Capapresentacio
 C:\Users\sam82\source\repos\sinnombre\Capapresentacion\obj\Debug\Capapresentacion.csproj.CopyComplete
 C:\Users\sam82\source\repos\sinnombre\Capapresentacion\obj\Debug\Capapresentacion.dll
 C:\Users\sam82\source\repos\sinnombre\Capapresentacion\obj\Debug\Capapresentacion.pdb
+C:\Users\sam82\source\repos\sinnombre\Capapresentacion\bin\Debug\BCrypt.Net.dll
+C:\Users\sam82\source\repos\sinnombre\Capapresentacion\bin\Debug\EntityFramework.dll
+C:\Users\sam82\source\repos\sinnombre\Capapresentacion\bin\Debug\Capadatos.dll.config
+C:\Users\sam82\source\repos\sinnombre\Capapresentacion\bin\Debug\BCrypt.Net.xml
+C:\Users\sam82\source\repos\sinnombre\Capapresentacion\bin\Debug\EntityFramework.xml
+C:\Users\sam82\source\repos\sinnombre\Capapresentacion\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\sam82\source\repos\sinnombre\Capapresentacion\bin\Debug\EntityFramework.SqlServer.xml

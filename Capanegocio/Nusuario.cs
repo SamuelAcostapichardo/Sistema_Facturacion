@@ -15,9 +15,9 @@ namespace Capanegocio
    public class Nusuario: Conexion
     {
         public static string Insertar(string nombre, string apellidos, string sexo,
-         DateTime fecha_nacimiento, string num_documento,
-         string direccion, string telefono, string email,
-         string usuario, string password, byte[] Saltpassword)
+         DateTime fecha_nacimiento,string tipodoc, string num_documento,
+         string direccion,string nacionalidad, string telefono, string email,
+         string usuario, string password)
         {
             Dusuario Obj = new Dusuario
             {
@@ -25,13 +25,14 @@ namespace Capanegocio
                 Apellidos = apellidos,
                 Sexo = sexo,
                 Fecha_Nacimiento = fecha_nacimiento,
+                Tipodoc = tipodoc,
                 Num_Documento = num_documento,
                 Direccion = direccion,
+                Nacionalidad=nacionalidad,
                 Telefono = telefono,
                 Email = email,
                 Usuario = usuario,
-                Password = password,
-                Salpassword = Saltpassword
+                Password = password  
             };
             return Obj.Insertar(Obj);
         }
@@ -120,6 +121,13 @@ namespace Capanegocio
             Dusuario Form = new Dusuario();
             return Form.Login(usuario,password);
         }
+
+        //public Usuario Loguin(string User, string Password)
+        //{
+        //    Dusuario D = new Dusuario();
+        //    return D.loguin(User,Password);
+        //}
+
 
         public bool Login2() 
         {

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Facturacion_CedanoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="idusuario" />
+    </Key>
+    <Property Name="idusuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Apellidos" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="sexo" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="fecha_nac" Type="DateTime" Precision="0" />
+    <Property Name="Tipo_doc" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="num_doc" Type="String" MaxLength="13" FixedLength="true" Unicode="true" />
+    <Property Name="Direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Nacionalidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Telefono" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="usuario1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="claveusu" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="Facturacion_CedanoEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Usuarios" EntityType="Self.Usuario" />
+  </EntityContainer>
+</Schema>

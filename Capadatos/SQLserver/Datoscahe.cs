@@ -162,7 +162,8 @@ namespace Capadatos.SQLserver
         public  string usuario { get; set; }
         public  string password { get; set; }
         public  string textobuscar { get; set; }
-        public  byte[] Salpassword { get; set; }
+        public  string tipodoc { get; set; } 
+        public  string nacionalidad { get; set; }
     }
 
     public static class Computadora
