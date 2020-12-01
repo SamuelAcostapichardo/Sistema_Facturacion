@@ -101,26 +101,34 @@ namespace sinnombre
 
         private void Btnlogin_Click(object sender, EventArgs e)
         {
-            if (txtusuario.Text != "USUARIO" & txtpassword.TextLength >2 & txtpassword.Text != "PASSWORD")
+            Nusuario N = new Nusuario();
+            var Log = N.Login2();
+            if (Log == true)  
             {
-                var usuario = loguin(txtusuario.Text, txtpassword.Text);
-                if (usuario != null)
+                if (txtusuario.Text != "USUARIO" & txtpassword.TextLength > 2 & txtpassword.Text != "PASSWORD")
                 {
-                    Frmprimcipal D = new Frmprimcipal();
-                    D.Show();
-                    D.FormClosed += Cerrarsesion;
-                    this.Hide();
-                }
-                else
-                {
-                    Msgerror("Usuario o contraseña incorrectos.\n por favor intente de nuevo");
-                    txtpassword.Clear();
-                    txtpassword.Text = "PASSWORD"; 
-                    txtusuario.Clear();
-                    txtusuario.Focus();
+                    var usuario = loguin(txtusuario.Text, txtpassword.Text);
+                    if (usuario != null)
+                    {
+                        Frmprimcipal D = new Frmprimcipal();
+                        D.Show();
+                        D.FormClosed += Cerrarsesion;
+                        this.Hide();
+                    }
+                    else
+                    {
+                        Msgerror("Usuario o contraseña incorrectos.\n por favor intente de nuevo");
+                        txtpassword.Clear();
+                        txtpassword.Text = "PASSWORD";
+                        txtusuario.Clear();
+                        txtusuario.Focus();
+                    }
                 }
             }
-            
+            else
+            {
+                Msgerror("Terminal no esta registrada en el sistema");
+            }
         }
 
 

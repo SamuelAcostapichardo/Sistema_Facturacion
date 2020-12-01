@@ -771,7 +771,7 @@ namespace Capadatos
                 using (var command = GetSqlCommand())
                 {
                     command.Connection = conection;
-                    command.CommandText = "select * from Computadora_id where Identificador =@identificador and Estatus = @Estatus";
+                    command.CommandText = "select * from Terminales where Identificador =@Identificador and Estatus = @Estatus";
                     command.Parameters.AddWithValue("@identificador",GetMachingGuid());
                     command.Parameters.AddWithValue("@Estatus","Activa");
                     command.CommandType = CommandType.Text;
