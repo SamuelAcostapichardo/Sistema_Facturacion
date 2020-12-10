@@ -64,6 +64,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.erroricono = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.Txtnacionalidad = new System.Windows.Forms.TextBox();
+            this.Txttipodoc = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.Estatus_Usuario = new System.Windows.Forms.RadioButton();
             this.Btnguardarrol = new System.Windows.Forms.Button();
@@ -78,10 +82,7 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.Txttipodoc = new System.Windows.Forms.TextBox();
-            this.Txtnacionalidad = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.datagridusuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erroricono)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -437,6 +438,38 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Usuarios";
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(440, 28);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(87, 13);
+            this.label15.TabIndex = 45;
+            this.label15.Text = "Tipo documento:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(449, 69);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(72, 13);
+            this.label14.TabIndex = 44;
+            this.label14.Text = "Nacionalidad:";
+            // 
+            // Txtnacionalidad
+            // 
+            this.Txtnacionalidad.Location = new System.Drawing.Point(533, 67);
+            this.Txtnacionalidad.Name = "Txtnacionalidad";
+            this.Txtnacionalidad.Size = new System.Drawing.Size(179, 20);
+            this.Txtnacionalidad.TabIndex = 43;
+            // 
+            // Txttipodoc
+            // 
+            this.Txttipodoc.Location = new System.Drawing.Point(533, 25);
+            this.Txttipodoc.Name = "Txttipodoc";
+            this.Txttipodoc.Size = new System.Drawing.Size(179, 20);
+            this.Txttipodoc.TabIndex = 42;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.Estatus_Usuario);
@@ -564,6 +597,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label16);
             this.tabPage1.Controls.Add(this.Cmbbuscar);
             this.tabPage1.Controls.Add(this.datagridusuario);
             this.tabPage1.Controls.Add(this.lblTotal);
@@ -580,37 +614,14 @@
             this.tabPage1.Text = "Listado";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // Txttipodoc
+            // label16
             // 
-            this.Txttipodoc.Location = new System.Drawing.Point(533, 25);
-            this.Txttipodoc.Name = "Txttipodoc";
-            this.Txttipodoc.Size = new System.Drawing.Size(179, 20);
-            this.Txttipodoc.TabIndex = 42;
-            // 
-            // Txtnacionalidad
-            // 
-            this.Txtnacionalidad.Location = new System.Drawing.Point(533, 67);
-            this.Txtnacionalidad.Name = "Txtnacionalidad";
-            this.Txtnacionalidad.Size = new System.Drawing.Size(179, 20);
-            this.Txtnacionalidad.TabIndex = 43;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(449, 69);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(72, 13);
-            this.label14.TabIndex = 44;
-            this.label14.Text = "Nacionalidad:";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(440, 28);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(87, 13);
-            this.label15.TabIndex = 45;
-            this.label15.Text = "Tipo documento:";
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(627, 24);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(53, 13);
+            this.label16.TabIndex = 9;
+            this.label16.Text = "Rigoberto";
             // 
             // frmusuario
             // 
@@ -692,5 +703,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox Txtnacionalidad;
         private System.Windows.Forms.TextBox Txttipodoc;
+        private System.Windows.Forms.Label label16;
     }
 }
