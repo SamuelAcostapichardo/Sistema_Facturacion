@@ -44,6 +44,7 @@
             this.Datetime2 = new System.Windows.Forms.DateTimePicker();
             this.Datetime1 = new System.Windows.Forms.DateTimePicker();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.Lbltotalpagado = new System.Windows.Forms.Label();
             this.Lbltotal_pagado = new System.Windows.Forms.Label();
             this.Btncancelar = new System.Windows.Forms.Button();
             this.Btnguardar = new System.Windows.Forms.Button();
@@ -84,7 +85,6 @@
             this.Txtidingreso = new System.Windows.Forms.TextBox();
             this.Ttmensaje = new System.Windows.Forms.ToolTip(this.components);
             this.Erroricono = new System.Windows.Forms.ErrorProvider(this.components);
-            this.Lbltotalpagado = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Datagridingresodetalle)).BeginInit();
@@ -98,10 +98,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(28, 21);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(17, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(193, 29);
+            this.label1.Size = new System.Drawing.Size(187, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Ingreso Almacen";
             // 
@@ -109,7 +109,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(13, 69);
+            this.tabControl1.Location = new System.Drawing.Point(13, 60);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(775, 423);
@@ -140,6 +140,7 @@
             this.Datagridingresodetalle.AllowUserToAddRows = false;
             this.Datagridingresodetalle.AllowUserToDeleteRows = false;
             this.Datagridingresodetalle.AllowUserToOrderColumns = true;
+            this.Datagridingresodetalle.BackgroundColor = System.Drawing.Color.LightSteelBlue;
             this.Datagridingresodetalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Datagridingresodetalle.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Eliminar});
@@ -257,6 +258,15 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Mantenimiento";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // Lbltotalpagado
+            // 
+            this.Lbltotalpagado.AutoSize = true;
+            this.Lbltotalpagado.Location = new System.Drawing.Point(101, 373);
+            this.Lbltotalpagado.Name = "Lbltotalpagado";
+            this.Lbltotalpagado.Size = new System.Drawing.Size(22, 13);
+            this.Lbltotalpagado.TabIndex = 16;
+            this.Lbltotalpagado.Text = "0.0";
             // 
             // Lbltotal_pagado
             // 
@@ -396,6 +406,7 @@
             // 
             // Datagridingreso
             // 
+            this.Datagridingreso.BackgroundColor = System.Drawing.Color.LightSteelBlue;
             this.Datagridingreso.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Datagridingreso.Location = new System.Drawing.Point(10, 217);
             this.Datagridingreso.Name = "Datagridingreso";
@@ -615,19 +626,11 @@
             // 
             this.Erroricono.ContainerControl = this;
             // 
-            // Lbltotalpagado
-            // 
-            this.Lbltotalpagado.AutoSize = true;
-            this.Lbltotalpagado.Location = new System.Drawing.Point(101, 373);
-            this.Lbltotalpagado.Name = "Lbltotalpagado";
-            this.Lbltotalpagado.Size = new System.Drawing.Size(22, 13);
-            this.Lbltotalpagado.TabIndex = 16;
-            this.Lbltotalpagado.Text = "0.0";
-            // 
             // Frmingreso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 490);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.label1);

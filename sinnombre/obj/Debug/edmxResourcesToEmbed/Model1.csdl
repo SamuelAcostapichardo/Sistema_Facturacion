@@ -9,16 +9,16 @@
     <Property Name="Apellidos" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="sexo" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
     <Property Name="fecha_nac" Type="DateTime" Precision="0" />
-    <Property Name="Tipo_doc" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="num_doc" Type="String" MaxLength="13" FixedLength="true" Unicode="true" />
-    <Property Name="Direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Nacionalidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Telefono" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
-    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="usuario1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="tipodoc" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="num_doc" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="nacionalidad" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="telefono" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Usuario1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="claveusu" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityContainer Name="Facturacion_CedanoEntities2" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Usuarios" EntityType="Self.Usuario" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" />
   </EntityContainer>
 </Schema>

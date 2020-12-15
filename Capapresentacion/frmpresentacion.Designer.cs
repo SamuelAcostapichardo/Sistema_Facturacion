@@ -99,6 +99,7 @@
             this.datagridcategoria.AllowUserToAddRows = false;
             this.datagridcategoria.AllowUserToDeleteRows = false;
             this.datagridcategoria.AllowUserToOrderColumns = true;
+            this.datagridcategoria.BackgroundColor = System.Drawing.Color.LightSteelBlue;
             this.datagridcategoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.datagridcategoria.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Eliminar});
@@ -127,11 +128,11 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "label";
             // 
-            // Chkeliminar
+            // chkeliminar
             // 
             this.chkeliminar.AutoSize = true;
             this.chkeliminar.Location = new System.Drawing.Point(18, 59);
-            this.chkeliminar.Name = "Chkeliminar";
+            this.chkeliminar.Name = "chkeliminar";
             this.chkeliminar.Size = new System.Drawing.Size(61, 17);
             this.chkeliminar.TabIndex = 5;
             this.chkeliminar.Text = "eliminar";
@@ -251,10 +252,10 @@
             this.txtdescripcion.Size = new System.Drawing.Size(244, 67);
             this.txtdescripcion.TabIndex = 3;
             // 
-            // Txtnombre
+            // txtnombre
             // 
             this.txtnombre.Location = new System.Drawing.Point(92, 70);
-            this.txtnombre.Name = "Txtnombre";
+            this.txtnombre.Name = "txtnombre";
             this.txtnombre.Size = new System.Drawing.Size(244, 20);
             this.txtnombre.TabIndex = 2;
             // 
@@ -313,11 +314,11 @@
             // 
             this.lblcategoria.AutoSize = true;
             this.lblcategoria.BackColor = System.Drawing.Color.White;
-            this.lblcategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblcategoria.ForeColor = System.Drawing.Color.Green;
+            this.lblcategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblcategoria.ForeColor = System.Drawing.Color.Black;
             this.lblcategoria.Location = new System.Drawing.Point(12, 11);
             this.lblcategoria.Name = "lblcategoria";
-            this.lblcategoria.Size = new System.Drawing.Size(154, 24);
+            this.lblcategoria.Size = new System.Drawing.Size(175, 25);
             this.lblcategoria.TabIndex = 2;
             this.lblcategoria.Text = "Presentaciones";
             // 

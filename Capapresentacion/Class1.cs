@@ -8,18 +8,5 @@ namespace Capapresentacion
 {
     public class Class1
     {
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }

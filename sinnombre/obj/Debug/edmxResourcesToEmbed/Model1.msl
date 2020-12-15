@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="Facturacion_CedanoModelStoreContainer" CdmEntityContainer="Facturacion_CedanoEntities2">
-    <EntitySetMapping Name="Usuarios">
+    <EntitySetMapping Name="Usuario">
       <EntityTypeMapping TypeName="Facturacion_CedanoModel.Usuario">
         <MappingFragment StoreEntitySet="Usuario">
           <ScalarProperty Name="idusuario" ColumnName="idusuario" />
@@ -9,13 +9,13 @@
           <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
           <ScalarProperty Name="sexo" ColumnName="sexo" />
           <ScalarProperty Name="fecha_nac" ColumnName="fecha_nac" />
-          <ScalarProperty Name="Tipo_doc" ColumnName="Tipo_doc" />
+          <ScalarProperty Name="tipodoc" ColumnName="tipodoc" />
           <ScalarProperty Name="num_doc" ColumnName="num_doc" />
-          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
-          <ScalarProperty Name="Nacionalidad" ColumnName="Nacionalidad" />
-          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="usuario1" ColumnName="usuario" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="nacionalidad" ColumnName="nacionalidad" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="Usuario1" ColumnName="Usuario" />
           <ScalarProperty Name="claveusu" ColumnName="claveusu" />
         </MappingFragment>
       </EntityTypeMapping>

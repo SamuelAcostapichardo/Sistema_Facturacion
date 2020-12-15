@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.datagridcategoria = new System.Windows.Forms.DataGridView();
@@ -53,6 +53,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.btlimpiar = new System.Windows.Forms.Button();
             this.btncargar = new System.Windows.Forms.Button();
+            this.picimagen = new System.Windows.Forms.PictureBox();
             this.txtcodigo = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.btnnuevo = new System.Windows.Forms.Button();
@@ -65,17 +66,16 @@
             this.txtnombre = new System.Windows.Forms.TextBox();
             this.txtidarticulo = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.lblcategoria = new System.Windows.Forms.Label();
             this.erroricono = new System.Windows.Forms.ErrorProvider(this.components);
             this.ttmensaje = new System.Windows.Forms.ToolTip(this.components);
-            this.picimagen = new System.Windows.Forms.PictureBox();
+            this.lblcategoria = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datagridcategoria)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.erroricono)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picimagen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erroricono)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -86,15 +86,15 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(800, 450);
+            this.tabControl1.Size = new System.Drawing.Size(800, 470);
             this.tabControl1.TabIndex = 5;
             // 
             // tabPage1
             // 
-            this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(91)))));
+            this.tabPage1.BackColor = System.Drawing.Color.White;
             this.tabPage1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tabPage1.Controls.Add(this.datagridcategoria);
             this.tabPage1.Controls.Add(this.lblcategoria);
+            this.tabPage1.Controls.Add(this.datagridcategoria);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.chkeliminar);
             this.tabPage1.Controls.Add(this.btnimprimir);
@@ -102,11 +102,11 @@
             this.tabPage1.Controls.Add(this.btnbuscar);
             this.tabPage1.Controls.Add(this.txtbuscar);
             this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.tabPage1.ForeColor = System.Drawing.Color.Black;
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(792, 424);
+            this.tabPage1.Size = new System.Drawing.Size(792, 444);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Listado";
             // 
@@ -115,42 +115,42 @@
             this.datagridcategoria.AllowUserToAddRows = false;
             this.datagridcategoria.AllowUserToDeleteRows = false;
             this.datagridcategoria.AllowUserToOrderColumns = true;
-            this.datagridcategoria.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(91)))));
+            this.datagridcategoria.BackgroundColor = System.Drawing.Color.LightSteelBlue;
             this.datagridcategoria.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.datagridcategoria.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.HotTrack;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.datagridcategoria.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.HotTrack;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datagridcategoria.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.datagridcategoria.ColumnHeadersHeight = 30;
             this.datagridcategoria.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Eliminar});
             this.datagridcategoria.EnableHeadersVisualStyles = false;
-            this.datagridcategoria.GridColor = System.Drawing.Color.SteelBlue;
-            this.datagridcategoria.Location = new System.Drawing.Point(18, 102);
+            this.datagridcategoria.GridColor = System.Drawing.Color.LightSteelBlue;
+            this.datagridcategoria.Location = new System.Drawing.Point(22, 134);
             this.datagridcategoria.MultiSelect = false;
             this.datagridcategoria.Name = "datagridcategoria";
             this.datagridcategoria.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.datagridcategoria.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            this.datagridcategoria.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.datagridcategoria.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White;
+            this.datagridcategoria.RowsDefaultCellStyle = dataGridViewCellStyle9;
             this.datagridcategoria.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.datagridcategoria.Size = new System.Drawing.Size(732, 255);
+            this.datagridcategoria.Size = new System.Drawing.Size(732, 277);
             this.datagridcategoria.TabIndex = 7;
             this.datagridcategoria.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagridcategoria_CellContentClick);
             this.datagridcategoria.DoubleClick += new System.EventHandler(this.datagridcategoria_DoubleClick);
@@ -164,7 +164,8 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(337, 50);
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(334, 51);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 13);
             this.label2.TabIndex = 6;
@@ -173,7 +174,8 @@
             // chkeliminar
             // 
             this.chkeliminar.AutoSize = true;
-            this.chkeliminar.Location = new System.Drawing.Point(18, 59);
+            this.chkeliminar.ForeColor = System.Drawing.Color.Black;
+            this.chkeliminar.Location = new System.Drawing.Point(28, 51);
             this.chkeliminar.Name = "chkeliminar";
             this.chkeliminar.Size = new System.Drawing.Size(61, 17);
             this.chkeliminar.TabIndex = 5;
@@ -183,7 +185,8 @@
             // 
             // btnimprimir
             // 
-            this.btnimprimir.Location = new System.Drawing.Point(412, 15);
+            this.btnimprimir.ForeColor = System.Drawing.Color.Black;
+            this.btnimprimir.Location = new System.Drawing.Point(422, 16);
             this.btnimprimir.Name = "btnimprimir";
             this.btnimprimir.Size = new System.Drawing.Size(75, 23);
             this.btnimprimir.TabIndex = 4;
@@ -192,7 +195,8 @@
             // 
             // btneliminar
             // 
-            this.btneliminar.Location = new System.Drawing.Point(306, 15);
+            this.btneliminar.ForeColor = System.Drawing.Color.Black;
+            this.btneliminar.Location = new System.Drawing.Point(316, 16);
             this.btneliminar.Name = "btneliminar";
             this.btneliminar.Size = new System.Drawing.Size(75, 23);
             this.btneliminar.TabIndex = 3;
@@ -202,7 +206,8 @@
             // 
             // btnbuscar
             // 
-            this.btnbuscar.Location = new System.Drawing.Point(195, 15);
+            this.btnbuscar.ForeColor = System.Drawing.Color.Black;
+            this.btnbuscar.Location = new System.Drawing.Point(205, 16);
             this.btnbuscar.Name = "btnbuscar";
             this.btnbuscar.Size = new System.Drawing.Size(75, 23);
             this.btnbuscar.TabIndex = 2;
@@ -212,7 +217,7 @@
             // 
             // txtbuscar
             // 
-            this.txtbuscar.Location = new System.Drawing.Point(67, 19);
+            this.txtbuscar.Location = new System.Drawing.Point(77, 20);
             this.txtbuscar.Name = "txtbuscar";
             this.txtbuscar.Size = new System.Drawing.Size(100, 20);
             this.txtbuscar.TabIndex = 1;
@@ -221,7 +226,8 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 26);
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(25, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 13);
             this.label1.TabIndex = 0;
@@ -233,7 +239,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(792, 424);
+            this.tabPage2.Size = new System.Drawing.Size(792, 444);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Mantenimiento";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -261,9 +267,9 @@
             this.groupBox1.Controls.Add(this.txtnombre);
             this.groupBox1.Controls.Add(this.txtidarticulo);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Location = new System.Drawing.Point(18, 21);
+            this.groupBox1.Location = new System.Drawing.Point(32, 35);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(729, 327);
+            this.groupBox1.Size = new System.Drawing.Size(729, 355);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Articulos";
@@ -281,9 +287,9 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(454, 132);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(68, 13);
+            this.label8.Size = new System.Drawing.Size(69, 13);
             this.label8.TabIndex = 19;
-            this.label8.Text = "presentacion";
+            this.label8.Text = "Presentacion";
             // 
             // btnbuscarcateg
             // 
@@ -334,6 +340,14 @@
             this.btncargar.TabIndex = 6;
             this.btncargar.UseVisualStyleBackColor = true;
             this.btncargar.Click += new System.EventHandler(this.btncargar_Click);
+            // 
+            // picimagen
+            // 
+            this.picimagen.Location = new System.Drawing.Point(414, 179);
+            this.picimagen.Name = "picimagen";
+            this.picimagen.Size = new System.Drawing.Size(135, 82);
+            this.picimagen.TabIndex = 13;
+            this.picimagen.TabStop = false;
             // 
             // txtcodigo
             // 
@@ -441,19 +455,6 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Codigo";
             // 
-            // lblcategoria
-            // 
-            this.lblcategoria.AutoSize = true;
-            this.lblcategoria.BackColor = System.Drawing.Color.White;
-            this.lblcategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblcategoria.ForeColor = System.Drawing.Color.Green;
-            this.lblcategoria.Location = new System.Drawing.Point(275, 75);
-            this.lblcategoria.Name = "lblcategoria";
-            this.lblcategoria.Size = new System.Drawing.Size(91, 24);
-            this.lblcategoria.TabIndex = 4;
-            this.lblcategoria.Text = "Articulos";
-            this.lblcategoria.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
             // erroricono
             // 
             this.erroricono.ContainerControl = this;
@@ -462,20 +463,25 @@
             // 
             this.ttmensaje.IsBalloon = true;
             // 
-            // picimagen
+            // lblcategoria
             // 
-            this.picimagen.Location = new System.Drawing.Point(414, 179);
-            this.picimagen.Name = "picimagen";
-            this.picimagen.Size = new System.Drawing.Size(135, 82);
-            this.picimagen.TabIndex = 13;
-            this.picimagen.TabStop = false;
+            this.lblcategoria.AutoSize = true;
+            this.lblcategoria.BackColor = System.Drawing.Color.White;
+            this.lblcategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblcategoria.ForeColor = System.Drawing.Color.Black;
+            this.lblcategoria.Location = new System.Drawing.Point(22, 86);
+            this.lblcategoria.Name = "lblcategoria";
+            this.lblcategoria.Size = new System.Drawing.Size(104, 25);
+            this.lblcategoria.TabIndex = 8;
+            this.lblcategoria.Text = "Articulos";
+            this.lblcategoria.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // frmarticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(91)))));
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(800, 470);
             this.Controls.Add(this.tabControl1);
             this.Name = "frmarticulo";
             this.Text = "frmarticulo";
@@ -487,8 +493,8 @@
             this.tabPage2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.erroricono)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picimagen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erroricono)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -518,7 +524,6 @@
         private System.Windows.Forms.TextBox txtnombre;
         public System.Windows.Forms.TextBox txtidarticulo;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label lblcategoria;
         private System.Windows.Forms.ErrorProvider erroricono;
         private System.Windows.Forms.ToolTip ttmensaje;
         private System.Windows.Forms.ComboBox cmbidpresentacion;
@@ -532,5 +537,6 @@
         private System.Windows.Forms.PictureBox picimagen;
         public System.Windows.Forms.TextBox txtcodigo;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblcategoria;
     }
 }
