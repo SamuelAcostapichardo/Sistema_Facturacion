@@ -33,7 +33,6 @@
             this.cmbbuscar = new System.Windows.Forms.ComboBox();
             this.datagridproveedor = new System.Windows.Forms.DataGridView();
             this.Eliminar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.lbltotal = new System.Windows.Forms.Label();
             this.btnbuscar = new System.Windows.Forms.Button();
             this.txtbuscar = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
@@ -54,7 +53,6 @@
             // 
             this.tabPage1.Controls.Add(this.cmbbuscar);
             this.tabPage1.Controls.Add(this.datagridproveedor);
-            this.tabPage1.Controls.Add(this.lbltotal);
             this.tabPage1.Controls.Add(this.btnbuscar);
             this.tabPage1.Controls.Add(this.txtbuscar);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
@@ -82,6 +80,7 @@
             this.datagridproveedor.AllowUserToAddRows = false;
             this.datagridproveedor.AllowUserToDeleteRows = false;
             this.datagridproveedor.AllowUserToOrderColumns = true;
+            this.datagridproveedor.BackgroundColor = System.Drawing.Color.LightSteelBlue;
             this.datagridproveedor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.datagridproveedor.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Eliminar});
@@ -100,23 +99,15 @@
             this.Eliminar.Name = "Eliminar";
             this.Eliminar.ReadOnly = true;
             // 
-            // lbltotal
-            // 
-            this.lbltotal.AutoSize = true;
-            this.lbltotal.Location = new System.Drawing.Point(337, 50);
-            this.lbltotal.Name = "lbltotal";
-            this.lbltotal.Size = new System.Drawing.Size(29, 13);
-            this.lbltotal.TabIndex = 6;
-            this.lbltotal.Text = "label";
-            // 
             // btnbuscar
             // 
+            this.btnbuscar.BackColor = System.Drawing.Color.LightSteelBlue;
             this.btnbuscar.Location = new System.Drawing.Point(195, 15);
             this.btnbuscar.Name = "btnbuscar";
             this.btnbuscar.Size = new System.Drawing.Size(75, 23);
             this.btnbuscar.TabIndex = 2;
             this.btnbuscar.Text = "&Buscar";
-            this.btnbuscar.UseVisualStyleBackColor = true;
+            this.btnbuscar.UseVisualStyleBackColor = false;
             this.btnbuscar.Click += new System.EventHandler(this.btnbuscar_Click);
             // 
             // txtbuscar
@@ -152,7 +143,6 @@
         private System.Windows.Forms.ComboBox cmbbuscar;
         private System.Windows.Forms.DataGridView datagridproveedor;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Eliminar;
-        private System.Windows.Forms.Label lbltotal;
         private System.Windows.Forms.Button btnbuscar;
         private System.Windows.Forms.TextBox txtbuscar;
     }

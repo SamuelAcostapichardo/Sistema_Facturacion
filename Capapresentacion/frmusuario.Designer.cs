@@ -64,6 +64,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.erroricono = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.Txtnacionalidad = new System.Windows.Forms.TextBox();
+            this.Txttipodoc = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.Estatus_Usuario = new System.Windows.Forms.RadioButton();
             this.Btnguardarrol = new System.Windows.Forms.Button();
@@ -78,10 +82,6 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.Txttipodoc = new System.Windows.Forms.TextBox();
-            this.Txtnacionalidad = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.datagridusuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erroricono)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -114,6 +114,7 @@
             this.datagridusuario.AllowUserToAddRows = false;
             this.datagridusuario.AllowUserToDeleteRows = false;
             this.datagridusuario.AllowUserToOrderColumns = true;
+            this.datagridusuario.BackgroundColor = System.Drawing.Color.LightSteelBlue;
             this.datagridusuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.datagridusuario.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Eliminar});
@@ -149,31 +150,35 @@
             // 
             // btnimprimir
             // 
+            this.btnimprimir.BackColor = System.Drawing.Color.LightSteelBlue;
             this.btnimprimir.Location = new System.Drawing.Point(412, 15);
             this.btnimprimir.Name = "btnimprimir";
             this.btnimprimir.Size = new System.Drawing.Size(75, 23);
             this.btnimprimir.TabIndex = 4;
             this.btnimprimir.Text = "&Imprimir";
-            this.btnimprimir.UseVisualStyleBackColor = true;
+            this.btnimprimir.UseVisualStyleBackColor = false;
             // 
             // btneliminar
             // 
+            this.btneliminar.BackColor = System.Drawing.Color.LightSteelBlue;
             this.btneliminar.Location = new System.Drawing.Point(306, 15);
             this.btneliminar.Name = "btneliminar";
             this.btneliminar.Size = new System.Drawing.Size(75, 23);
             this.btneliminar.TabIndex = 3;
             this.btneliminar.Text = "&Eliminar";
-            this.btneliminar.UseVisualStyleBackColor = true;
+            this.btneliminar.UseVisualStyleBackColor = false;
             this.btneliminar.Click += new System.EventHandler(this.Btneliminar_Click);
             // 
             // btnbuscar
             // 
+            this.btnbuscar.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnbuscar.ForeColor = System.Drawing.Color.Black;
             this.btnbuscar.Location = new System.Drawing.Point(195, 15);
             this.btnbuscar.Name = "btnbuscar";
             this.btnbuscar.Size = new System.Drawing.Size(75, 23);
             this.btnbuscar.TabIndex = 2;
             this.btnbuscar.Text = "&Buscar";
-            this.btnbuscar.UseVisualStyleBackColor = true;
+            this.btnbuscar.UseVisualStyleBackColor = false;
             this.btnbuscar.Click += new System.EventHandler(this.Btnbuscar_Click);
             // 
             // dtfechanacimiento
@@ -437,6 +442,38 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Usuarios";
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(440, 28);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(87, 13);
+            this.label15.TabIndex = 45;
+            this.label15.Text = "Tipo documento:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(449, 69);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(72, 13);
+            this.label14.TabIndex = 44;
+            this.label14.Text = "Nacionalidad:";
+            // 
+            // Txtnacionalidad
+            // 
+            this.Txtnacionalidad.Location = new System.Drawing.Point(533, 67);
+            this.Txtnacionalidad.Name = "Txtnacionalidad";
+            this.Txtnacionalidad.Size = new System.Drawing.Size(179, 20);
+            this.Txtnacionalidad.TabIndex = 43;
+            // 
+            // Txttipodoc
+            // 
+            this.Txttipodoc.Location = new System.Drawing.Point(533, 25);
+            this.Txttipodoc.Name = "Txttipodoc";
+            this.Txttipodoc.Size = new System.Drawing.Size(179, 20);
+            this.Txttipodoc.TabIndex = 42;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.Estatus_Usuario);
@@ -579,38 +616,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Listado";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // Txttipodoc
-            // 
-            this.Txttipodoc.Location = new System.Drawing.Point(533, 25);
-            this.Txttipodoc.Name = "Txttipodoc";
-            this.Txttipodoc.Size = new System.Drawing.Size(179, 20);
-            this.Txttipodoc.TabIndex = 42;
-            // 
-            // Txtnacionalidad
-            // 
-            this.Txtnacionalidad.Location = new System.Drawing.Point(533, 67);
-            this.Txtnacionalidad.Name = "Txtnacionalidad";
-            this.Txtnacionalidad.Size = new System.Drawing.Size(179, 20);
-            this.Txtnacionalidad.TabIndex = 43;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(449, 69);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(72, 13);
-            this.label14.TabIndex = 44;
-            this.label14.Text = "Nacionalidad:";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(440, 28);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(87, 13);
-            this.label15.TabIndex = 45;
-            this.label15.Text = "Tipo documento:";
             // 
             // frmusuario
             // 
