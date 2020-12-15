@@ -62,7 +62,7 @@ namespace Capadatos
                     using (var sqlcmd = GetSqlCommand())
                     {
                         sqlcmd.Connection = Sqlcon;
-                        sqlcmd.CommandText = "spinsertar_articulo2";
+                        sqlcmd.CommandText = "spinsertar_articulo";
                         sqlcmd.CommandType = CommandType.StoredProcedure;
 
                         SqlParameter paridarticulo = new SqlParameter

@@ -101,7 +101,7 @@ namespace Capadatos.SQLserver
                     {
                     SqlCmd.Connection = SqlCon;
                     SqlCmd.Transaction = Sqltra;
-                    SqlCmd.CommandText = "spinsertar_venta2";
+                    SqlCmd.CommandText = "spinsertar_venta";
                     SqlCmd.CommandType = CommandType.StoredProcedure;
 
                     SqlParameter ParIdventa = new SqlParameter
@@ -165,7 +165,7 @@ namespace Capadatos.SQLserver
 
                     SqlParameter ParIgv = new SqlParameter
                     {
-                        ParameterName = "@igv",
+                        ParameterName = "@ITBIS",
                         SqlDbType = SqlDbType.Decimal,
                         Precision = 4,
                         Scale = 2,

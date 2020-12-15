@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Capanegocio;
 using System.Security.Cryptography;
 using Capapresentacion;
+using Capadatos.SQLserver;
 
 namespace sinnombre
 {
@@ -87,11 +88,12 @@ namespace sinnombre
 
         public Usuario loguin(string User, string Password)
         {
-            var Usuar = Fac.Usuarios.SingleOrDefault(a => a.usuario1.Equals(User));
+            var Usuar = Fac.Usuario.SingleOrDefault(a => a.Usuario1.Equals(User));
             if (Usuar != null)
             {
                 if (BCrypt.Net.BCrypt.Verify(Password, Usuar.claveusu))
                 {
+                    Datoscahe.Idusuario = Usuar.idusuario;
                     return Usuar;
                 }
             }
@@ -182,10 +184,10 @@ private void Cerrarsesion(object sender, FormClosedEventArgs e)
             label1.Text = DateTime.Now.ToString();
         }
 
-    
-        
-
-
-
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Registro_Terminal Re = new Registro_Terminal();
+            Re.ShowDialog();
+        }
     }
 }

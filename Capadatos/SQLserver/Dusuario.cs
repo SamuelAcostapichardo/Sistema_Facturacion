@@ -773,7 +773,7 @@ namespace Capadatos
                     command.Connection = conection;
                     command.CommandText = "select * from Terminales where Identificador =@Identificador and Estatus = @Estatus";
                     command.Parameters.AddWithValue("@identificador",GetMachingGuid());
-                    command.Parameters.AddWithValue("@Estatus","Activa");
+                    command.Parameters.AddWithValue("@Estatus","Activo");
                     command.CommandType = CommandType.Text;
                     SqlDataReader reader = command.ExecuteReader();
                     if (reader.HasRows)

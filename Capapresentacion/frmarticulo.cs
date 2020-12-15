@@ -27,7 +27,7 @@ namespace Capapresentacion
             this.txtcategoria.ReadOnly = true;
 
             this.Llenarcombopre();
-
+        
             
         }
 

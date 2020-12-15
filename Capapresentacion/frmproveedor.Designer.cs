@@ -101,7 +101,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(768, 363);
+            this.tabPage1.Size = new System.Drawing.Size(768, 371);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Listado";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -123,6 +123,7 @@
             this.datagridproveedor.AllowUserToAddRows = false;
             this.datagridproveedor.AllowUserToDeleteRows = false;
             this.datagridproveedor.AllowUserToOrderColumns = true;
+            this.datagridproveedor.BackgroundColor = System.Drawing.Color.LightSteelBlue;
             this.datagridproveedor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.datagridproveedor.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Eliminar});
@@ -200,7 +201,7 @@
             // 
             // btnnuevo
             // 
-            this.btnnuevo.Location = new System.Drawing.Point(304, 298);
+            this.btnnuevo.Location = new System.Drawing.Point(318, 311);
             this.btnnuevo.Name = "btnnuevo";
             this.btnnuevo.Size = new System.Drawing.Size(75, 23);
             this.btnnuevo.TabIndex = 10;
@@ -210,7 +211,7 @@
             // 
             // btnguardar
             // 
-            this.btnguardar.Location = new System.Drawing.Point(401, 298);
+            this.btnguardar.Location = new System.Drawing.Point(415, 311);
             this.btnguardar.Name = "btnguardar";
             this.btnguardar.Size = new System.Drawing.Size(75, 23);
             this.btnguardar.TabIndex = 9;
@@ -220,7 +221,7 @@
             // 
             // btneditar
             // 
-            this.btneditar.Location = new System.Drawing.Point(500, 298);
+            this.btneditar.Location = new System.Drawing.Point(514, 311);
             this.btneditar.Name = "btneditar";
             this.btneditar.Size = new System.Drawing.Size(75, 23);
             this.btneditar.TabIndex = 8;
@@ -230,7 +231,7 @@
             // 
             // btncancelar
             // 
-            this.btncancelar.Location = new System.Drawing.Point(600, 298);
+            this.btncancelar.Location = new System.Drawing.Point(614, 311);
             this.btncancelar.Name = "btncancelar";
             this.btncancelar.Size = new System.Drawing.Size(75, 23);
             this.btncancelar.TabIndex = 7;
@@ -305,7 +306,7 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Location = new System.Drawing.Point(18, 21);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(729, 327);
+            this.groupBox1.Size = new System.Drawing.Size(729, 344);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
@@ -427,7 +428,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(768, 363);
+            this.tabPage2.Size = new System.Drawing.Size(768, 371);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Mantenimiento";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -439,7 +440,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 51);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(776, 389);
+            this.tabControl1.Size = new System.Drawing.Size(776, 397);
             this.tabControl1.TabIndex = 3;
             // 
             // erroricono
@@ -450,11 +451,11 @@
             // 
             this.lblpro.AutoSize = true;
             this.lblpro.BackColor = System.Drawing.Color.White;
-            this.lblpro.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblpro.ForeColor = System.Drawing.Color.Green;
+            this.lblpro.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblpro.ForeColor = System.Drawing.Color.Black;
             this.lblpro.Location = new System.Drawing.Point(12, 11);
             this.lblpro.Name = "lblpro";
-            this.lblpro.Size = new System.Drawing.Size(129, 24);
+            this.lblpro.Size = new System.Drawing.Size(145, 25);
             this.lblpro.TabIndex = 2;
             this.lblpro.Text = "Proveedores";
             // 
@@ -462,7 +463,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(800, 460);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.lblpro);
             this.Name = "frmproveedor";

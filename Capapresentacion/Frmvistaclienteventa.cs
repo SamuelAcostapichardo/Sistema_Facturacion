@@ -72,8 +72,8 @@ namespace Capapresentacion
             Frmventa From = Frmventa.Getinstancia();
             string par1, par2;
             par1 = Convert.ToString(this.Datagridcliente.CurrentRow.Cells["idcliente"].Value);
-            par2 = Convert.ToString(this.Datagridcliente.CurrentRow.Cells["Apellido"].Value
-                + " " + Convert.ToString(this.Datagridcliente.CurrentRow.Cells["nombre"].Value));
+            par2 = Convert.ToString(this.Datagridcliente.CurrentRow.Cells["Apellidos"].Value
+                + " " + Convert.ToString(this.Datagridcliente.CurrentRow.Cells["Nombre"].Value));
             From.setCliente(par1,par2);
             this.Hide();
         }
