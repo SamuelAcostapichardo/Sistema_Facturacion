@@ -12,6 +12,7 @@ C:\Users\sam82\source\repos\sinnombre\Capadatos\bin\Debug\BCrypt.Net.xml
 C:\Users\sam82\source\repos\sinnombre\Capadatos\bin\Debug\EntityFramework.xml
 C:\Users\sam82\source\repos\sinnombre\Capadatos\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\sam82\source\repos\sinnombre\Capadatos\obj\Debug\Capadatos.csproj.CopyComplete
+<<<<<<< HEAD
 C:\Users\Rigoberto Rodriguez\Sistema_Facturacion\Capadatos\bin\Debug\Capadatos.dll.config
 C:\Users\Rigoberto Rodriguez\Sistema_Facturacion\Capadatos\bin\Debug\Capadatos.dll
 C:\Users\Rigoberto Rodriguez\Sistema_Facturacion\Capadatos\bin\Debug\Capadatos.pdb
@@ -26,3 +27,19 @@ C:\Users\Rigoberto Rodriguez\Sistema_Facturacion\Capadatos\obj\Debug\Capadatos.c
 C:\Users\Rigoberto Rodriguez\Sistema_Facturacion\Capadatos\obj\Debug\Capadatos.csproj.CopyComplete
 C:\Users\Rigoberto Rodriguez\Sistema_Facturacion\Capadatos\obj\Debug\Capadatos.dll
 C:\Users\Rigoberto Rodriguez\Sistema_Facturacion\Capadatos\obj\Debug\Capadatos.pdb
+=======
+C:\Users\Admin\Desktop\Sistema_Facturacion\Capadatos\bin\Debug\Capadatos.dll.config
+C:\Users\Admin\Desktop\Sistema_Facturacion\Capadatos\bin\Debug\Capadatos.dll
+C:\Users\Admin\Desktop\Sistema_Facturacion\Capadatos\bin\Debug\Capadatos.pdb
+C:\Users\Admin\Desktop\Sistema_Facturacion\Capadatos\bin\Debug\BCrypt.Net.dll
+C:\Users\Admin\Desktop\Sistema_Facturacion\Capadatos\bin\Debug\EntityFramework.dll
+C:\Users\Admin\Desktop\Sistema_Facturacion\Capadatos\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Admin\Desktop\Sistema_Facturacion\Capadatos\bin\Debug\BCrypt.Net.xml
+C:\Users\Admin\Desktop\Sistema_Facturacion\Capadatos\bin\Debug\EntityFramework.xml
+C:\Users\Admin\Desktop\Sistema_Facturacion\Capadatos\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Admin\Desktop\Sistema_Facturacion\Capadatos\obj\Debug\Capadatos.csprojAssemblyReference.cache
+C:\Users\Admin\Desktop\Sistema_Facturacion\Capadatos\obj\Debug\Capadatos.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\Sistema_Facturacion\Capadatos\obj\Debug\Capadatos.csproj.CopyComplete
+C:\Users\Admin\Desktop\Sistema_Facturacion\Capadatos\obj\Debug\Capadatos.dll
+C:\Users\Admin\Desktop\Sistema_Facturacion\Capadatos\obj\Debug\Capadatos.pdb
+>>>>>>> 537be5c6e074267d7fff6dbc6590d018a651d39f

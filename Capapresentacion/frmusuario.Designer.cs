@@ -83,9 +83,12 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             this.label16 = new System.Windows.Forms.Label();
 >>>>>>> eb6a654beff551655a11eec0317c5009a9f4e607
+=======
+>>>>>>> 537be5c6e074267d7fff6dbc6590d018a651d39f
             ((System.ComponentModel.ISupportInitialize)(this.datagridusuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erroricono)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -118,6 +121,7 @@
             this.datagridusuario.AllowUserToAddRows = false;
             this.datagridusuario.AllowUserToDeleteRows = false;
             this.datagridusuario.AllowUserToOrderColumns = true;
+            this.datagridusuario.BackgroundColor = System.Drawing.Color.LightSteelBlue;
             this.datagridusuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.datagridusuario.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Eliminar});
@@ -153,31 +157,47 @@
             // 
             // btnimprimir
             // 
+<<<<<<< HEAD
             this.btnimprimir.Location = new System.Drawing.Point(638, 394);
+=======
+            this.btnimprimir.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnimprimir.Location = new System.Drawing.Point(412, 15);
+>>>>>>> 537be5c6e074267d7fff6dbc6590d018a651d39f
             this.btnimprimir.Name = "btnimprimir";
             this.btnimprimir.Size = new System.Drawing.Size(75, 23);
             this.btnimprimir.TabIndex = 4;
             this.btnimprimir.Text = "&Imprimir";
-            this.btnimprimir.UseVisualStyleBackColor = true;
+            this.btnimprimir.UseVisualStyleBackColor = false;
             // 
             // btneliminar
             // 
+<<<<<<< HEAD
             this.btneliminar.Location = new System.Drawing.Point(541, 394);
+=======
+            this.btneliminar.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btneliminar.Location = new System.Drawing.Point(306, 15);
+>>>>>>> 537be5c6e074267d7fff6dbc6590d018a651d39f
             this.btneliminar.Name = "btneliminar";
             this.btneliminar.Size = new System.Drawing.Size(75, 23);
             this.btneliminar.TabIndex = 3;
             this.btneliminar.Text = "&Eliminar";
-            this.btneliminar.UseVisualStyleBackColor = true;
+            this.btneliminar.UseVisualStyleBackColor = false;
             this.btneliminar.Click += new System.EventHandler(this.Btneliminar_Click);
             // 
             // btnbuscar
             // 
+<<<<<<< HEAD
             this.btnbuscar.Location = new System.Drawing.Point(231, 45);
+=======
+            this.btnbuscar.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnbuscar.ForeColor = System.Drawing.Color.Black;
+            this.btnbuscar.Location = new System.Drawing.Point(195, 15);
+>>>>>>> 537be5c6e074267d7fff6dbc6590d018a651d39f
             this.btnbuscar.Name = "btnbuscar";
             this.btnbuscar.Size = new System.Drawing.Size(75, 23);
             this.btnbuscar.TabIndex = 2;
             this.btnbuscar.Text = "&Buscar";
-            this.btnbuscar.UseVisualStyleBackColor = true;
+            this.btnbuscar.UseVisualStyleBackColor = false;
             this.btnbuscar.Click += new System.EventHandler(this.Btnbuscar_Click);
             // 
             // dtfechanacimiento
@@ -618,6 +638,7 @@
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             // label16
             // 
@@ -629,6 +650,8 @@
             this.label16.Text = "Rigoberto";
             // 
 >>>>>>> eb6a654beff551655a11eec0317c5009a9f4e607
+=======
+>>>>>>> 537be5c6e074267d7fff6dbc6590d018a651d39f
             // frmusuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);

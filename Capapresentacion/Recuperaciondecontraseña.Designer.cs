@@ -53,12 +53,13 @@
             // 
             // Btnenter
             // 
+            this.Btnenter.BackColor = System.Drawing.Color.LightSteelBlue;
             this.Btnenter.Location = new System.Drawing.Point(156, 290);
             this.Btnenter.Name = "Btnenter";
             this.Btnenter.Size = new System.Drawing.Size(75, 23);
             this.Btnenter.TabIndex = 2;
             this.Btnenter.Text = "&Send";
-            this.Btnenter.UseVisualStyleBackColor = true;
+            this.Btnenter.UseVisualStyleBackColor = false;
             this.Btnenter.Click += new System.EventHandler(this.Btnenter_Click);
             // 
             // label1
@@ -89,7 +90,7 @@
             this.Controls.Add(this.Lblmensaje);
             this.Controls.Add(this.Txtemail);
             this.Name = "Recuperaciondecontraseña";
-            this.Text = "Recuperaciondecontraseña";
+            this.Text = "Recuperacion de contraseña";
             this.ResumeLayout(false);
             this.PerformLayout();
 

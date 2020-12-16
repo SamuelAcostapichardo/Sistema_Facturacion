@@ -71,7 +71,6 @@
             this.Btncomprovante = new System.Windows.Forms.Button();
             this.Datagridventaslistado = new System.Windows.Forms.DataGridView();
             this.Eliminar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Lbltotal = new System.Windows.Forms.Label();
             this.Chkeliminar = new System.Windows.Forms.CheckBox();
             this.Btnbuscar = new System.Windows.Forms.Button();
             this.Btneliminar = new System.Windows.Forms.Button();
@@ -365,7 +364,6 @@
             // 
             this.tabPage1.Controls.Add(this.Btncomprovante);
             this.tabPage1.Controls.Add(this.Datagridventaslistado);
-            this.tabPage1.Controls.Add(this.Lbltotal);
             this.tabPage1.Controls.Add(this.Chkeliminar);
             this.tabPage1.Controls.Add(this.Btnbuscar);
             this.tabPage1.Controls.Add(this.Btneliminar);
@@ -381,15 +379,17 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Listado";
             this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // Btncomprovante
             // 
+            this.Btncomprovante.BackColor = System.Drawing.Color.LightSteelBlue;
             this.Btncomprovante.Location = new System.Drawing.Point(486, 16);
             this.Btncomprovante.Name = "Btncomprovante";
             this.Btncomprovante.Size = new System.Drawing.Size(88, 23);
             this.Btncomprovante.TabIndex = 9;
             this.Btncomprovante.Text = "&Comprobante";
-            this.Btncomprovante.UseVisualStyleBackColor = true;
+            this.Btncomprovante.UseVisualStyleBackColor = false;
             this.Btncomprovante.Click += new System.EventHandler(this.Btncomprovante_Click);
             // 
             // Datagridventaslistado
@@ -397,6 +397,7 @@
             this.Datagridventaslistado.AllowUserToAddRows = false;
             this.Datagridventaslistado.AllowUserToDeleteRows = false;
             this.Datagridventaslistado.AllowUserToOrderColumns = true;
+            this.Datagridventaslistado.BackgroundColor = System.Drawing.Color.LightSteelBlue;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -440,15 +441,6 @@
             this.Eliminar.Name = "Eliminar";
             this.Eliminar.ReadOnly = true;
             // 
-            // Lbltotal
-            // 
-            this.Lbltotal.AutoSize = true;
-            this.Lbltotal.Location = new System.Drawing.Point(594, 74);
-            this.Lbltotal.Name = "Lbltotal";
-            this.Lbltotal.Size = new System.Drawing.Size(41, 13);
-            this.Lbltotal.TabIndex = 6;
-            this.Lbltotal.Text = "label16";
-            // 
             // Chkeliminar
             // 
             this.Chkeliminar.AutoSize = true;
@@ -462,32 +454,35 @@
             // 
             // Btnbuscar
             // 
+            this.Btnbuscar.BackColor = System.Drawing.Color.LightSteelBlue;
             this.Btnbuscar.Location = new System.Drawing.Point(274, 16);
             this.Btnbuscar.Name = "Btnbuscar";
             this.Btnbuscar.Size = new System.Drawing.Size(75, 23);
             this.Btnbuscar.TabIndex = 2;
             this.Btnbuscar.Text = "&Buscar";
-            this.Btnbuscar.UseVisualStyleBackColor = true;
+            this.Btnbuscar.UseVisualStyleBackColor = false;
             this.Btnbuscar.Click += new System.EventHandler(this.Btnbuscar_Click);
             // 
             // Btneliminar
             // 
+            this.Btneliminar.BackColor = System.Drawing.Color.LightSteelBlue;
             this.Btneliminar.Location = new System.Drawing.Point(387, 16);
             this.Btneliminar.Name = "Btneliminar";
             this.Btneliminar.Size = new System.Drawing.Size(75, 23);
             this.Btneliminar.TabIndex = 3;
             this.Btneliminar.Text = "&Eliminar";
-            this.Btneliminar.UseVisualStyleBackColor = true;
+            this.Btneliminar.UseVisualStyleBackColor = false;
             this.Btneliminar.Click += new System.EventHandler(this.Btneliminar_Click);
             // 
             // Btnimprimir
             // 
+            this.Btnimprimir.BackColor = System.Drawing.Color.LightSteelBlue;
             this.Btnimprimir.Location = new System.Drawing.Point(597, 16);
             this.Btnimprimir.Name = "Btnimprimir";
             this.Btnimprimir.Size = new System.Drawing.Size(75, 23);
             this.Btnimprimir.TabIndex = 4;
             this.Btnimprimir.Text = "Imprimir";
-            this.Btnimprimir.UseVisualStyleBackColor = true;
+            this.Btnimprimir.UseVisualStyleBackColor = false;
             // 
             // label3
             // 
@@ -559,31 +554,34 @@
             // 
             // Btncancelar
             // 
+            this.Btncancelar.BackColor = System.Drawing.Color.LightSteelBlue;
             this.Btncancelar.Location = new System.Drawing.Point(619, 368);
             this.Btncancelar.Name = "Btncancelar";
             this.Btncancelar.Size = new System.Drawing.Size(75, 23);
             this.Btncancelar.TabIndex = 14;
             this.Btncancelar.Text = "&Cancelar";
-            this.Btncancelar.UseVisualStyleBackColor = true;
+            this.Btncancelar.UseVisualStyleBackColor = false;
             // 
             // Btnguardar
             // 
+            this.Btnguardar.BackColor = System.Drawing.Color.LightSteelBlue;
             this.Btnguardar.Location = new System.Drawing.Point(503, 368);
             this.Btnguardar.Name = "Btnguardar";
             this.Btnguardar.Size = new System.Drawing.Size(75, 23);
             this.Btnguardar.TabIndex = 13;
             this.Btnguardar.Text = "&Guardar";
-            this.Btnguardar.UseVisualStyleBackColor = true;
+            this.Btnguardar.UseVisualStyleBackColor = false;
             this.Btnguardar.Click += new System.EventHandler(this.Btnguardar_Click);
             // 
             // Btnnuevo
             // 
+            this.Btnnuevo.BackColor = System.Drawing.Color.LightSteelBlue;
             this.Btnnuevo.Location = new System.Drawing.Point(392, 368);
             this.Btnnuevo.Name = "Btnnuevo";
             this.Btnnuevo.Size = new System.Drawing.Size(75, 23);
             this.Btnnuevo.TabIndex = 12;
             this.Btnnuevo.Text = "&Nuevo";
-            this.Btnnuevo.UseVisualStyleBackColor = true;
+            this.Btnnuevo.UseVisualStyleBackColor = false;
             this.Btnnuevo.Click += new System.EventHandler(this.Btnnuevo_Click);
             // 
             // groupBox1
@@ -624,6 +622,7 @@
             // 
             // Datagridventasmanten
             // 
+            this.Datagridventasmanten.BackgroundColor = System.Drawing.Color.LightSteelBlue;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -779,7 +778,6 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.DataGridView Datagridventaslistado;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Eliminar;
-        private System.Windows.Forms.Label Lbltotal;
         private System.Windows.Forms.CheckBox Chkeliminar;
         private System.Windows.Forms.Button Btnbuscar;
         private System.Windows.Forms.Button Btneliminar;

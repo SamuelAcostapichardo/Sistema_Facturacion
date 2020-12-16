@@ -464,5 +464,10 @@ namespace Capapresentacion
             Form.Idventa = Convert.ToInt32(this.Datagridventaslistado.CurrentRow.Cells["idventa"].Value);
             Form.ShowDialog();
         }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

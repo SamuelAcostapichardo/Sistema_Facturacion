@@ -34,8 +34,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label9 = new System.Windows.Forms.Label();
             this.datagridcategoria = new System.Windows.Forms.DataGridView();
             this.Eliminar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.lblcategoria = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.chkeliminar = new System.Windows.Forms.CheckBox();
             this.btnimprimir = new System.Windows.Forms.Button();
@@ -68,7 +70,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.erroricono = new System.Windows.Forms.ErrorProvider(this.components);
             this.ttmensaje = new System.Windows.Forms.ToolTip(this.components);
+<<<<<<< HEAD
             this.lblcategoria = new System.Windows.Forms.Label();
+=======
+>>>>>>> 537be5c6e074267d7fff6dbc6590d018a651d39f
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datagridcategoria)).BeginInit();
@@ -93,6 +98,11 @@
             // 
             this.tabPage1.BackColor = System.Drawing.Color.White;
             this.tabPage1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+<<<<<<< HEAD
+=======
+            this.tabPage1.Controls.Add(this.label9);
+            this.tabPage1.Controls.Add(this.datagridcategoria);
+>>>>>>> 537be5c6e074267d7fff6dbc6590d018a651d39f
             this.tabPage1.Controls.Add(this.lblcategoria);
             this.tabPage1.Controls.Add(this.datagridcategoria);
             this.tabPage1.Controls.Add(this.label2);
@@ -109,6 +119,15 @@
             this.tabPage1.Size = new System.Drawing.Size(792, 444);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Listado";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(621, 136);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(0, 13);
+            this.label9.TabIndex = 8;
+            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // datagridcategoria
             // 
@@ -160,6 +179,19 @@
             this.Eliminar.HeaderText = "Eliminar";
             this.Eliminar.Name = "Eliminar";
             this.Eliminar.ReadOnly = true;
+            // 
+            // lblcategoria
+            // 
+            this.lblcategoria.AutoSize = true;
+            this.lblcategoria.BackColor = System.Drawing.Color.White;
+            this.lblcategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblcategoria.ForeColor = System.Drawing.Color.Green;
+            this.lblcategoria.Location = new System.Drawing.Point(275, 75);
+            this.lblcategoria.Name = "lblcategoria";
+            this.lblcategoria.Size = new System.Drawing.Size(91, 24);
+            this.lblcategoria.TabIndex = 4;
+            this.lblcategoria.Text = "Articulos";
+            this.lblcategoria.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label2
             // 
@@ -463,6 +495,7 @@
             // 
             this.ttmensaje.IsBalloon = true;
             // 
+<<<<<<< HEAD
             // lblcategoria
             // 
             this.lblcategoria.AutoSize = true;
@@ -476,6 +509,8 @@
             this.lblcategoria.Text = "Articulos";
             this.lblcategoria.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+=======
+>>>>>>> 537be5c6e074267d7fff6dbc6590d018a651d39f
             // frmarticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -537,6 +572,10 @@
         private System.Windows.Forms.PictureBox picimagen;
         public System.Windows.Forms.TextBox txtcodigo;
         private System.Windows.Forms.Label label6;
+<<<<<<< HEAD
         private System.Windows.Forms.Label lblcategoria;
+=======
+        private System.Windows.Forms.Label label9;
+>>>>>>> 537be5c6e074267d7fff6dbc6590d018a651d39f
     }
 }

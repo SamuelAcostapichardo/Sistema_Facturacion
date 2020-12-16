@@ -10,6 +10,7 @@ C:\Users\sam82\source\repos\sinnombre\Capanegocio\obj\Debug\Capanegocio.pdb
 C:\Users\sam82\source\repos\sinnombre\Capanegocio\bin\Debug\BCrypt.Net.dll
 C:\Users\sam82\source\repos\sinnombre\Capanegocio\bin\Debug\Capadatos.dll.config
 C:\Users\sam82\source\repos\sinnombre\Capanegocio\bin\Debug\BCrypt.Net.xml
+<<<<<<< HEAD
 C:\Users\Rigoberto Rodriguez\Sistema_Facturacion\Capanegocio\bin\Debug\Capanegocio.dll
 C:\Users\Rigoberto Rodriguez\Sistema_Facturacion\Capanegocio\bin\Debug\Capanegocio.pdb
 C:\Users\Rigoberto Rodriguez\Sistema_Facturacion\Capanegocio\bin\Debug\BCrypt.Net.dll
@@ -22,3 +23,17 @@ C:\Users\Rigoberto Rodriguez\Sistema_Facturacion\Capanegocio\obj\Debug\Capanegoc
 C:\Users\Rigoberto Rodriguez\Sistema_Facturacion\Capanegocio\obj\Debug\Capanegocio.csproj.CopyComplete
 C:\Users\Rigoberto Rodriguez\Sistema_Facturacion\Capanegocio\obj\Debug\Capanegocio.dll
 C:\Users\Rigoberto Rodriguez\Sistema_Facturacion\Capanegocio\obj\Debug\Capanegocio.pdb
+=======
+C:\Users\Admin\Desktop\Sistema_Facturacion\Capanegocio\bin\Debug\Capanegocio.dll
+C:\Users\Admin\Desktop\Sistema_Facturacion\Capanegocio\bin\Debug\Capanegocio.pdb
+C:\Users\Admin\Desktop\Sistema_Facturacion\Capanegocio\bin\Debug\BCrypt.Net.dll
+C:\Users\Admin\Desktop\Sistema_Facturacion\Capanegocio\bin\Debug\Capadatos.dll
+C:\Users\Admin\Desktop\Sistema_Facturacion\Capanegocio\bin\Debug\Capadatos.pdb
+C:\Users\Admin\Desktop\Sistema_Facturacion\Capanegocio\bin\Debug\Capadatos.dll.config
+C:\Users\Admin\Desktop\Sistema_Facturacion\Capanegocio\bin\Debug\BCrypt.Net.xml
+C:\Users\Admin\Desktop\Sistema_Facturacion\Capanegocio\obj\Debug\Capanegocio.csprojAssemblyReference.cache
+C:\Users\Admin\Desktop\Sistema_Facturacion\Capanegocio\obj\Debug\Capanegocio.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\Sistema_Facturacion\Capanegocio\obj\Debug\Capanegocio.csproj.CopyComplete
+C:\Users\Admin\Desktop\Sistema_Facturacion\Capanegocio\obj\Debug\Capanegocio.dll
+C:\Users\Admin\Desktop\Sistema_Facturacion\Capanegocio\obj\Debug\Capanegocio.pdb
+>>>>>>> 537be5c6e074267d7fff6dbc6590d018a651d39f
