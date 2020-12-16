@@ -16,13 +16,18 @@ namespace Capapresentacion
         public Frmvistaarticuloventa()
         {
             InitializeComponent();
+<<<<<<< HEAD
             Buscararticulocodigo();
+=======
+            
+>>>>>>> eb6a654beff551655a11eec0317c5009a9f4e607
         }
 
         private void OcultarColumnas()
         {
             this.Datagridcliente.Columns[0].Visible = false;
             this.Datagridcliente.Columns[1].Visible = false;
+           
         }
 
        
@@ -61,9 +66,13 @@ namespace Capapresentacion
             string par1, par2;
             decimal par3, par4;
             int par5; DateTime par6;
+<<<<<<< HEAD
             par1 = Convert.ToString(this.Datagridcliente.CurrentRow.Cells["iddetalle_ingreso"].Value); 
+=======
+            par1 = Convert.ToString(this.Datagridcliente.CurrentRow.Cells["iddetalle_ingreso"].Value);
+>>>>>>> eb6a654beff551655a11eec0317c5009a9f4e607
             par2 = Convert.ToString(this.Datagridcliente.CurrentRow.Cells["nombre"].Value);
-            par3 = Convert.ToDecimal(this.Datagridcliente.CurrentRow.Cells["precio_compra"].Value);
+            par3 = Convert.ToDecimal(this.Datagridcliente.CurrentRow.Cells["Precio_compra"].Value);
             par4 = Convert.ToDecimal(this.Datagridcliente.CurrentRow.Cells["precio_venta"].Value);
             par5 = Convert.ToInt32(this.Datagridcliente.CurrentRow.Cells["Stock_actual"].Value);
             par6 = Convert.ToDateTime(this.Datagridcliente.CurrentRow.Cells["fecha_ingreso"].Value);
@@ -71,7 +80,15 @@ namespace Capapresentacion
             this.Hide();
         }
 
+<<<<<<< HEAD
         
+=======
+        //public void Mostrararticulo()
+        //{
+        //    Datagridcliente.DataSource = Narticulo.Mostrar();
+        //    OcultarColumnas();
+        //}
+>>>>>>> eb6a654beff551655a11eec0317c5009a9f4e607
 
     }
 }

@@ -8,10 +8,11 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>sinnombre</RootNamespace>
     <AssemblyName>sinnombre</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -81,11 +82,19 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+<<<<<<< HEAD
     <Compile Include="Registro_de_terminales.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Registro_de_terminales.Designer.cs">
       <DependentUpon>Registro_de_terminales.cs</DependentUpon>
+=======
+    <Compile Include="Registro_Terminal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registro_Terminal.Designer.cs">
+      <DependentUpon>Registro_Terminal.cs</DependentUpon>
+>>>>>>> eb6a654beff551655a11eec0317c5009a9f4e607
     </Compile>
     <Compile Include="Usuario.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -103,8 +112,13 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+<<<<<<< HEAD
     <EmbeddedResource Include="Registro_de_terminales.resx">
       <DependentUpon>Registro_de_terminales.cs</DependentUpon>
+=======
+    <EmbeddedResource Include="Registro_Terminal.resx">
+      <DependentUpon>Registro_Terminal.cs</DependentUpon>
+>>>>>>> eb6a654beff551655a11eec0317c5009a9f4e607
     </EmbeddedResource>
     <EntityDeploy Include="Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>

@@ -62,15 +62,16 @@
             this.datagridcategoria.AllowUserToAddRows = false;
             this.datagridcategoria.AllowUserToDeleteRows = false;
             this.datagridcategoria.AllowUserToOrderColumns = true;
+            this.datagridcategoria.BackgroundColor = System.Drawing.Color.LightSteelBlue;
             this.datagridcategoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.datagridcategoria.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Eliminar});
-            this.datagridcategoria.Location = new System.Drawing.Point(18, 102);
+            this.datagridcategoria.Location = new System.Drawing.Point(18, 87);
             this.datagridcategoria.MultiSelect = false;
             this.datagridcategoria.Name = "datagridcategoria";
             this.datagridcategoria.ReadOnly = true;
             this.datagridcategoria.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.datagridcategoria.Size = new System.Drawing.Size(732, 255);
+            this.datagridcategoria.Size = new System.Drawing.Size(732, 270);
             this.datagridcategoria.TabIndex = 7;
             this.datagridcategoria.DoubleClick += new System.EventHandler(this.datagridcategoria_DoubleClick);
             // 
@@ -128,11 +129,11 @@
             // 
             this.lblcategoria.AutoSize = true;
             this.lblcategoria.BackColor = System.Drawing.Color.White;
-            this.lblcategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblcategoria.ForeColor = System.Drawing.Color.Green;
+            this.lblcategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblcategoria.ForeColor = System.Drawing.Color.Black;
             this.lblcategoria.Location = new System.Drawing.Point(12, 11);
             this.lblcategoria.Name = "lblcategoria";
-            this.lblcategoria.Size = new System.Drawing.Size(109, 24);
+            this.lblcategoria.Size = new System.Drawing.Size(126, 25);
             this.lblcategoria.TabIndex = 2;
             this.lblcategoria.Text = "Categorias";
             // 
@@ -140,6 +141,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.lblcategoria);

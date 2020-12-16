@@ -50,7 +50,7 @@ namespace Capadatos
                     using(var sqlcomand =GetSqlCommand())
                     {
                         sqlcomand.Connection = Sqlcon;
-                        sqlcomand.CommandText = "spinsertar_categoria";
+                        //sqlcomand.CommandText = "spinsertar_categoria";
                         sqlcomand.CommandType = CommandType.StoredProcedure;
 
                         SqlParameter paridcategoria = new SqlParameter

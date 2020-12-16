@@ -250,7 +250,7 @@
             // 
             // btnNuevo
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(394, 298);
+            this.btnNuevo.Location = new System.Drawing.Point(394, 327);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(75, 23);
             this.btnNuevo.TabIndex = 10;
@@ -260,7 +260,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(475, 298);
+            this.btnGuardar.Location = new System.Drawing.Point(475, 327);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 9;
@@ -270,7 +270,7 @@
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(556, 298);
+            this.btnEditar.Location = new System.Drawing.Point(556, 327);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(75, 23);
             this.btnEditar.TabIndex = 8;
@@ -280,7 +280,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(637, 298);
+            this.btnCancelar.Location = new System.Drawing.Point(637, 327);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 7;
@@ -384,6 +384,7 @@
             this.Datagridcliente.AllowUserToAddRows = false;
             this.Datagridcliente.AllowUserToDeleteRows = false;
             this.Datagridcliente.AllowUserToOrderColumns = true;
+            this.Datagridcliente.BackgroundColor = System.Drawing.Color.LightSteelBlue;
             this.Datagridcliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Datagridcliente.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Eliminar});
@@ -463,11 +464,11 @@
             // 
             this.lblpro.AutoSize = true;
             this.lblpro.BackColor = System.Drawing.Color.White;
-            this.lblpro.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblpro.ForeColor = System.Drawing.Color.Green;
+            this.lblpro.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblpro.ForeColor = System.Drawing.Color.Black;
             this.lblpro.Location = new System.Drawing.Point(12, 11);
             this.lblpro.Name = "lblpro";
-            this.lblpro.Size = new System.Drawing.Size(75, 24);
+            this.lblpro.Size = new System.Drawing.Size(86, 25);
             this.lblpro.TabIndex = 4;
             this.lblpro.Text = "Cliente";
             // 
@@ -483,6 +484,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 485);
             this.Controls.Add(this.TabControl1);
             this.Controls.Add(this.lblpro);

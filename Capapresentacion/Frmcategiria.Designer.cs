@@ -67,11 +67,11 @@
             // 
             this.lblcategoria.AutoSize = true;
             this.lblcategoria.BackColor = System.Drawing.Color.White;
-            this.lblcategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblcategoria.ForeColor = System.Drawing.Color.Green;
+            this.lblcategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblcategoria.ForeColor = System.Drawing.Color.Black;
             this.lblcategoria.Location = new System.Drawing.Point(12, 9);
             this.lblcategoria.Name = "lblcategoria";
-            this.lblcategoria.Size = new System.Drawing.Size(109, 24);
+            this.lblcategoria.Size = new System.Drawing.Size(126, 25);
             this.lblcategoria.TabIndex = 0;
             this.lblcategoria.Text = "Categorias";
             // 
@@ -108,15 +108,16 @@
             this.datagridcategoria.AllowUserToAddRows = false;
             this.datagridcategoria.AllowUserToDeleteRows = false;
             this.datagridcategoria.AllowUserToOrderColumns = true;
+            this.datagridcategoria.BackgroundColor = System.Drawing.Color.LightSteelBlue;
             this.datagridcategoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.datagridcategoria.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Eliminar});
-            this.datagridcategoria.Location = new System.Drawing.Point(18, 102);
+            this.datagridcategoria.Location = new System.Drawing.Point(18, 94);
             this.datagridcategoria.MultiSelect = false;
             this.datagridcategoria.Name = "datagridcategoria";
             this.datagridcategoria.ReadOnly = true;
             this.datagridcategoria.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.datagridcategoria.Size = new System.Drawing.Size(732, 255);
+            this.datagridcategoria.Size = new System.Drawing.Size(732, 263);
             this.datagridcategoria.TabIndex = 7;
             this.datagridcategoria.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagridcategoria_CellContentClick);
             this.datagridcategoria.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.datagridcategoria_EditingControlShowing);
@@ -137,11 +138,11 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "label";
             // 
-            // Chkeliminar
+            // chkeliminar
             // 
             this.chkeliminar.AutoSize = true;
             this.chkeliminar.Location = new System.Drawing.Point(18, 59);
-            this.chkeliminar.Name = "Chkeliminar";
+            this.chkeliminar.Name = "chkeliminar";
             this.chkeliminar.Size = new System.Drawing.Size(61, 17);
             this.chkeliminar.TabIndex = 5;
             this.chkeliminar.Text = "eliminar";
@@ -291,10 +292,10 @@
             this.txtdescripcion.Size = new System.Drawing.Size(244, 67);
             this.txtdescripcion.TabIndex = 3;
             // 
-            // Txtnombre
+            // txtnombre
             // 
             this.txtnombre.Location = new System.Drawing.Point(92, 70);
-            this.txtnombre.Name = "Txtnombre";
+            this.txtnombre.Name = "txtnombre";
             this.txtnombre.Size = new System.Drawing.Size(244, 20);
             this.txtnombre.TabIndex = 2;
             // 

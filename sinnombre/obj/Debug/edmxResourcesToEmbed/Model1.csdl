@@ -18,7 +18,12 @@
     <Property Name="Usuario1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="claveusu" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
   </EntityType>
+<<<<<<< HEAD
   <EntityContainer Name="Facturacion_CedanoEntities3" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Usuarios" EntityType="Self.Usuario" />
+=======
+  <EntityContainer Name="Facturacion_CedanoEntities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+>>>>>>> eb6a654beff551655a11eec0317c5009a9f4e607
   </EntityContainer>
 </Schema>

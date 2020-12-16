@@ -88,7 +88,11 @@ namespace sinnombre
 
         public Usuario loguin(string User, string Password)
         {
+<<<<<<< HEAD
             var Usuar = Fac.Usuarios.SingleOrDefault(a => a.Usuario1.Equals(User));
+=======
+            var Usuar = Fac.Usuario.SingleOrDefault(a => a.Usuario1.Equals(User));
+>>>>>>> eb6a654beff551655a11eec0317c5009a9f4e607
             if (Usuar != null)
             {
                 if (BCrypt.Net.BCrypt.Verify(Password, Usuar.claveusu))
@@ -184,10 +188,17 @@ private void Cerrarsesion(object sender, FormClosedEventArgs e)
             label1.Text = DateTime.Now.ToString();
         }
 
+<<<<<<< HEAD
         private void Terminal_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Registro_de_terminales F = new Registro_de_terminales();
             F.ShowDialog();
+=======
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Registro_Terminal Re = new Registro_Terminal();
+            Re.ShowDialog();
+>>>>>>> eb6a654beff551655a11eec0317c5009a9f4e607
         }
     }
 }

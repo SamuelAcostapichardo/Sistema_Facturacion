@@ -1,7 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+<<<<<<< HEAD
   <EntityContainerMapping StorageEntityContainer="Facturacion_CedanoModelStoreContainer" CdmEntityContainer="Facturacion_CedanoEntities3">
     <EntitySetMapping Name="Usuarios">
+=======
+  <EntityContainerMapping StorageEntityContainer="Facturacion_CedanoModelStoreContainer" CdmEntityContainer="Facturacion_CedanoEntities2">
+    <EntitySetMapping Name="Usuario">
+>>>>>>> eb6a654beff551655a11eec0317c5009a9f4e607
       <EntityTypeMapping TypeName="Facturacion_CedanoModel.Usuario">
         <MappingFragment StoreEntitySet="Usuario">
           <ScalarProperty Name="idusuario" ColumnName="idusuario" />

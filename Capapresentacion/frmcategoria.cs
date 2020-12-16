@@ -53,7 +53,7 @@ namespace Capapresentacion
             frmarticulo form = frmarticulo.Getinstancia();
             string par1, par2;
             par1 = Convert.ToString(this.datagridcategoria.CurrentRow.Cells["idcategoria"].Value);
-            par2 = Convert.ToString(this.datagridcategoria.CurrentRow.Cells["Nombre"].Value);
+            par2 = Convert.ToString(this.datagridcategoria.CurrentRow.Cells["nombre"].Value);
             form.Setcategoria(par1,par2);
             this.Hide();
         }

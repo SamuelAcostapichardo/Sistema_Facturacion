@@ -82,6 +82,10 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+<<<<<<< HEAD
+=======
+            this.label16 = new System.Windows.Forms.Label();
+>>>>>>> eb6a654beff551655a11eec0317c5009a9f4e607
             ((System.ComponentModel.ISupportInitialize)(this.datagridusuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erroricono)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -596,6 +600,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label16);
             this.tabPage1.Controls.Add(this.Cmbbuscar);
             this.tabPage1.Controls.Add(this.datagridusuario);
             this.tabPage1.Controls.Add(this.lblTotal);
@@ -612,6 +617,18 @@
             this.tabPage1.Text = "Listado";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+<<<<<<< HEAD
+=======
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(627, 24);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(53, 13);
+            this.label16.TabIndex = 9;
+            this.label16.Text = "Rigoberto";
+            // 
+>>>>>>> eb6a654beff551655a11eec0317c5009a9f4e607
             // frmusuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -692,5 +709,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox Txtnacionalidad;
         private System.Windows.Forms.TextBox Txttipodoc;
+        private System.Windows.Forms.Label label16;
     }
 }
