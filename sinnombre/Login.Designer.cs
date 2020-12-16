@@ -42,6 +42,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.Terminal = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -56,6 +57,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.panel1.Controls.Add(this.Terminal);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
@@ -199,6 +201,17 @@
             this.pictureBox2.TabIndex = 13;
             this.pictureBox2.TabStop = false;
             // 
+            // Terminal
+            // 
+            this.Terminal.AutoSize = true;
+            this.Terminal.Location = new System.Drawing.Point(72, 263);
+            this.Terminal.Name = "Terminal";
+            this.Terminal.Size = new System.Drawing.Size(88, 13);
+            this.Terminal.TabIndex = 19;
+            this.Terminal.TabStop = true;
+            this.Terminal.Text = "Registrar terminal";
+            this.Terminal.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Terminal_LinkClicked);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -237,6 +250,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.LinkLabel Terminal;
     }
 }
 

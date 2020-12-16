@@ -164,6 +164,9 @@ namespace Capadatos.SQLserver
         public  string textobuscar { get; set; }
         public  string tipodoc { get; set; } 
         public  string nacionalidad { get; set; }
+        public  string nombreterminal { get; set; }
+        public  string idterminal { get; set; }
+        public  string estatuster { get; set; }
     }
 
     public static class Computadora

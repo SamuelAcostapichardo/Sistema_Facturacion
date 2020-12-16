@@ -56,8 +56,7 @@ namespace Capadatos
         {
             string Respuesta = "";
             try
-            {
-                
+            {    
                 SqlCommand SqlCmd = new SqlCommand
                 {                  
                     Connection = SqlCon,
@@ -126,7 +125,7 @@ namespace Capadatos
 
                 SqlParameter ParFecha_Produccion = new SqlParameter
                 {
-                    ParameterName = "@fecha_produccion",
+                    ParameterName = "@fecha_ingreso",
                     SqlDbType = SqlDbType.Date,
                     Value = Detalleingreso.Fecha_Produccion
                 };
@@ -134,7 +133,7 @@ namespace Capadatos
 
                 SqlParameter ParFecha_Vencimiento = new SqlParameter
                 {
-                    ParameterName = "@fecha_vencimiento",
+                    ParameterName = "@fecha_modificacion",
                     SqlDbType = SqlDbType.Date,
                     Value = Detalleingreso.Fecha_Vencimiento
                 };

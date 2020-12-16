@@ -165,5 +165,10 @@ namespace Capanegocio
         }
 
 
+        public static string Terminal(string nombre, string id, string estatus)
+        {
+            Dusuario Du = new Dusuario();
+           return Du.InsertTerminal(nombre,id,estatus);
+        }
     }
 }

@@ -62,3 +62,4 @@ C:\Users\sam82\source\repos\sinnombre\sinnombre\bin\Debug\EntityFramework.xml
 C:\Users\sam82\source\repos\sinnombre\sinnombre\bin\Debug\EntityFramework.dll
 C:\Users\sam82\source\repos\sinnombre\sinnombre\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\sam82\source\repos\sinnombre\sinnombre\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\sam82\source\repos\sinnombre\sinnombre\obj\Debug\sinnombre.Registro_de_terminales.resources

@@ -35,6 +35,9 @@ namespace Capadatos
         private string _Estatususu;
         private string _Tipodoc;
         private string _Nacionalidad;
+        private string _NombreTerminal;
+        private string _Identificador;
+        private string _Estatusterminal;
 
         
 
@@ -56,6 +59,9 @@ namespace Capadatos
         public string Estatususu { get => _Estatususu; set => _Estatususu = value; }
         public string Tipodoc { get => _Tipodoc; set => _Tipodoc = value; }
         public string Nacionalidad { get => _Nacionalidad; set => _Nacionalidad = value; }
+        public string NombreTerminal { get => _NombreTerminal; set => _NombreTerminal = value; }
+        public string Identificador { get => _Identificador; set => _Identificador = value; }
+        public string Estatusterminal { get => _Estatusterminal; set => _Estatusterminal = value; }
 
         public Dusuario()
         {
@@ -78,10 +84,12 @@ namespace Capadatos
             this.TextoBuscar = usuarios.textobuscar;
             this.Tipodoc = usuarios.tipodoc;
             this.Nacionalidad = usuarios.nacionalidad;
+            this.NombreTerminal = usuarios.nombreterminal;
+            this.Identificador = usuarios.idterminal;
+            this.Estatusterminal = usuarios.estatuster;
         }
 
        
-
         public string Insertar(Dusuario Usuario)
         {
             using (var SqlCon = Getconection())
@@ -142,7 +150,7 @@ namespace Capadatos
 
                         SqlParameter Paramtipodoc = new SqlParameter
                         {
-                            ParameterName = "@tipo_doc",
+                            ParameterName = "@tipodoc",
                             SqlDbType = SqlDbType.VarChar,
                             Size = 20,
                             Value = Usuario.Tipodoc
@@ -225,10 +233,7 @@ namespace Capadatos
                 return Respuesta;
             }
         }
-
-        
-
-
+   
         public string Insertarrol(Dusuario dusuario)
         {
             using (var SqlCon = Getconection())
@@ -279,8 +284,7 @@ namespace Capadatos
                 return Respuesta;
             }
         }
-         
-            
+                  
         public string Editar(Dusuario Usuario)
         {
             using (var SqlCon = Getconection())
@@ -615,7 +619,65 @@ namespace Capadatos
 
        
 
+        public string InsertTerminal(string nombre, string id, string estatus)
+        {
+            using (var Con = Getconection())
+            {
+                string Respuesta;
+                Con.Open();
+                try
+                {
+                    using (var Comand = GetSqlCommand())
+                    {
+                        Comand.Connection = Con;
+                        Comand.CommandText = "Spinsertarterminales";
+                        Comand.CommandType = CommandType.StoredProcedure;
 
+                        SqlParameter Paridterminal = new SqlParameter
+                        {
+                            ParameterName = "@idterminal",
+                            SqlDbType = SqlDbType.Int,
+                            Direction = ParameterDirection.Output  
+                        };
+                        Comand.Parameters.Add(Paridterminal);
+
+                        SqlParameter Parnombreter = new SqlParameter
+                        {
+                            ParameterName = "@nombre",
+                            SqlDbType = SqlDbType.VarChar,
+                            Size = 50,
+                            Value = nombre
+                        };
+                        Comand.Parameters.Add(Parnombreter);
+
+                        SqlParameter Paridentificador = new SqlParameter
+                        {
+                            ParameterName = "@identificador",
+                            SqlDbType = SqlDbType.VarChar,
+                            Size = 150,
+                            Value = id
+                        };
+                        Comand.Parameters.Add(Paridentificador);
+
+                        SqlParameter Parestatus = new SqlParameter
+                        {
+                            ParameterName = "@Estatus",
+                            SqlDbType = SqlDbType.NChar,
+                            Size = 10,
+                            Value = estatus 
+                        };
+                        Comand.Parameters.Add(Parestatus);
+
+                         Respuesta = Comand.ExecuteNonQuery() == 1 ? "Ok":"No se pudo insertar la terminal";
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Respuesta = ex.Message;  
+                }
+                return Respuesta;
+            }
+        }
 
      
 
@@ -684,9 +746,7 @@ namespace Capadatos
                         da.Fill(dt);
                         if (dt.Rows.Count > 0)
                         {
-
                             return bool.Parse(dt.Rows[0]["acceder"].ToString());
-
                         }
                         else
                         {
@@ -728,7 +788,7 @@ namespace Capadatos
 
 
     public void Sendemail(string Correo, string Asunto)
-        {
+       {
             using (var  Conection = Getconection())
             {
                 Conection.Open();
@@ -766,14 +826,14 @@ namespace Capadatos
         {
             using (var conection = Getconection())
             {
-               Datoscahe.Keyserial=GetMachingGuid();  
+               //Datoscahe.Keyserial=GetMachingGuid();  
                 conection.Open();
                 using (var command = GetSqlCommand())
                 {
                     command.Connection = conection;
-                    command.CommandText = "select * from Terminales where Identificador =@Identificador and Estatus = @Estatus";
+                    command.CommandText = "select * from Terminales where identificador=@identificador and Estatus=@Estatus";
                     command.Parameters.AddWithValue("@identificador",GetMachingGuid());
-                    command.Parameters.AddWithValue("@Estatus","Activa");
+                    command.Parameters.AddWithValue("@Estatus","Activo");
                     command.CommandType = CommandType.Text;
                     SqlDataReader reader = command.ExecuteReader();
                     if (reader.HasRows)
@@ -832,10 +892,5 @@ namespace Capadatos
         }
 
        
-
-
-
-
-
     }
 }

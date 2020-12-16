@@ -16,6 +16,7 @@ namespace Capapresentacion
         public Frmvistaclienteventa()
         {
             InitializeComponent();
+            Mostrar();
         }
 
 
@@ -51,7 +52,7 @@ namespace Capapresentacion
 
         private void Frmvistaclienteventa_Load(object sender, EventArgs e)
         {
-            Mostrar();
+            this.Mostrar();
         }
 
         private void btnbuscar_Click(object sender, EventArgs e)
@@ -72,8 +73,8 @@ namespace Capapresentacion
             Frmventa From = Frmventa.Getinstancia();
             string par1, par2;
             par1 = Convert.ToString(this.Datagridcliente.CurrentRow.Cells["idcliente"].Value);
-            par2 = Convert.ToString(this.Datagridcliente.CurrentRow.Cells["Apellido"].Value
-                + " " + Convert.ToString(this.Datagridcliente.CurrentRow.Cells["nombre"].Value));
+            par2 = Convert.ToString(this.Datagridcliente.CurrentRow.Cells["Apellidos"].Value
+                + " " + Convert.ToString(this.Datagridcliente.CurrentRow.Cells["Nombre"].Value));
             From.setCliente(par1,par2);
             this.Hide();
         }

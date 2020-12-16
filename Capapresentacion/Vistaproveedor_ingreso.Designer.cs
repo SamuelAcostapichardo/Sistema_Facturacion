@@ -111,6 +111,7 @@
             // 
             // btnbuscar
             // 
+            this.btnbuscar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnbuscar.Location = new System.Drawing.Point(195, 15);
             this.btnbuscar.Name = "btnbuscar";
             this.btnbuscar.Size = new System.Drawing.Size(75, 23);
@@ -132,7 +133,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tabControl1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Vistaproveedor_ingreso";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Vistaproveedor_ingreso";

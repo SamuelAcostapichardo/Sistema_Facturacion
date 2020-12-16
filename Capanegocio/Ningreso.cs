@@ -38,13 +38,14 @@ namespace Capanegocio
                     Precio_Venta = Convert.ToDecimal(row["precio_venta"].ToString()),
                     Stock_Inicial = Convert.ToInt32(row["stock_inicial"].ToString()),
                     Stock_Actual = Convert.ToInt32(row["stock_inicial"].ToString()),
-                    Fecha_Produccion = Convert.ToDateTime(row["fecha_produccion"].ToString()),
-                    Fecha_Vencimiento = Convert.ToDateTime(row["fecha_vencimiento"].ToString())
+                    Fecha_Produccion = Convert.ToDateTime(row["fecha_ingreso"].ToString()),
+                    Fecha_Vencimiento = Convert.ToDateTime(row["fecha_modificacion"].ToString())
                 };
                 detalles.Add(detalle);
             }
             return Obj.Insertar3(Obj, detalles);
         }
+
         public static string Anular(int idingreso)
         {
             Dingreso Obj = new Dingreso

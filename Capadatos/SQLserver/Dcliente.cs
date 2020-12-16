@@ -125,7 +125,7 @@ namespace Capadatos
                         SqlParameter ParFecha_Nacimiento = new SqlParameter
                         {
                             ParameterName = "@Fecha_nacimiento",
-                            SqlDbType = SqlDbType.VarChar,
+                            SqlDbType = SqlDbType.Date,
                             Size = 50,
                             Value = Cliente.Fecha_Nacimiento
                         };
@@ -355,7 +355,7 @@ namespace Capadatos
                         using (var sqlcmd =GetSqlCommand())
                         {
                             sqlcmd.Connection = Sqlcon;
-                            sqlcmd.CommandText = "spmostrar_cliente";
+                            sqlcmd.CommandText = "spmostrarcli";
                             sqlcmd.CommandType = CommandType.StoredProcedure;
 
                             using (var sqldata = Getdataadapter(sqlcmd))

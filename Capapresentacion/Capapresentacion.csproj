@@ -74,10 +74,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
-    <Compile Include="Dsprimcipal.Designer.cs">
+    <Compile Include="Dsprimcipal2.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Dsprimcipal.xsd</DependentUpon>
+      <DependentUpon>Dsprimcipal2.xsd</DependentUpon>
     </Compile>
     <Compile Include="frmarticulo.cs">
       <SubType>Form</SubType>
@@ -179,11 +179,16 @@
     <Compile Include="Recuperaciondecontraseña.Designer.cs">
       <DependentUpon>Recuperaciondecontraseña.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reportes\Frmreportefactura.cs">
+    <Compile Include="Reportes\DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Reportefactura.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reportes\Frmreportefactura.Designer.cs">
-      <DependentUpon>Frmreportefactura.cs</DependentUpon>
+    <Compile Include="Reportes\Reportefactura.Designer.cs">
+      <DependentUpon>Reportefactura.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Vistaproveedor_ingreso.cs">
@@ -254,31 +259,39 @@
     <EmbeddedResource Include="Recuperaciondecontraseña.resx">
       <DependentUpon>Recuperaciondecontraseña.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\Frmreportefactura.resx">
-      <DependentUpon>Frmreportefactura.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\Rptcomprovantefactura.rdlc" />
+    <EmbeddedResource Include="Reportes\Reportfac.rdlc" />
     <EmbeddedResource Include="Vistaproveedor_ingreso.resx">
       <DependentUpon>Vistaproveedor_ingreso.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="Dsprimcipal.xsc">
-      <DependentUpon>Dsprimcipal.xsd</DependentUpon>
+    <None Include="Dsprimcipal2.xsc">
+      <DependentUpon>Dsprimcipal2.xsd</DependentUpon>
     </None>
-    <None Include="Dsprimcipal.xsd">
+    <None Include="Dsprimcipal2.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Dsprimcipal.Designer.cs</LastGenOutput>
+      <LastGenOutput>Dsprimcipal2.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Dsprimcipal.xss">
-      <DependentUpon>Dsprimcipal.xsd</DependentUpon>
+    <None Include="Dsprimcipal2.xss">
+      <DependentUpon>Dsprimcipal2.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reportes\DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reportes\DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
     <None Include="Resources\file.jpg" />
   </ItemGroup>

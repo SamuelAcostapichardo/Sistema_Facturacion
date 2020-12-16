@@ -13,10 +13,10 @@ namespace sinnombre
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Facturacion_CedanoEntities2 : DbContext
+    public partial class Facturacion_CedanoEntities3 : DbContext
     {
-        public Facturacion_CedanoEntities2()
-            : base("name=Facturacion_CedanoEntities2")
+        public Facturacion_CedanoEntities3()
+            : base("name=Facturacion_CedanoEntities3")
         {
         }
     

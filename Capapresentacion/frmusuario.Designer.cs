@@ -64,6 +64,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.erroricono = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.Txtnacionalidad = new System.Windows.Forms.TextBox();
+            this.Txttipodoc = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.Estatus_Usuario = new System.Windows.Forms.RadioButton();
             this.Btnguardarrol = new System.Windows.Forms.Button();
@@ -78,10 +82,6 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.Txttipodoc = new System.Windows.Forms.TextBox();
-            this.Txtnacionalidad = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.datagridusuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erroricono)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -97,7 +97,7 @@
             this.Cmbbuscar.Items.AddRange(new object[] {
             "Apellidos",
             "Documento"});
-            this.Cmbbuscar.Location = new System.Drawing.Point(18, 17);
+            this.Cmbbuscar.Location = new System.Drawing.Point(18, 6);
             this.Cmbbuscar.Name = "Cmbbuscar";
             this.Cmbbuscar.Size = new System.Drawing.Size(121, 21);
             this.Cmbbuscar.TabIndex = 8;
@@ -117,12 +117,12 @@
             this.datagridusuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.datagridusuario.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Eliminar});
-            this.datagridusuario.Location = new System.Drawing.Point(18, 102);
+            this.datagridusuario.Location = new System.Drawing.Point(18, 85);
             this.datagridusuario.MultiSelect = false;
             this.datagridusuario.Name = "datagridusuario";
             this.datagridusuario.ReadOnly = true;
             this.datagridusuario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.datagridusuario.Size = new System.Drawing.Size(732, 255);
+            this.datagridusuario.Size = new System.Drawing.Size(732, 291);
             this.datagridusuario.TabIndex = 7;
             this.datagridusuario.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Datagridusuario_CellContentClick);
             this.datagridusuario.DoubleClick += new System.EventHandler(this.Datagridusuario_DoubleClick);
@@ -130,7 +130,7 @@
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(337, 50);
+            this.lblTotal.Location = new System.Drawing.Point(684, 69);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(29, 13);
             this.lblTotal.TabIndex = 6;
@@ -139,7 +139,7 @@
             // chkeliminar
             // 
             this.chkeliminar.AutoSize = true;
-            this.chkeliminar.Location = new System.Drawing.Point(18, 59);
+            this.chkeliminar.Location = new System.Drawing.Point(360, 398);
             this.chkeliminar.Name = "chkeliminar";
             this.chkeliminar.Size = new System.Drawing.Size(61, 17);
             this.chkeliminar.TabIndex = 5;
@@ -149,7 +149,7 @@
             // 
             // btnimprimir
             // 
-            this.btnimprimir.Location = new System.Drawing.Point(412, 15);
+            this.btnimprimir.Location = new System.Drawing.Point(638, 394);
             this.btnimprimir.Name = "btnimprimir";
             this.btnimprimir.Size = new System.Drawing.Size(75, 23);
             this.btnimprimir.TabIndex = 4;
@@ -158,7 +158,7 @@
             // 
             // btneliminar
             // 
-            this.btneliminar.Location = new System.Drawing.Point(306, 15);
+            this.btneliminar.Location = new System.Drawing.Point(541, 394);
             this.btneliminar.Name = "btneliminar";
             this.btneliminar.Size = new System.Drawing.Size(75, 23);
             this.btneliminar.TabIndex = 3;
@@ -168,7 +168,7 @@
             // 
             // btnbuscar
             // 
-            this.btnbuscar.Location = new System.Drawing.Point(195, 15);
+            this.btnbuscar.Location = new System.Drawing.Point(231, 45);
             this.btnbuscar.Name = "btnbuscar";
             this.btnbuscar.Size = new System.Drawing.Size(75, 23);
             this.btnbuscar.TabIndex = 2;
@@ -312,9 +312,9 @@
             // 
             // txtbuscar
             // 
-            this.txtbuscar.Location = new System.Drawing.Point(160, 50);
+            this.txtbuscar.Location = new System.Drawing.Point(19, 48);
             this.txtbuscar.Name = "txtbuscar";
-            this.txtbuscar.Size = new System.Drawing.Size(100, 20);
+            this.txtbuscar.Size = new System.Drawing.Size(206, 20);
             this.txtbuscar.TabIndex = 1;
             // 
             // ttmensaje
@@ -437,6 +437,38 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Usuarios";
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(440, 28);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(87, 13);
+            this.label15.TabIndex = 45;
+            this.label15.Text = "Tipo documento:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(449, 69);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(72, 13);
+            this.label14.TabIndex = 44;
+            this.label14.Text = "Nacionalidad:";
+            // 
+            // Txtnacionalidad
+            // 
+            this.Txtnacionalidad.Location = new System.Drawing.Point(533, 67);
+            this.Txtnacionalidad.Name = "Txtnacionalidad";
+            this.Txtnacionalidad.Size = new System.Drawing.Size(179, 20);
+            this.Txtnacionalidad.TabIndex = 43;
+            // 
+            // Txttipodoc
+            // 
+            this.Txttipodoc.Location = new System.Drawing.Point(533, 25);
+            this.Txttipodoc.Name = "Txttipodoc";
+            this.Txttipodoc.Size = new System.Drawing.Size(179, 20);
+            this.Txttipodoc.TabIndex = 42;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.Estatus_Usuario);
@@ -547,7 +579,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(768, 401);
+            this.tabPage2.Size = new System.Drawing.Size(768, 423);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Mantenimiento";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -559,7 +591,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 27);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(776, 427);
+            this.tabControl1.Size = new System.Drawing.Size(776, 449);
             this.tabControl1.TabIndex = 7;
             // 
             // tabPage1
@@ -575,42 +607,10 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(768, 401);
+            this.tabPage1.Size = new System.Drawing.Size(768, 423);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Listado";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // Txttipodoc
-            // 
-            this.Txttipodoc.Location = new System.Drawing.Point(533, 25);
-            this.Txttipodoc.Name = "Txttipodoc";
-            this.Txttipodoc.Size = new System.Drawing.Size(179, 20);
-            this.Txttipodoc.TabIndex = 42;
-            // 
-            // Txtnacionalidad
-            // 
-            this.Txtnacionalidad.Location = new System.Drawing.Point(533, 67);
-            this.Txtnacionalidad.Name = "Txtnacionalidad";
-            this.Txtnacionalidad.Size = new System.Drawing.Size(179, 20);
-            this.Txtnacionalidad.TabIndex = 43;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(449, 69);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(72, 13);
-            this.label14.TabIndex = 44;
-            this.label14.Text = "Nacionalidad:";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(440, 28);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(87, 13);
-            this.label15.TabIndex = 45;
-            this.label15.Text = "Tipo documento:";
             // 
             // frmusuario
             // 

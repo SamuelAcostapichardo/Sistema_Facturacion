@@ -252,7 +252,6 @@ namespace Capapresentacion
                 {
                     if (this.IsNuevo)
                     {
-                        string Pass = txtcontrasena.Text;
                         //Vamos a Insertar un Trabajador 
                         Rpta = Nusuario.Insertar(this.txtnombreusuario.Text.Trim().ToUpper(),
                         this.txtapellidosusuario.Text.Trim().ToUpper(), cmbsexo.Text,
@@ -282,7 +281,6 @@ namespace Capapresentacion
                         {
                             this.MensajeOK("Se actualizó de forma correcta el registro");
                         }
-
                     }
                     else
                     {
@@ -294,7 +292,7 @@ namespace Capapresentacion
                     this.Botones();
                     this.Limpiar();
                     this.Mostrar();
-                    this.txtidusuario.Text = "";
+                    this.txtidusuario.Clear();
 
                 }
             }

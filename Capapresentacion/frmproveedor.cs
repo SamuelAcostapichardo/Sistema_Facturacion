@@ -326,8 +326,8 @@ namespace Capapresentacion
             this.txtrazonsocial.Text = Convert.ToString(this.datagridproveedor.CurrentRow.Cells["razonsocial"].Value);
             this.cmbsectorcomercial.Text = Convert.ToString(this.datagridproveedor.CurrentRow.Cells["sectorcomercial"].Value);
             this.cmbtipodocumento.Text = Convert.ToString(this.datagridproveedor.CurrentRow.Cells["tipodocumento"].Value);
-            this.txtnumdocumento.Text = Convert.ToString(this.datagridproveedor.CurrentRow.Cells["Num_documento"].Value);
-            this.txtdireccion.Text = Convert.ToString(this.datagridproveedor.CurrentRow.Cells["Direccion"].Value);
+            this.txtnumdocumento.Text = Convert.ToString(this.datagridproveedor.CurrentRow.Cells["numdocumento"].Value);
+            this.txtdireccion.Text = Convert.ToString(this.datagridproveedor.CurrentRow.Cells["direccion"].Value);
             this.txttelefonoprove.Text = Convert.ToString(this.datagridproveedor.CurrentRow.Cells["Telefono"].Value);
             this.txtemailproveedor.Text = Convert.ToString(this.datagridproveedor.CurrentRow.Cells["Email"].Value);
             this.txturlproveedor.Text = Convert.ToString(this.datagridproveedor.CurrentRow.Cells["Url"].Value);

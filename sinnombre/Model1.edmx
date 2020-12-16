@@ -14,13 +14,13 @@
           <Property Name="Apellidos" Type="varchar" MaxLength="30" />
           <Property Name="sexo" Type="varchar" MaxLength="1" />
           <Property Name="fecha_nac" Type="date" />
-          <Property Name="Tipo_doc" Type="varchar" MaxLength="20" />
-          <Property Name="num_doc" Type="nchar" MaxLength="13" />
-          <Property Name="Direccion" Type="varchar" MaxLength="50" />
-          <Property Name="Nacionalidad" Type="varchar" MaxLength="50" />
-          <Property Name="Telefono" Type="varchar" MaxLength="11" />
-          <Property Name="Email" Type="varchar" MaxLength="50" />
-          <Property Name="usuario" Type="varchar" MaxLength="50" />
+          <Property Name="tipodoc" Type="varchar" MaxLength="20" />
+          <Property Name="num_doc" Type="varchar" MaxLength="8" />
+          <Property Name="direccion" Type="varchar" MaxLength="100" />
+          <Property Name="nacionalidad" Type="varchar" MaxLength="100" />
+          <Property Name="telefono" Type="varchar" MaxLength="15" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="Usuario" Type="varchar" MaxLength="20" />
           <Property Name="claveusu" Type="varchar" MaxLength="250" />
         </EntityType>
         <EntityContainer Name="Facturacion_CedanoModelStoreContainer">
@@ -40,16 +40,16 @@
           <Property Name="Apellidos" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="sexo" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="fecha_nac" Type="DateTime" Precision="0" />
-          <Property Name="Tipo_doc" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="num_doc" Type="String" MaxLength="13" FixedLength="true" Unicode="true" />
-          <Property Name="Direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Nacionalidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Telefono" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
-          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="usuario1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tipodoc" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="num_doc" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="nacionalidad" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="telefono" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Usuario1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="claveusu" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityContainer Name="Facturacion_CedanoEntities2" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Facturacion_CedanoEntities3" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Usuarios" EntityType="Self.Usuario" />
         </EntityContainer>
       </Schema>
@@ -57,7 +57,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Facturacion_CedanoModelStoreContainer" CdmEntityContainer="Facturacion_CedanoEntities2">
+        <EntityContainerMapping StorageEntityContainer="Facturacion_CedanoModelStoreContainer" CdmEntityContainer="Facturacion_CedanoEntities3">
           <EntitySetMapping Name="Usuarios">
             <EntityTypeMapping TypeName="Facturacion_CedanoModel.Usuario">
               <MappingFragment StoreEntitySet="Usuario">
@@ -66,13 +66,13 @@
                 <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
                 <ScalarProperty Name="sexo" ColumnName="sexo" />
                 <ScalarProperty Name="fecha_nac" ColumnName="fecha_nac" />
-                <ScalarProperty Name="Tipo_doc" ColumnName="Tipo_doc" />
+                <ScalarProperty Name="tipodoc" ColumnName="tipodoc" />
                 <ScalarProperty Name="num_doc" ColumnName="num_doc" />
-                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
-                <ScalarProperty Name="Nacionalidad" ColumnName="Nacionalidad" />
-                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="usuario1" ColumnName="usuario" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="nacionalidad" ColumnName="nacionalidad" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="Usuario1" ColumnName="Usuario" />
                 <ScalarProperty Name="claveusu" ColumnName="claveusu" />
               </MappingFragment>
             </EntityTypeMapping>

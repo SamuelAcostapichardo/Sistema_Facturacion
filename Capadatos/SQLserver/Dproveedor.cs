@@ -69,8 +69,7 @@ namespace Capadatos
             using (var SqlCon = Getconection())
             { string Respuesta;
                 try
-                {
-                    
+                {       
                     SqlCon.Open();
                     using (var SqlCmd = GetSqlCommand())
                     {
@@ -183,7 +182,7 @@ namespace Capadatos
                     using (var SqlCmd = GetSqlCommand())
                     {
                         SqlCmd.Connection = SqlCon;
-                        SqlCmd.CommandText = "speditar_proveedor";
+                        SqlCmd.CommandText = "spinsertar_proveedor";
                         SqlCmd.CommandType = CommandType.StoredProcedure;
 
                         SqlParameter ParIdproveedor = new SqlParameter

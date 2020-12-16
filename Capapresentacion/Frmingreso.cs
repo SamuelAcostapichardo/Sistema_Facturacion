@@ -169,8 +169,8 @@ namespace Capapresentacion
             this.DtDetalle.Columns.Add("precio_compra", System.Type.GetType("System.Decimal"));
             this.DtDetalle.Columns.Add("precio_venta", System.Type.GetType("System.Decimal"));
             this.DtDetalle.Columns.Add("stock_inicial", System.Type.GetType("System.Int32"));
-            this.DtDetalle.Columns.Add("fecha_produccion", System.Type.GetType("System.DateTime"));
-            this.DtDetalle.Columns.Add("fecha_vencimiento", System.Type.GetType("System.DateTime"));
+            this.DtDetalle.Columns.Add("fecha_ingreso", System.Type.GetType("System.DateTime"));
+            this.DtDetalle.Columns.Add("fecha_modificacion", System.Type.GetType("System.DateTime"));
             this.DtDetalle.Columns.Add("subtotal", System.Type.GetType("System.Decimal"));
             this.DtDetalle.Columns.Add("Impuesto", System.Type.GetType("System.Decimal"));
             //Relacionar nuestro DataGRidView con nuestro DataTable
@@ -377,8 +377,8 @@ namespace Capapresentacion
                         row["precio_compra"] = Convert.ToDecimal(this.Txtpreciocompra.Text);
                         row["precio_venta"] = Convert.ToDecimal(this.Txtprecioventa.Text);
                         row["stock_inicial"] = Convert.ToInt32(this.Txtstockinicial.Text);
-                        row["fecha_produccion"] = Datetimefechaprod.Value;
-                        row["fecha_vencimiento"] = Datetimefechavenc.Value;
+                        row["fecha_ingreso"] = Datetimefechaprod.Value;
+                        row["fecha_modificacion"] = Datetimefechavenc.Value;
                         row["subtotal"] = subTotal;
                         this.DtDetalle.Rows.Add(row);
                         this.LimpiarDetalle();

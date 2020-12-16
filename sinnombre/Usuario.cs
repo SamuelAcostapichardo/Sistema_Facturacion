@@ -19,13 +19,13 @@ namespace sinnombre
         public string Apellidos { get; set; }
         public string sexo { get; set; }
         public Nullable<System.DateTime> fecha_nac { get; set; }
-        public string Tipo_doc { get; set; }
+        public string tipodoc { get; set; }
         public string num_doc { get; set; }
-        public string Direccion { get; set; }
-        public string Nacionalidad { get; set; }
-        public string Telefono { get; set; }
-        public string Email { get; set; }
-        public string usuario1 { get; set; }
+        public string direccion { get; set; }
+        public string nacionalidad { get; set; }
+        public string telefono { get; set; }
+        public string email { get; set; }
+        public string Usuario1 { get; set; }
         public string claveusu { get; set; }
     }
 }
